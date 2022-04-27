@@ -95,7 +95,7 @@ class _Login_pageState extends State<Login_page> {
     data = loginModelFromJson(response.body);
 
     //print ("return user data\n"+response.body);
-    // print(response.body);
+    print(response.body);
     print(response.statusCode);
     print(data.zemail);
 
