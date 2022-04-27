@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
-import '../../../data_model/notification_model/admin_approver_model/grn_admin_model.dart';
+import '../../../data_model/notification_model/admin_approver_model/so_admin_model.dart';
 
 class SO_notification extends StatefulWidget {
   //const CS_notification({Key? key}) : super(key: key);
@@ -28,12 +28,13 @@ class SO_notification extends StatefulWidget {
 }
 
 class _SO_notificationState extends State<SO_notification> {
-  Future<List<GrnModel>>? futurePost;
+  Future<List<SoModel>>? futurePost;
   String rejectNote = " ";
 
-  Future<List<GrnModel>> fetchPost() async {
+  Future<List<SoModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/grn.php'),
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/PendingSalesOrder.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -43,7 +44,7 @@ class _SO_notificationState extends State<SO_notification> {
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<GrnModel>((json) => GrnModel.fromJson(json)).toList();
+      return parsed.map<SoModel>((json) => SoModel.fromJson(json)).toList();
     } else {
       throw Exception('Failed to load album');
     }
@@ -87,7 +88,7 @@ class _SO_notificationState extends State<SO_notification> {
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: FutureBuilder<List<GrnModel>>(
+        child: FutureBuilder<List<SoModel>>(
           future: futurePost,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -115,7 +116,7 @@ class _SO_notificationState extends State<SO_notification> {
                                       child: Column(
                                         children: [
                                           Text(
-                                            "${snapshot.data![index].xgrnnum}",
+                                            "${snapshot.data![index].xtornum}",
                                             style: GoogleFonts.bakbakOne(
                                               fontSize: 18,
                                               //color: Color(0xff074974),
@@ -144,8 +145,7 @@ class _SO_notificationState extends State<SO_notification> {
                             ),
                             children: <Widget>[
                               Text(
-                                "Goods receipts Note Number: " +
-                                    " ${snapshot.data![index].xgrnnum}",
+                                "SO NO: " + " ${snapshot.data![index].xtornum}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -153,7 +153,7 @@ class _SO_notificationState extends State<SO_notification> {
                                 ),
                               ),
                               Text(
-                                "Date: " +
+                                "SO Date: " +
                                     " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
@@ -162,8 +162,8 @@ class _SO_notificationState extends State<SO_notification> {
                                 ),
                               ),
                               Text(
-                                "Invoice Number: " +
-                                    "  ${snapshot.data![index].xinvnum}",
+                                "Est. Delivery Date: " +
+                                    " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdatedel.date).toString()))}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -171,61 +171,102 @@ class _SO_notificationState extends State<SO_notification> {
                                 ),
                               ),
                               Text(
-                                "LC No: " + snapshot.data![index].xlcno,
+                                "From Store: " +
+                                    "  ${snapshot.data![index].xfwh}",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              // Text(
+                              //   "Store Name:" +
+                              //       "${snapshot.data![index].}",
+                              //   style: GoogleFonts.bakbakOne(
+                              //     fontSize: 18,
+                              //     //color: Color(0xff074974),
+                              //   ),
+                              // ),
+                              Text(
+                                "Catagory: " + snapshot.data![index].xsubcat,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Supplier ID:" +
-                                    "${snapshot.data![index].xcus}",
+                                "Dealer Name: " +
+                                    "${snapshot.data![index].cusname ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Supplier Name: " +
-                                    "${snapshot.data![index].xorg ?? " "}",
+                                "SO Status: " +
+                                    "${snapshot.data![index].xstatustor}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Challan No:" + "${snapshot.data![index].xref}",
+                                "Territory: " +
+                                    "${snapshot.data![index].xterritory}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Goods Receipts Note Status: " +
-                                    "${snapshot.data![index].xstatusgrn}",
+                                "TSO: " + "${snapshot.data![index].xtso}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Plant/Store: " +
-                                    "${snapshot.data![index].xwh}",
+                                "TSO Name: " +
+                                    "${snapshot.data![index].xtsoname}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              // Text(
+                              //   "Credit Limit: " + "${snapshot.data![index].credit}",
+                              //   style: GoogleFonts.bakbakOne(
+                              //     fontSize: 18,
+                              //     //color: Color(0xff074974),
+                              //   ),
+                              // ),
+                              // Text(
+                              //   "Credit Used: " +
+                              //       "${snapshot.data![index].crused}",
+                              //   style: GoogleFonts.bakbakOne(
+                              //     fontSize: 18,
+                              //     //color: Color(0xff074974),
+                              //   ),
+                              // ),
+                              // Text(
+                              //   "Credit Availability: " +
+                              //       "${snapshot.data![index].creditchk}",
+                              //   style: GoogleFonts.bakbakOne(
+                              //     fontSize: 18,
+                              //     //color: Color(0xff074974),
+                              //   ),
+                              // ),
+                              Text(
+                                "Total SO Value: " +
+                                    "${snapshot.data![index].xtotamt}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Store Name:" +
-                                    "${snapshot.data![index].xwhdesc}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Note: " + "${snapshot.data![index].xnote}",
+                                "Long Description: " +
+                                    "${snapshot.data![index].xlong}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -239,19 +280,15 @@ class _SO_notificationState extends State<SO_notification> {
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://172.20.20.69/aygaz/notifications/grnapprove.php'),
+                                              'http://172.20.20.69/aygaz/notifications/PendingSalesOrderapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
                                             "xposition": widget.xposition,
-                                            "xgrnnum": snapshot
-                                                .data![index].xgrnnum
+                                            "xtornum": snapshot
+                                                .data![index].xtornum
                                                 .toString(),
-                                            "ypd": "0",
-                                            " xstatusdoc": snapshot
-                                                .data![index].xstatusdoc
-                                                .toString(),
-                                            "aprcs": "SPR Approval"
+                                            "aprcs": "SO Approval"
                                           }));
 
                                       Get.snackbar('Message', 'Approved',
@@ -336,7 +373,7 @@ class _SO_notificationState extends State<SO_notification> {
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://172.20.20.69/aygaz/notifications/grnreject.php'),
+                                                            'http://172.20.20.69/aygaz/notifications/PendingSalesOrderreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,
@@ -344,9 +381,9 @@ class _SO_notificationState extends State<SO_notification> {
                                                           "xposition":
                                                               widget.xposition,
                                                           "wh": "0",
-                                                          "xgrnnum": snapshot
+                                                          "xtornum": snapshot
                                                               .data![index]
-                                                              .xgrnnum,
+                                                              .xtornum,
                                                           "xnote": rejectNote
                                                         }));
                                                     print(response.statusCode);
