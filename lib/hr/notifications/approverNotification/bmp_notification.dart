@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
+import '../../../data_model/notification_model/admin_approver_model/bmp_admin_model.dart';
 import '../../../data_model/notification_model/admin_approver_model/grn_admin_model.dart';
 
 class BMP_notification extends StatefulWidget {
@@ -28,10 +29,10 @@ class BMP_notification extends StatefulWidget {
 }
 
 class _BMP_notificationState extends State<BMP_notification> {
-  Future<List<GrnModel>>? futurePost;
+  Future<List<BmpModel>>? futurePost;
   String rejectNote = " ";
 
-  Future<List<GrnModel>> fetchPost() async {
+  Future<List<BmpModel>> fetchPost() async {
     var response = await http.post(
         Uri.parse('http://172.20.20.69/aygaz/notifications/grn.php'),
         body: jsonEncode(<String, String>{
@@ -43,7 +44,7 @@ class _BMP_notificationState extends State<BMP_notification> {
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<GrnModel>((json) => GrnModel.fromJson(json)).toList();
+      return parsed.map<BmpModel>((json) => GrnModel.fromJson(json)).toList();
     } else {
       throw Exception('Failed to load album');
     }
@@ -87,7 +88,7 @@ class _BMP_notificationState extends State<BMP_notification> {
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: FutureBuilder<List<GrnModel>>(
+        child: FutureBuilder<List<BmpModel>>(
           future: futurePost,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -115,7 +116,7 @@ class _BMP_notificationState extends State<BMP_notification> {
                                       child: Column(
                                         children: [
                                           Text(
-                                            "${snapshot.data![index].xgrnnum}",
+                                            "${snapshot.data![index].xbomkey}",
                                             style: GoogleFonts.bakbakOne(
                                               fontSize: 18,
                                               //color: Color(0xff074974),
@@ -144,14 +145,41 @@ class _BMP_notificationState extends State<BMP_notification> {
                             ),
                             children: <Widget>[
                               Text(
-                                "Goods receipts Note Number: " +
-                                    " ${snapshot.data![index].xgrnnum}",
+                                "BOM Key: " +
+                                    " ${snapshot.data![index].xbomkey}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
+                              Text(
+                                "Description: " +
+                                    "  ${snapshot.data![index].xdesc}",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "Finished Product Code: " +
+                                    "  ${snapshot.data![index].xitem}",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              // Text(
+                              //   "Description: " +
+                              //       "  ${snapshot.data![index].xitemdesc}",
+                              //   textAlign: TextAlign.center,
+                              //   style: GoogleFonts.bakbakOne(
+                              //     fontSize: 18,
+                              //     //color: Color(0xff074974),
+                              //   ),
+                              // ),
                               Text(
                                 "Date: " +
                                     " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
@@ -162,70 +190,16 @@ class _BMP_notificationState extends State<BMP_notification> {
                                 ),
                               ),
                               Text(
-                                "Invoice Number: " +
-                                    "  ${snapshot.data![index].xinvnum}",
-                                textAlign: TextAlign.center,
+                                "Preferred Batch Quity: " +
+                                    snapshot.data![index].xpreferbatchqty,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "LC No: " + snapshot.data![index].xlcno,
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Supplier ID:" +
-                                    "${snapshot.data![index].xcus}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Supplier Name: " +
-                                    "${snapshot.data![index].xorg ?? " "}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Challan No:" + "${snapshot.data![index].xref}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Goods Receipts Note Status: " +
-                                    "${snapshot.data![index].xstatusgrn}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Plant/Store: " +
-                                    "${snapshot.data![index].xwh}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Store Name:" +
-                                    "${snapshot.data![index].xwhdesc}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Note: " + "${snapshot.data![index].xnote}",
+                                "Approval Status: " +
+                                    "${snapshot.data![index].xstatus}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -239,17 +213,17 @@ class _BMP_notificationState extends State<BMP_notification> {
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://172.20.20.69/aygaz/notifications/grnapprove.php'),
+                                              'http://172.20.20.69/aygaz/notifications/preProcessBOMapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
                                             "xposition": widget.xposition,
-                                            "xgrnnum": snapshot
-                                                .data![index].xgrnnum
+                                            "xbomkey": snapshot
+                                                .data![index].xbomkey
                                                 .toString(),
                                             "ypd": "0",
-                                            " xstatusdoc": snapshot
-                                                .data![index].xstatusdoc
+                                            " xstatus": snapshot
+                                                .data![index].xstatus
                                                 .toString(),
                                             "aprcs": "SPR Approval"
                                           }));
@@ -336,7 +310,7 @@ class _BMP_notificationState extends State<BMP_notification> {
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://172.20.20.69/aygaz/notifications/grnreject.php'),
+                                                            'http://172.20.20.69/aygaz/notifications/preProcessBOMreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,
@@ -344,9 +318,9 @@ class _BMP_notificationState extends State<BMP_notification> {
                                                           "xposition":
                                                               widget.xposition,
                                                           "wh": "0",
-                                                          "xgrnnum": snapshot
+                                                          "xbomkey": snapshot
                                                               .data![index]
-                                                              .xgrnnum,
+                                                              .xbomkey,
                                                           "xnote": rejectNote
                                                         }));
                                                     print(response.statusCode);

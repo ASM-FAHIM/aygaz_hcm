@@ -4,6 +4,7 @@ import 'package:aygazhcm/hr/notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/screen/approver.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
@@ -49,174 +50,174 @@ class _Get_zidState extends State<Get_zid> {
     }
   }
 
-  changeImage(String statusdemo) {
-    switch (statusdemo) {
-      case "United LPG Ltd.":
-        return AssetImage("images/logo/200010.png");
-
-      case "United Group-Power Division":
-        return AssetImage("images/logo/100060.png");
-
-      case "United Power Generation & Distribution Co. Ltd.":
-        return AssetImage("images/logo/100000.png");
-
-      case "United Engineering & Power Services Ltd.":
-        return AssetImage("images/logo/100010.png");
-
-      case "United Ashuganj Power Ltd.":
-        return AssetImage("images/logo/100020.png");
-
-      case "United Ashuganj Energy Ltd.":
-        return AssetImage("images/logo/100030.png");
-
-      case "United Anwara Power Ltd.":
-        return AssetImage("images/logo/100040.png");
-
-      case "United Energy Ltd. (Former-SPGCL)":
-        return AssetImage("images/logo/100050.png");
-
-      case "United Enterprises & Co. Ltd.":
-        return AssetImage("images/logo/100060.png");
-
-      case "United Property Solutions Ltd.":
-        return AssetImage("images/logo/100070.png");
-
-      case "UEPSL - Lube Trading":
-        return AssetImage("images/logo/100090.png");
-
-      case "United Jamalpur Power Ltd.":
-        return AssetImage("images/logo/100100.png");
-
-      case "United Mymensingh Power Ltd.":
-        return AssetImage("images/logo/100110.png");
-
-      case "United Power Generation & Distribution Co. Ltd.":
-        return AssetImage("images/logo/100000.png");
-
-      case "United City Twin Tower Developers Ltd.":
-        return AssetImage("images/logo/100120.png");
-
-      case "United Payra Power Ltd.":
-        return AssetImage("images/logo/100130.png");
-
-      case "Leviathan Global Bd Ltd.":
-        return AssetImage("images/logo/100140.png");
-
-      case "Orange Solutions Ltd.":
-        return AssetImage("images/logo/100150.png");
-
-      case "Orange IT Ltd.":
-        return AssetImage("images/logo/100160.png");
-
-      case "United Property Solutions Ltd. (New)":
-        return AssetImage("images/logo/100170.png");
-
-      case "Mosjid Al Mustafa":
-        return AssetImage("images/logo/100180.png");
-
-      case "Neptune Land Development Ltd.":
-        return AssetImage("images/logo/100190.png");
-
-      case "United Sulpho Chemicals Ltd.":
-        return AssetImage("images/logo/100200.png");
-
-      case "United Purbachol Lands Ltd.":
-        return AssetImage("images/logo/100210.png");
-
-      case "United Nursing College":
-        return AssetImage("images/logo/100220.png");
-
-      case "United Medical College and Hospital":
-        return AssetImage("images/logo/100230.png");
-
-      case "UECL (F&A)":
-        return AssetImage("images/logo/300010.png");
-
-      case "Neptune Commercial Ltd. (F&A)":
-        return AssetImage("images/logo/300020.png");
-
-      case "Neptune Land Development Ltd. (F&A)":
-        return AssetImage("images/logo/300030.png");
-
-      case "Neptune Properties (Firm) (F&A)":
-        return AssetImage("images/logo/300040.png");
-
-      case "United Tank Terminal Ltd. (F&A)- OLD":
-        return AssetImage("images/logo/300050.png");
-
-      case "Shugandha Holdings Ltd. (F&A)":
-        return AssetImage("images/logo/300060.png");
-
-      case "UG Security Service Ltd. (F&A)":
-        return AssetImage("images/logo/300070.png");
-
-      case "United Makka Madina Travel & Assistance Co.":
-        return AssetImage("images/logo/300080.png");
-
-      case "United Polymars Ltd. (F&A)":
-        return AssetImage("images/logo/300090.png");
-
-      case "United Purbachal Lands Ltd. (F&A)":
-        return AssetImage("images/logo/300100.png");
-
-      case "Moulvi Tea Company (Pvt.) Ltd":
-        return AssetImage("images/logo/300110.png");
-
-      case "United Shipping and Logistic Services Ltd. (F&A)":
-        return AssetImage("images/logo/300120.png");
-
-      case "United LPG Ltd. (F&A)":
-        return AssetImage("images/logo/300130.png");
-
-      case "United Refinery and Bulk Storages Ltd.":
-        return AssetImage("images/logo/300140.png");
-
-      case "Airport Hotels Ltd. (F&A)":
-        return AssetImage("images/logo/300150.png");
-
-      case "National Oil Carriers (F&A)":
-        return AssetImage("images/logo/300160.png");
-
-      case "United Polymars Ltd. - Mask Project (F&A)":
-        return AssetImage("images/logo/300170.png");
-
-      case "United Sulpho - Chemicals Ltd (USCL) (F&A)":
-        return AssetImage("images/logo/300180.png");
-
-      case "Oil Carriers Ltd.":
-        return AssetImage("images/logo/300190.png");
-
-      case "Chief Advisor Accounts":
-        return AssetImage("images/logo/300200.png");
-
-      case "United Lube Oil Ltd.":
-        return AssetImage("images/logo/300210.png");
-
-      case "United Tank Terminal Ltd.":
-        return AssetImage("images/logo/300220.png");
-
-      case "United Elevator World Ltd.":
-        return AssetImage("images/logo/300230.png");
-
-      case "Dhaka Indenting Ltd.":
-        return AssetImage("images/logo/300240.png");
-
-      case "ECO-LIFE RESORTS LTD.":
-        return AssetImage("images/logo/300250.png");
-
-      // case "United Engineering & Power Services Ltd.":
-      //   return AssetImage("images/logo/100010.png");
-      //
-      // case "United Engineering & Power Services Ltd.":
-      //   return AssetImage("images/logo/100010.png");
-      //
-      // case "United Engineering & Power Services Ltd.":
-      //   return AssetImage("images/logo/100010.png");
-
-      default:
-        return AssetImage("images/logo/100010.png");
-    }
-  }
+  // changeImage(String statusdemo) {
+  //   switch (statusdemo) {
+  //     case "United LPG Ltd.":
+  //       return AssetImage("images/logo/200010.png");
+  //
+  //     case "United Group-Power Division":
+  //       return AssetImage("images/logo/100060.png");
+  //
+  //     case "United Power Generation & Distribution Co. Ltd.":
+  //       return AssetImage("images/logo/100000.png");
+  //
+  //     case "United Engineering & Power Services Ltd.":
+  //       return AssetImage("images/logo/100010.png");
+  //
+  //     case "United Ashuganj Power Ltd.":
+  //       return AssetImage("images/logo/100020.png");
+  //
+  //     case "United Ashuganj Energy Ltd.":
+  //       return AssetImage("images/logo/100030.png");
+  //
+  //     case "United Anwara Power Ltd.":
+  //       return AssetImage("images/logo/100040.png");
+  //
+  //     case "United Energy Ltd. (Former-SPGCL)":
+  //       return AssetImage("images/logo/100050.png");
+  //
+  //     case "United Enterprises & Co. Ltd.":
+  //       return AssetImage("images/logo/100060.png");
+  //
+  //     case "United Property Solutions Ltd.":
+  //       return AssetImage("images/logo/100070.png");
+  //
+  //     case "UEPSL - Lube Trading":
+  //       return AssetImage("images/logo/100090.png");
+  //
+  //     case "United Jamalpur Power Ltd.":
+  //       return AssetImage("images/logo/100100.png");
+  //
+  //     case "United Mymensingh Power Ltd.":
+  //       return AssetImage("images/logo/100110.png");
+  //
+  //     case "United Power Generation & Distribution Co. Ltd.":
+  //       return AssetImage("images/logo/100000.png");
+  //
+  //     case "United City Twin Tower Developers Ltd.":
+  //       return AssetImage("images/logo/100120.png");
+  //
+  //     case "United Payra Power Ltd.":
+  //       return AssetImage("images/logo/100130.png");
+  //
+  //     case "Leviathan Global Bd Ltd.":
+  //       return AssetImage("images/logo/100140.png");
+  //
+  //     case "Orange Solutions Ltd.":
+  //       return AssetImage("images/logo/100150.png");
+  //
+  //     case "Orange IT Ltd.":
+  //       return AssetImage("images/logo/100160.png");
+  //
+  //     case "United Property Solutions Ltd. (New)":
+  //       return AssetImage("images/logo/100170.png");
+  //
+  //     case "Mosjid Al Mustafa":
+  //       return AssetImage("images/logo/100180.png");
+  //
+  //     case "Neptune Land Development Ltd.":
+  //       return AssetImage("images/logo/100190.png");
+  //
+  //     case "United Sulpho Chemicals Ltd.":
+  //       return AssetImage("images/logo/100200.png");
+  //
+  //     case "United Purbachol Lands Ltd.":
+  //       return AssetImage("images/logo/100210.png");
+  //
+  //     case "United Nursing College":
+  //       return AssetImage("images/logo/100220.png");
+  //
+  //     case "United Medical College and Hospital":
+  //       return AssetImage("images/logo/100230.png");
+  //
+  //     case "UECL (F&A)":
+  //       return AssetImage("images/logo/300010.png");
+  //
+  //     case "Neptune Commercial Ltd. (F&A)":
+  //       return AssetImage("images/logo/300020.png");
+  //
+  //     case "Neptune Land Development Ltd. (F&A)":
+  //       return AssetImage("images/logo/300030.png");
+  //
+  //     case "Neptune Properties (Firm) (F&A)":
+  //       return AssetImage("images/logo/300040.png");
+  //
+  //     case "United Tank Terminal Ltd. (F&A)- OLD":
+  //       return AssetImage("images/logo/300050.png");
+  //
+  //     case "Shugandha Holdings Ltd. (F&A)":
+  //       return AssetImage("images/logo/300060.png");
+  //
+  //     case "UG Security Service Ltd. (F&A)":
+  //       return AssetImage("images/logo/300070.png");
+  //
+  //     case "United Makka Madina Travel & Assistance Co.":
+  //       return AssetImage("images/logo/300080.png");
+  //
+  //     case "United Polymars Ltd. (F&A)":
+  //       return AssetImage("images/logo/300090.png");
+  //
+  //     case "United Purbachal Lands Ltd. (F&A)":
+  //       return AssetImage("images/logo/300100.png");
+  //
+  //     case "Moulvi Tea Company (Pvt.) Ltd":
+  //       return AssetImage("images/logo/300110.png");
+  //
+  //     case "United Shipping and Logistic Services Ltd. (F&A)":
+  //       return AssetImage("images/logo/300120.png");
+  //
+  //     case "United LPG Ltd. (F&A)":
+  //       return AssetImage("images/logo/300130.png");
+  //
+  //     case "United Refinery and Bulk Storages Ltd.":
+  //       return AssetImage("images/logo/300140.png");
+  //
+  //     case "Airport Hotels Ltd. (F&A)":
+  //       return AssetImage("images/logo/300150.png");
+  //
+  //     case "National Oil Carriers (F&A)":
+  //       return AssetImage("images/logo/300160.png");
+  //
+  //     case "United Polymars Ltd. - Mask Project (F&A)":
+  //       return AssetImage("images/logo/300170.png");
+  //
+  //     case "United Sulpho - Chemicals Ltd (USCL) (F&A)":
+  //       return AssetImage("images/logo/300180.png");
+  //
+  //     case "Oil Carriers Ltd.":
+  //       return AssetImage("images/logo/300190.png");
+  //
+  //     case "Chief Advisor Accounts":
+  //       return AssetImage("images/logo/300200.png");
+  //
+  //     case "United Lube Oil Ltd.":
+  //       return AssetImage("images/logo/300210.png");
+  //
+  //     case "United Tank Terminal Ltd.":
+  //       return AssetImage("images/logo/300220.png");
+  //
+  //     case "United Elevator World Ltd.":
+  //       return AssetImage("images/logo/300230.png");
+  //
+  //     case "Dhaka Indenting Ltd.":
+  //       return AssetImage("images/logo/300240.png");
+  //
+  //     case "ECO-LIFE RESORTS LTD.":
+  //       return AssetImage("images/logo/300250.png");
+  //
+  //     // case "United Engineering & Power Services Ltd.":
+  //     //   return AssetImage("images/logo/100010.png");
+  //     //
+  //     // case "United Engineering & Power Services Ltd.":
+  //     //   return AssetImage("images/logo/100010.png");
+  //     //
+  //     // case "United Engineering & Power Services Ltd.":
+  //     //   return AssetImage("images/logo/100010.png");
+  //
+  //     default:
+  //       return AssetImage("images/logo/100010.png");
+  //   }
+  // }
 
   String earlyCount = "0";
   late UserEarlyCount earlyCount1;
@@ -363,7 +364,7 @@ class _Get_zidState extends State<Get_zid> {
                             //mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Image(
-                                image: changeImage(snapshot.data![index].zorg),
+                                image: AssetImage("images/logo/200010.png"),
                               ),
                               Expanded(
                                 child: Text(

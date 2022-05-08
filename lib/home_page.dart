@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'dart:io' show Platform, exit;
 
 import 'package:aygazhcm/data_model/loginModel.dart';
 import 'package:aygazhcm/data_model/promotion.dart';
 import 'package:aygazhcm/screen/zid_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -117,10 +119,38 @@ class _HomepageState extends State<Homepage> {
   Future<bool?> showWarningContext(BuildContext context) async => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("Do you want to exit app?"),
+          title: Text(
+            "Do you want to exit app?",
+            style: TextStyle(color: Color(0xff074974)),
+          ),
           actions: [
-            TextButton(onPressed: () {}, child: Text("No")),
-            TextButton(onPressed: () {}, child: Text("Yes")),
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xff074974),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: TextButton(
+                  onPressed: () => Navigator.pop(context, false),
+                  child: Text(
+                    "No",
+                    style: TextStyle(color: Colors.white),
+                  )),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xff074974),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: TextButton(
+                  onPressed: () {
+                    if (Platform.isAndroid) {
+                      SystemNavigator.pop();
+                    } else if (Platform.isIOS) {
+                      exit(0);
+                    }
+                  },
+                  child: Text("Yes", style: TextStyle(color: Colors.white))),
+            ),
           ],
         ),
       );
@@ -140,7 +170,7 @@ class _HomepageState extends State<Homepage> {
             appBar: AppBar(
               backgroundColor: Colors.white,
               //automaticallyImplyLeading: false,
-              leading: Text(""),
+              leading: const Text(""),
               title: Center(
                 child:
                     // Image(
@@ -189,12 +219,6 @@ class _HomepageState extends State<Homepage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // CircleAvatar(
-                        //   radius: 30,
-                        //   backgroundColor: Colors.white,
-                        //   backgroundImage: AssetImage('images/person.PNG'),
-                        // ),
-
                         if (widget.loginModel.xsex == 'Male') ...[
                           CircleAvatar(
                             radius: 30,
@@ -214,11 +238,9 @@ class _HomepageState extends State<Homepage> {
                             backgroundImage: AssetImage('images/male.png'),
                           ),
                         ],
-
                         SizedBox(
                           width: 20,
                         ),
-
                         Container(
                           child: Column(
                             children: [
