@@ -124,33 +124,21 @@ class _HomepageState extends State<Homepage> {
             style: TextStyle(color: Color(0xff074974)),
           ),
           actions: [
-            Container(
-              decoration: BoxDecoration(
-                color: Color(0xff074974),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: TextButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: Text(
-                    "No",
-                    style: TextStyle(color: Colors.white),
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color(0xff074974),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: TextButton(
-                  onPressed: () {
-                    if (Platform.isAndroid) {
-                      SystemNavigator.pop();
-                    } else if (Platform.isIOS) {
-                      exit(0);
-                    }
-                  },
-                  child: Text("Yes", style: TextStyle(color: Colors.white))),
-            ),
+            TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: Text(
+                  "No",
+                  style: TextStyle(color: Color(0xff074974)),
+                )),
+            TextButton(
+                onPressed: () {
+                  if (Platform.isAndroid) {
+                    SystemNavigator.pop();
+                  } else if (Platform.isIOS) {
+                    exit(0);
+                  }
+                },
+                child: Text("Yes", style: TextStyle(color: Color(0xff074974)))),
           ],
         ),
       );
