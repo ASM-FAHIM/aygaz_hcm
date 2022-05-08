@@ -204,7 +204,7 @@ class _DO_notificationState extends State<DO_notification> {
                               ),
                               Text(
                                 "Plant/Project Name: " +
-                                    "${snapshot.data![index].xwhdesc}",
+                                    "${snapshot.data![index].xwhdesc ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -350,7 +350,7 @@ class _DO_notificationState extends State<DO_notification> {
                                             " xstatus": snapshot
                                                 .data![index].xstatus
                                                 .toString(),
-                                            "aprcs": "SPR Approval"
+                                            "aprcs": "DO Approval"
                                           }));
 
                                       Get.snackbar('Message', 'Approved',

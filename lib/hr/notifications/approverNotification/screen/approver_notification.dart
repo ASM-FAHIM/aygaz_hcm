@@ -1,5 +1,6 @@
 import 'package:aygazhcm/hr/notifications/approverNotification/bat_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/batp_notification.dart';
+import 'package:aygazhcm/hr/notifications/approverNotification/bm_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/bmp_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/do_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/grn_notification.dart';
@@ -2215,6 +2216,70 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
+                                builder: (context) => BM_Notification(
+                                      xposition: widget.xposition,
+                                      xstaff: widget.xstaff,
+                                      zemail: widget.zemail,
+                                      zid: widget.zid,
+                                    )));
+                      },
+                      child: Badge(
+                        showBadge:
+                            int.parse(widget.adminCS) == 0 ? false : true,
+                        padding: EdgeInsets.only(
+                            left: 5, top: 5, bottom: 5, right: 5),
+                        badgeContent: Text(
+                          //widget.adminCS,
+                          "*",
+                          style: GoogleFonts.bakbakOne(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        badgeColor: Color(0xff064A76),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "BM Notification",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.bakbakOne(
+                                fontSize: 18,
+                                color: Color(0xff064A76),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 20.0, right: 20, left: 20),
+                  child: Container(
+                    height: MediaQuery.of(context).size.width / 8,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.white70,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
                                 builder: (context) => BMP_notification(
                                       xposition: widget.xposition,
                                       xstaff: widget.xstaff,
@@ -2306,70 +2371,6 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                           children: [
                             Text(
                               "BATP Notification",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.bakbakOne(
-                                fontSize: 18,
-                                color: Color(0xff064A76),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(top: 20.0, right: 20, left: 20),
-                  child: Container(
-                    height: MediaQuery.of(context).size.width / 8,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white70,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BMP_notification(
-                                      xposition: widget.xposition,
-                                      xstaff: widget.xstaff,
-                                      zemail: widget.zemail,
-                                      zid: widget.zid,
-                                    )));
-                      },
-                      child: Badge(
-                        showBadge:
-                            int.parse(widget.adminCS) == 0 ? false : true,
-                        padding: EdgeInsets.only(
-                            left: 5, top: 5, bottom: 5, right: 5),
-                        badgeContent: Text(
-                          //widget.adminCS,
-                          "*",
-                          style: GoogleFonts.bakbakOne(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                        badgeColor: Color(0xff064A76),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "BM Notification",
                               textAlign: TextAlign.center,
                               style: GoogleFonts.bakbakOne(
                                 fontSize: 18,
