@@ -10,11 +10,10 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import '../../../data_model/notification_model/admin_approver_model/bm_admin_model.dart';
-import '../../../data_model/notification_model/admin_approver_model/grn_admin_model.dart';
 
-class BATP_notification extends StatefulWidget {
+class BM_Notification extends StatefulWidget {
   //const CS_notification({Key? key}) : super(key: key);
-  BATP_notification(
+  BM_Notification(
       {required this.xposition,
       required this.xstaff,
       required this.zemail,
@@ -25,16 +24,16 @@ class BATP_notification extends StatefulWidget {
   String zid;
 
   @override
-  State<BATP_notification> createState() => BM_notification();
+  State<BM_Notification> createState() => BM_notification();
 }
 
-class BM_notification extends State<BATP_notification> {
+class BM_notification extends State<BM_Notification> {
   Future<List<BmModel>>? futurePost;
   String rejectNote = " ";
 
   Future<List<BmModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/grn.php'),
+        Uri.parse('http://172.20.20.69/aygaz/notifications/pendingBOM.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -44,7 +43,7 @@ class BM_notification extends State<BATP_notification> {
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<BmModel>((json) => GrnModel.fromJson(json)).toList();
+      return parsed.map<BmModel>((json) => BmModel.fromJson(json)).toList();
     } else {
       throw Exception('Failed to load album');
     }

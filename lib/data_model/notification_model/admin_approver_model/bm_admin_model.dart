@@ -78,7 +78,7 @@ class BmModel {
   dynamic signdesignation;
   dynamic signdeptname;
   Xdate ztime;
-  Xdate zutime;
+  dynamic zutime;
   dynamic zauserid;
   dynamic zuuserid;
   int zid;
@@ -183,7 +183,7 @@ class BmModel {
         "signdesignation": signdesignation,
         "signdeptname": signdeptname,
         "ztime": ztime.toJson(),
-        "zutime": zutime == null ? null : zutime.toJson(),
+        "zutime": zutime,
         "zauserid": zauserid,
         "zuuserid": zuuserid == null ? null : zuuserid,
         "zid": zid,

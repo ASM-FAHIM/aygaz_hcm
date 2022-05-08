@@ -10,7 +10,6 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import '../../../data_model/notification_model/admin_approver_model/bmp_admin_model.dart';
-import '../../../data_model/notification_model/admin_approver_model/grn_admin_model.dart';
 
 class BMP_notification extends StatefulWidget {
   //const CS_notification({Key? key}) : super(key: key);
@@ -34,7 +33,7 @@ class _BMP_notificationState extends State<BMP_notification> {
 
   Future<List<BmpModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/grn.php'),
+        Uri.parse('http://172.20.20.69/aygaz/notifications/preProcessBOM.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -44,7 +43,7 @@ class _BMP_notificationState extends State<BMP_notification> {
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<BmpModel>((json) => GrnModel.fromJson(json)).toList();
+      return parsed.map<BmpModel>((json) => BmpModel.fromJson(json)).toList();
     } else {
       throw Exception('Failed to load album');
     }
@@ -225,7 +224,7 @@ class _BMP_notificationState extends State<BMP_notification> {
                                             " xstatus": snapshot
                                                 .data![index].xstatus
                                                 .toString(),
-                                            "aprcs": "SPR Approval"
+                                            "aprcs": "BMP Approval"
                                           }));
 
                                       Get.snackbar('Message', 'Approved',
