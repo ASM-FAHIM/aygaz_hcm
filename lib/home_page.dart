@@ -160,21 +160,13 @@ class _HomepageState extends State<Homepage> {
               //automaticallyImplyLeading: false,
               leading: const Text(""),
               title: Center(
-                child:
-                    // Image(
-                    //   image: AssetImage(
-                    //       'images/orange.png'),
-                    //   height: 150,
-                    //   width: 140,
-                    // ),
-                    //   Text(widget.loginModel.xstaff,
-                    //     style: TextStyle(
-                    //       color: Colors.blue,
-                    //     ),
-                    //   ),
-                    Text("HCM",
-                        style: GoogleFonts.bakbakOne(
-                            color: Color(0xff074974), fontSize: 25)),
+                child: Image.asset(
+                  'images/logo/200010.png',
+                  height: 40,
+                ),
+                // child: Text("United LPG Limited",
+                //     style: GoogleFonts.bakbakOne(
+                //         color: Color(0xff074974), fontSize: 20)),
               ),
               // leading: IconButton(
               //   icon: Icon(Icons.menu,
