@@ -178,7 +178,7 @@ class _HomepageState extends State<Homepage> {
               // ),
               actions: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
+                  padding: const EdgeInsets.only(right: 10.0),
                   child: IconButton(
                       onPressed: () {
                         Navigator.pop(context);
