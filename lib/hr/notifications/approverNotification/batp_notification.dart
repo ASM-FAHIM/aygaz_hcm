@@ -379,7 +379,7 @@ class _BATP_notificationState extends State<BATP_notification> {
                                                           "xbatch": snapshot
                                                               .data![index]
                                                               .xbatch,
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);

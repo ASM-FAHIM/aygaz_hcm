@@ -410,7 +410,6 @@ class _HomepageState extends State<Homepage> {
                           width: MediaQuery.of(context).size.width / 2.65,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            //border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(

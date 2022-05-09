@@ -271,7 +271,7 @@ class _SQC_notificationState extends State<SQC_notification> {
                                             " xstatusdoc": snapshot
                                                 .data![index].xstatusdoc
                                                 .toString(),
-                                            "aprcs": "SPR Approval"
+                                            "aprcs": "SQC Approval"
                                           }));
 
                                       Get.snackbar('Message', 'Approved',
@@ -367,7 +367,7 @@ class _SQC_notificationState extends State<SQC_notification> {
                                                           "xgrnnum": snapshot
                                                               .data![index]
                                                               .xgrnnum,
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);

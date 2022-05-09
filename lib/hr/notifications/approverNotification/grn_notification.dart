@@ -244,7 +244,7 @@ class _GRN_notificationState extends State<GRN_notification> {
                                             " xstatusdoc": snapshot
                                                 .data![index].xstatusdoc
                                                 .toString(),
-                                            "aprcs": "SPR Approval"
+                                            "aprcs": "GRN Approval"
                                           }));
 
                                       Get.snackbar('Message', 'Approved',
@@ -276,7 +276,7 @@ class _GRN_notificationState extends State<GRN_notification> {
                                                 children: [
                                                   Container(
                                                     //height: MediaQuery.of(context).size.height/6,
-                                                    child: TextFormField(
+                                                    child: TextField(
                                                       style:
                                                           GoogleFonts.bakbakOne(
                                                         //fontWeight: FontWeight.bold,
@@ -286,11 +286,11 @@ class _GRN_notificationState extends State<GRN_notification> {
                                                       onChanged: (input) {
                                                         rejectNote = input;
                                                       },
-                                                      validator: (input) {
-                                                        if (input!.isEmpty) {
-                                                          return "Please Write Reject Note";
-                                                        }
-                                                      },
+                                                      // validator: (input) {
+                                                      //   if (input!.isEmpty) {
+                                                      //     return "Please Write Reject Note";
+                                                      //   }
+                                                      // },
                                                       scrollPadding:
                                                           EdgeInsets.all(20),
                                                       decoration:
@@ -336,14 +336,15 @@ class _GRN_notificationState extends State<GRN_notification> {
                                                           "user": widget.zemail,
                                                           "xposition":
                                                               widget.xposition,
-                                                          "wh": "0",
                                                           "xgrnnum": snapshot
                                                               .data![index]
                                                               .xgrnnum,
-                                                          "xnote": rejectNote
+                                                          "wh": "0",
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);
+                                                    print(rejectNote);
                                                     Navigator.pop(context);
 
                                                     Get.snackbar(

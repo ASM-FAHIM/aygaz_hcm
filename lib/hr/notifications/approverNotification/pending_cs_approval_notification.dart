@@ -346,7 +346,7 @@ class _DO_notificationState extends State<DO_notification> {
                                             " xstatus": snapshot
                                                 .data![index].xstatus
                                                 .toString(),
-                                            "aprcs": "SPR Approval"
+                                            "aprcs": "CS Approval"
                                           }));
 
                                       Get.snackbar('Message', 'Approved',
@@ -442,7 +442,7 @@ class _DO_notificationState extends State<DO_notification> {
                                                           "xdornum": snapshot
                                                               .data![index]
                                                               .xdornum,
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);
