@@ -10,7 +10,6 @@ import 'package:http/http.dart' as http;
 import '../../../data_model/notification_model/admin_approver_model/sr_admin_model.dart';
 
 class SR_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   SR_notification(
       {required this.xposition,
       required this.xstaff,
@@ -36,8 +35,6 @@ class _SR_notificationState extends State<SR_notification> {
           "xposition": "2320",
         }));
 
-    //print(response.body);
-
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
@@ -52,10 +49,7 @@ class _SR_notificationState extends State<SR_notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PRN_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   PRN_notification(
       {required this.xposition,
       required this.xstaff,

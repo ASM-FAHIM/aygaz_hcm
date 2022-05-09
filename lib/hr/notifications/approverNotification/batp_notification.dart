@@ -12,7 +12,6 @@ import 'package:intl/intl.dart';
 import '../../../data_model/notification_model/admin_approver_model/batp_admin_model.dart';
 
 class BATP_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   BATP_notification(
       {required this.xposition,
       required this.xstaff,
@@ -53,8 +52,6 @@ class _BATP_notificationState extends State<BATP_notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
 
     fetchPost().whenComplete(() => futurePost);

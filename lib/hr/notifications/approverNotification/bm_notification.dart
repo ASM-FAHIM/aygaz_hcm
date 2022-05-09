@@ -12,7 +12,6 @@ import 'package:intl/intl.dart';
 import '../../../data_model/notification_model/admin_approver_model/bm_admin_model.dart';
 
 class BM_Notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   BM_Notification(
       {required this.xposition,
       required this.xstaff,
@@ -38,8 +37,6 @@ class BM_notification extends State<BM_Notification> {
           "xposition": widget.xposition,
         }));
 
-    // print(response.body);
-
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
@@ -52,10 +49,7 @@ class BM_notification extends State<BM_Notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 
@@ -255,7 +249,6 @@ class BM_notification extends State<BM_Notification> {
                                               content: Column(
                                                 children: [
                                                   Container(
-                                                    //height: MediaQuery.of(context).size.height/6,
                                                     child: TextFormField(
                                                       style:
                                                           GoogleFonts.bakbakOne(

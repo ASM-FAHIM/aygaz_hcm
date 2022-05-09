@@ -12,7 +12,6 @@ import 'package:intl/intl.dart';
 import '../../../data_model/notification_model/admin_approver_model/sqc_admin_model.dart';
 
 class SQC_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   SQC_notification(
       {required this.xposition,
       required this.xstaff,
@@ -38,8 +37,6 @@ class _SQC_notificationState extends State<SQC_notification> {
           "xposition": widget.xposition,
         }));
 
-    // print(response.body);
-
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
@@ -52,10 +49,7 @@ class _SQC_notificationState extends State<SQC_notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 

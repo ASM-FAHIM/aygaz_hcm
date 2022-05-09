@@ -10,7 +10,6 @@ import 'package:intl/intl.dart';
 import '../../../data_model/notification_model/admin_approver_model/cs_admin_model.dart';
 
 class CS_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   CS_notification(
       {required this.xposition,
       required this.xstaff,
@@ -36,8 +35,6 @@ class _CS_notificationState extends State<CS_notification> {
           "xposition": widget.xposition,
         }));
 
-    // print(response.body);
-
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
@@ -50,10 +47,7 @@ class _CS_notificationState extends State<CS_notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 

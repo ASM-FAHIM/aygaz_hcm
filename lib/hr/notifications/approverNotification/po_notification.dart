@@ -56,10 +56,7 @@ class _PO_WO_approval_NotificationListState
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 

@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../data_model/notification_model/admin_approver_model/do_admin_model.dart';
 
 class PSRA_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   PSRA_notification(
       {required this.xposition,
       required this.xstaff,

@@ -12,7 +12,6 @@ import 'package:intl/intl.dart';
 import '../../../data_model/notification_model/admin_approver_model/grn_admin_model.dart';
 
 class GRN_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   GRN_notification(
       {required this.xposition,
       required this.xstaff,
@@ -38,11 +37,8 @@ class _GRN_notificationState extends State<GRN_notification> {
           "xposition": widget.xposition,
         }));
 
-    // print(response.body);
-
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
-
       return parsed.map<GrnModel>((json) => GrnModel.fromJson(json)).toList();
     } else {
       throw Exception('Failed to load album');
@@ -52,10 +48,7 @@ class _GRN_notificationState extends State<GRN_notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 

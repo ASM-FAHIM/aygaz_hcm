@@ -12,7 +12,6 @@ import 'package:intl/intl.dart';
 import '../../../data_model/notification_model/admin_approver_model/do_admin_model.dart';
 
 class DO_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   DO_notification(
       {required this.xposition,
       required this.xstaff,
@@ -30,15 +29,12 @@ class DO_notification extends StatefulWidget {
 class _DO_notificationState extends State<DO_notification> {
   Future<List<DoModel>>? futurePost;
   String rejectNote = " ";
-
   Future<List<DoModel>> fetchPost() async {
     var response = await http.post(
         Uri.parse('http://172.20.20.69/aygaz/notifications/pendingInvoice.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
-
-    // print(response.body);
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();

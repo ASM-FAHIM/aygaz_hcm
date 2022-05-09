@@ -9,10 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
-import '../../../data_model/notification_model/admin_approver_model/grn_admin_model.dart';
+import '../../../data_model/notification_model/admin_approver_model/bat_admin_model.dart';
 
 class BAT_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   BAT_notification(
       {required this.xposition,
       required this.xstaff,
@@ -28,22 +27,20 @@ class BAT_notification extends StatefulWidget {
 }
 
 class _BAT_notificationState extends State<BAT_notification> {
-  Future<List<GrnModel>>? futurePost;
+  Future<List<BatModel>>? futurePost;
   String rejectNote = " ";
 
-  Future<List<GrnModel>> fetchPost() async {
+  Future<List<BatModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/grn.php'),
+        Uri.parse('http://172.20.20.69/aygaz/notifications/pendingBatch.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
 
-    // print(response.body);
-
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<GrnModel>((json) => GrnModel.fromJson(json)).toList();
+      return parsed.map<BatModel>((json) => BatModel.fromJson(json)).toList();
     } else {
       throw Exception('Failed to load album');
     }
@@ -52,10 +49,7 @@ class _BAT_notificationState extends State<BAT_notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 
@@ -87,7 +81,7 @@ class _BAT_notificationState extends State<BAT_notification> {
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: FutureBuilder<List<GrnModel>>(
+        child: FutureBuilder<List<BatModel>>(
           future: futurePost,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -115,7 +109,7 @@ class _BAT_notificationState extends State<BAT_notification> {
                                       child: Column(
                                         children: [
                                           Text(
-                                            "${snapshot.data![index].xgrnnum}",
+                                            "${snapshot.data![index].xbatch}",
                                             style: GoogleFonts.bakbakOne(
                                               fontSize: 18,
                                               //color: Color(0xff074974),
@@ -144,8 +138,8 @@ class _BAT_notificationState extends State<BAT_notification> {
                             ),
                             children: <Widget>[
                               Text(
-                                "Goods receipts Note Number: " +
-                                    " ${snapshot.data![index].xgrnnum}",
+                                "Batch No: " +
+                                    " ${snapshot.data![index].xbatch}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -162,8 +156,8 @@ class _BAT_notificationState extends State<BAT_notification> {
                                 ),
                               ),
                               Text(
-                                "Invoice Number: " +
-                                    "  ${snapshot.data![index].xinvnum}",
+                                "Product Code: " +
+                                    "  ${snapshot.data![index].xitem}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -171,53 +165,36 @@ class _BAT_notificationState extends State<BAT_notification> {
                                 ),
                               ),
                               Text(
-                                "LC No: " + snapshot.data![index].xlcno,
+                                "Description: " + snapshot.data![index].xdesc,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Supplier ID:" +
-                                    "${snapshot.data![index].xcus}",
+                                "BOM Key:" + "${snapshot.data![index].xbomkey}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Supplier Name: " +
-                                    "${snapshot.data![index].xorg ?? " "}",
+                                "BOM Description: " +
+                                    "${snapshot.data![index].xbomdesc ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Challan No:" + "${snapshot.data![index].xref}",
+                                "Store:" + "${snapshot.data![index].xwh}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Goods Receipts Note Status: " +
-                                    "${snapshot.data![index].xstatusgrn}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Plant/Store: " +
-                                    "${snapshot.data![index].xwh}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Store Name:" +
+                                "Plant/Store Name: " +
                                     "${snapshot.data![index].xwhdesc}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -225,7 +202,48 @@ class _BAT_notificationState extends State<BAT_notification> {
                                 ),
                               ),
                               Text(
-                                "Note: " + "${snapshot.data![index].xnote}",
+                                "Product Quantity: " +
+                                    "${snapshot.data![index].xqtycom}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "Production Unit:" +
+                                    "${snapshot.data![index].xunit}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "Production Status: " +
+                                    "${snapshot.data![index].xstatusmor}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "Note: " +
+                                    "${snapshot.data![index].xlong ?? ""}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "Voucher Number: " +
+                                    "${snapshot.data![index].xvoucher}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "Approval Status: " +
+                                    "${snapshot.data![index].xstatus}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -239,19 +257,19 @@ class _BAT_notificationState extends State<BAT_notification> {
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://172.20.20.69/aygaz/notifications/grnapprove.php'),
+                                              'http://172.20.20.69/aygaz/notifications/pendingBatchApprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
                                             "xposition": widget.xposition,
-                                            "xgrnnum": snapshot
-                                                .data![index].xgrnnum
+                                            "xbatch": snapshot
+                                                .data![index].xbatch
                                                 .toString(),
-                                            "ypd": "0",
-                                            " xstatusdoc": snapshot
-                                                .data![index].xstatusdoc
+                                            "wh": "0",
+                                            " xnote1 ": snapshot
+                                                .data![index].xnote1
                                                 .toString(),
-                                            "aprcs": "SPR Approval"
+                                            "aprcs": "Batch Approval"
                                           }));
 
                                       Get.snackbar('Message', 'Approved',
@@ -336,7 +354,7 @@ class _BAT_notificationState extends State<BAT_notification> {
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://172.20.20.69/aygaz/notifications/grnreject.php'),
+                                                            'http://172.20.20.69/aygaz/notifications/pendingBatchReject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,
@@ -344,9 +362,9 @@ class _BAT_notificationState extends State<BAT_notification> {
                                                           "xposition":
                                                               widget.xposition,
                                                           "wh": "0",
-                                                          "xgrnnum": snapshot
+                                                          "xbatch": snapshot
                                                               .data![index]
-                                                              .xgrnnum,
+                                                              .xbatch,
                                                           "xnote": rejectNote
                                                         }));
                                                     print(response.statusCode);

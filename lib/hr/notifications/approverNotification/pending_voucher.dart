@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -7,11 +6,9 @@ import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-
 import '../../../data_model/notification_model/admin_approver_model/pendingvoucher_model.dart';
 
 class Pending_voucher extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   Pending_voucher(
       {required this.xposition,
       required this.xstaff,
@@ -55,10 +52,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 

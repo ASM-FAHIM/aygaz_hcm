@@ -12,7 +12,6 @@ import 'package:intl/intl.dart';
 import '../../../data_model/notification_model/admin_approver_model/bmp_admin_model.dart';
 
 class BMP_notification extends StatefulWidget {
-  //const CS_notification({Key? key}) : super(key: key);
   BMP_notification(
       {required this.xposition,
       required this.xstaff,
@@ -38,8 +37,6 @@ class _BMP_notificationState extends State<BMP_notification> {
           "xposition": widget.xposition,
         }));
 
-    // print(response.body);
-
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
@@ -52,10 +49,7 @@ class _BMP_notificationState extends State<BMP_notification> {
   @override
   void initState() {
     super.initState();
-
-    // submitData();
     futurePost = fetchPost();
-
     fetchPost().whenComplete(() => futurePost);
   }
 
