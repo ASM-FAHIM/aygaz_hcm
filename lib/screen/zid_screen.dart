@@ -360,14 +360,18 @@ class _Get_zidState extends State<Get_zid> {
                         },
                         //splashColor: Colors.black,
                         child: Center(
-                          child: Column(
-                            //mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Image(
-                                image: AssetImage("images/logo/200010.png"),
-                              ),
-                              Expanded(
-                                child: Text(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              //mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Image(
+                                  image: AssetImage("images/logo/200010.png"),
+                                ),
+                                Text(
                                   "${snapshot.data![index].zorg}",
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.bakbakOne(
@@ -375,11 +379,11 @@ class _Get_zidState extends State<Get_zid> {
                                     color: Color(0xff074974),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              )
-                            ],
+                                SizedBox(
+                                  height: 20,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

@@ -327,7 +327,7 @@ class _SR_notificationState extends State<SR_notification> {
                                                               .data![index]
                                                               .xtornum
                                                               .toString(),
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.body);
 

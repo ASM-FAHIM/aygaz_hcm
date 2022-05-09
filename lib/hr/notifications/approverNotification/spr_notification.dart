@@ -374,7 +374,7 @@ class _SPR_notificationState extends State<SPR_notification> {
                                                           "xtornum": snapshot
                                                               .data![index]
                                                               .xtornum,
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);

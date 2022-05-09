@@ -294,7 +294,7 @@ class _CS_notificationState extends State<CS_notification> {
                                                               .xporeqnum
                                                               .toString(),
                                                           "wh": "0",
-                                                          "xnote": rejectNote,
+                                                          "xnote1": rejectNote,
                                                         }));
                                                     print(response.body);
 

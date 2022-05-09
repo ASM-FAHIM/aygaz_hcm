@@ -28,7 +28,7 @@ class DO_notification extends StatefulWidget {
 
 class _DO_notificationState extends State<DO_notification> {
   Future<List<DoModel>>? futurePost;
-  String rejectNote = " ";
+  dynamic rejectNote = " ";
 
   Future<List<DoModel>> fetchPost() async {
     var response = await http.post(
@@ -440,12 +440,13 @@ class _DO_notificationState extends State<DO_notification> {
                                                           "xdornum": snapshot
                                                               .data![index]
                                                               .xdornum,
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);
                                                     Navigator.pop(context);
-
+                                                    debugPrint(
+                                                        rejectNote.toString());
                                                     Get.snackbar(
                                                         'Message', 'Rejected',
                                                         backgroundColor:

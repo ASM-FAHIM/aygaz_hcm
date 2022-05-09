@@ -378,7 +378,7 @@ class _SO_notificationState extends State<SO_notification> {
                                                           "xtornum": snapshot
                                                               .data![index]
                                                               .xtornum,
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);

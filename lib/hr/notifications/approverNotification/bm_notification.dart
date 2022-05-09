@@ -313,7 +313,7 @@ class BM_notification extends State<BM_Notification> {
                                                           "xbomkey": snapshot
                                                               .data![index]
                                                               .xbomkey,
-                                                          "xnote": rejectNote
+                                                          "xnote1": rejectNote
                                                         }));
                                                     print(response.statusCode);
                                                     print(response.body);
