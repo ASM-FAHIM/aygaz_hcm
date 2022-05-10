@@ -265,9 +265,9 @@ class _BAT_notificationState extends State<BAT_notification> {
                                             "xbatch": snapshot
                                                 .data![index].xbatch
                                                 .toString(),
-                                            "wh": "0",
-                                            " xnote1 ": snapshot
-                                                .data![index].xnote1
+                                            "ypd": "0",
+                                            " xstatus": snapshot
+                                                .data![index].xstatus
                                                 .toString(),
                                             "aprcs": "Batch Approval"
                                           }));
