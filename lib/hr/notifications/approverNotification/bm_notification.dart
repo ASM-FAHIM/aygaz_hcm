@@ -206,7 +206,7 @@ class BM_notification extends State<BM_Notification> {
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://172.20.20.69/aygaz/notificationspendingBOMapprove.php'),
+                                              'http://172.20.20.69/aygaz/notifications/pendingBOMApprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
@@ -302,7 +302,7 @@ class BM_notification extends State<BM_Notification> {
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://172.20.20.69/aygaz/notificationspendingBOMreject.php'),
+                                                            'http://172.20.20.69/aygaz/notifications/pendingBOMreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,
