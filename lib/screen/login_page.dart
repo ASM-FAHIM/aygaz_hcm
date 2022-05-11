@@ -315,54 +315,101 @@ class _Login_pageState extends State<Login_page> {
                         ],
                       ),
                     ),
-                    Container(
-                      height: 40,
-                      width: MediaQuery.of(context).size.width / 1.2,
-                      decoration: BoxDecoration(
-                        color: Color(0xff0C71B2),
-                        //border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      // child: FlatButton(
-                      //   splashColor: Colors.grey,
-                      //   shape: RoundedRectangleBorder(
-                      //       borderRadius: BorderRadius.circular(20.0)),
-                      //   onPressed: () async {
-                      //
-                      //     submitData(
-                      //         userController.text, passController.text);
-                      //     login();
-                      //     debugPrint(userController.text);
-                      //     debugPrint(passController.text);
-                      //
-                      //   },
-                      //   child: Text(
-                      //     "Login",
-                      //     textAlign: TextAlign.center,
-                      //     style: GoogleFonts.bakbakOne(
-                      //       fontSize: 20,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      child: FlatButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        onPressed: () async {
-                          setState(() {
-                            isLoading = true;
-                          });
-                          submitData(userController.text, passController.text);
-                          login();
-                        },
+                    // Container(
+                    //   height: 40,
+                    //   width: MediaQuery.of(context).size.width / 1.2,
+                    //   decoration: BoxDecoration(
+                    //     color: Color(0xff0C71B2),
+                    //     //border: Border.all(color: Colors.grey),
+                    //     borderRadius: BorderRadius.circular(10),
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.grey.withOpacity(0.5),
+                    //         spreadRadius: 1,
+                    //         blurRadius: 5,
+                    //         offset: Offset(0, 3), // changes position of shadow
+                    //       ),
+                    //     ],
+                    //   ),
+                    //   // child: FlatButton(
+                    //   //   splashColor: Colors.grey,
+                    //   //   shape: RoundedRectangleBorder(
+                    //   //       borderRadius: BorderRadius.circular(20.0)),
+                    //   //   onPressed: () async {
+                    //   //
+                    //   //     submitData(
+                    //   //         userController.text, passController.text);
+                    //   //     login();
+                    //   //     debugPrint(userController.text);
+                    //   //     debugPrint(passController.text);
+                    //   //
+                    //   //   },
+                    //   //   child: Text(
+                    //   //     "Login",
+                    //   //     textAlign: TextAlign.center,
+                    //   //     style: GoogleFonts.bakbakOne(
+                    //   //       fontSize: 20,
+                    //   //       color: Colors.white,
+                    //   //     ),
+                    //   //   ),
+                    //   // ),
+                    //   child: FlatButton(
+                    //     shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(20.0)),
+                    //     onPressed: () async {
+                    //       setState(() {
+                    //         isLoading = true;
+                    //       });
+                    //       submitData(userController.text, passController.text);
+                    //       login();
+                    //     },
+                    //     child: isLoading
+                    //         ? SizedBox(
+                    //             height: 25,
+                    //             width: 25,
+                    //             child: CircularProgressIndicator(
+                    //               color: Colors.white,
+                    //             ),
+                    //           )
+                    //         : Text(
+                    //             "Login",
+                    //             textAlign: TextAlign.center,
+                    //             style: GoogleFonts.bakbakOne(
+                    //               fontSize: 20,
+                    //               color: Colors.white,
+                    //             ),
+                    //           ),
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    RaisedButton(
+                      elevation: 5,
+                      onPressed: () {
+                        setState(() {
+                          isLoading = true;
+                        });
+                        submitData(userController.text, passController.text);
+                        login();
+                      },
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(80.0)),
+                      textColor: Colors.white,
+                      padding: const EdgeInsets.all(0),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50.0,
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        decoration: new BoxDecoration(
+                            borderRadius: BorderRadius.circular(80.0),
+                            gradient: new LinearGradient(colors: [
+                              // Color(0xff1EAE98),
+                              // Color(0xff92EFFD),
+                              Color.fromARGB(255, 255, 136, 34),
+                              Color.fromARGB(255, 255, 177, 41)
+                            ])),
+                        padding: const EdgeInsets.all(0),
                         child: isLoading
                             ? SizedBox(
                                 height: 25,
