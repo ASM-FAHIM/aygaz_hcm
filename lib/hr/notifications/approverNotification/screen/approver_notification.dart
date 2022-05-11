@@ -20,7 +20,6 @@ import '../early_employee.dart';
 import '../late_employee.dart';
 import '../leave_tour_employee.dart';
 import '../pending_voucher.dart';
-import '../so_notification.dart';
 import '../special/advance_adjustment_notification.dart';
 import '../special/land_advance_request_notificaition.dart';
 import '../special/legal_activities_notification.dart';
@@ -1419,70 +1418,70 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(top: 20.0, right: 20, left: 20),
-                  child: Container(
-                    height: MediaQuery.of(context).size.width / 8,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white70,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    Admin_Late_Leave_NotificationList(
-                                      xposition: widget.xposition,
-                                      xstaff: widget.xstaff,
-                                      zemail: widget.zemail,
-                                    )));
-                      },
-                      child: Badge(
-                        showBadge:
-                            int.parse(widget.adminlate) == 0 ? false : true,
-                        padding: EdgeInsets.only(
-                            left: 5, top: 5, bottom: 5, right: 5),
-                        badgeContent: Text(
-                          // widget.adminlate.toString(),
-                          "*",
-                          style: GoogleFonts.bakbakOne(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                        badgeColor: Color(0xff064A76),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Late Employees",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.bakbakOne(
-                                fontSize: 18,
-                                color: Color(0xff064A76),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                // Padding(
+                //   padding:
+                //       const EdgeInsets.only(top: 20.0, right: 20, left: 20),
+                //   child: Container(
+                //     height: MediaQuery.of(context).size.width / 8,
+                //     width: MediaQuery.of(context).size.width,
+                //     decoration: BoxDecoration(
+                //       color: Colors.white70,
+                //       borderRadius: BorderRadius.circular(20),
+                //       boxShadow: [
+                //         BoxShadow(
+                //           color: Colors.grey.withOpacity(0.5),
+                //           spreadRadius: 1,
+                //           blurRadius: 5,
+                //           offset: Offset(0, 3), // changes position of shadow
+                //         ),
+                //       ],
+                //     ),
+                //     child: FlatButton(
+                //       shape: RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.circular(20.0)),
+                //       onPressed: () {
+                //         Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //                 builder: (context) =>
+                //                     Admin_Late_Leave_NotificationList(
+                //                       xposition: widget.xposition,
+                //                       xstaff: widget.xstaff,
+                //                       zemail: widget.zemail,
+                //                     )));
+                //       },
+                //       child: Badge(
+                //         showBadge:
+                //             int.parse(widget.adminlate) == 0 ? false : true,
+                //         padding: EdgeInsets.only(
+                //             left: 5, top: 5, bottom: 5, right: 5),
+                //         badgeContent: Text(
+                //           // widget.adminlate.toString(),
+                //           "*",
+                //           style: GoogleFonts.bakbakOne(
+                //             fontSize: 15,
+                //             color: Colors.white,
+                //           ),
+                //         ),
+                //         badgeColor: Color(0xff064A76),
+                //         child: Column(
+                //           crossAxisAlignment: CrossAxisAlignment.center,
+                //           mainAxisAlignment: MainAxisAlignment.center,
+                //           children: [
+                //             Text(
+                //               "Late Employees",
+                //               textAlign: TextAlign.center,
+                //               style: GoogleFonts.bakbakOne(
+                //                 fontSize: 18,
+                //                 color: Color(0xff064A76),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Padding(
                   padding:
                       const EdgeInsets.only(top: 20.0, right: 20, left: 20),
@@ -1791,7 +1790,7 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Spot Purchase Advance",
+                              "Pending Spot Purchase Advance",
                               textAlign: TextAlign.center,
                               style: GoogleFonts.bakbakOne(
                                 fontSize: 18,
@@ -2021,7 +2020,7 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SO_notification(
+                                builder: (context) => PSRA_notification(
                                       xposition: widget.xposition,
                                       xstaff: widget.xstaff,
                                       zemail: widget.zemail,

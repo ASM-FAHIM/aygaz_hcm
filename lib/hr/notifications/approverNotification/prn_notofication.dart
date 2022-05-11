@@ -229,17 +229,17 @@ class _PRN_notificationState extends State<PRN_notification> {
       //                               onPressed: () async {
       //                                 var response = await http.post(
       //                                     Uri.parse(
-      //                                         'http://172.20.20.69/aygaz/notifications/grnapprove.php'),
+      //                                         'http://172.20.20.69/aygaz/notifications/PRNapprove.php'),
       //                                     body: jsonEncode(<String, String>{
       //                                       "zid": widget.zid,
       //                                       "user": widget.zemail,
       //                                       "xposition": widget.xposition,
-      //                                       "xgrnnum": snapshot
-      //                                           .data![index].xgrnnum
+      //                                       "xtornum": snapshot
+      //                                           .data![index].xtornum
       //                                           .toString(),
       //                                       "ypd": "0",
-      //                                       " xstatusdoc": snapshot
-      //                                           .data![index].xstatusdoc
+      //                                       " xstatustor": snapshot
+      //                                           .data![index].xstatustor
       //                                           .toString(),
       //                                       "aprcs": "SPR Approval"
       //                                     }));
@@ -326,7 +326,7 @@ class _PRN_notificationState extends State<PRN_notification> {
       //
       //                                               var response = await http.post(
       //                                                   Uri.parse(
-      //                                                       'http://172.20.20.69/aygaz/notifications/grnreject.php'),
+      //                                                       'http://172.20.20.69/aygaz/notifications/PRNreject.php),
       //                                                   body: jsonEncode(<
       //                                                       String, String>{
       //                                                     "zid": widget.zid,
@@ -334,10 +334,10 @@ class _PRN_notificationState extends State<PRN_notification> {
       //                                                     "xposition":
       //                                                         widget.xposition,
       //                                                     "wh": "0",
-      //                                                     "xgrnnum": snapshot
+      //                                                     "xtornum": snapshot
       //                                                         .data![index]
-      //                                                         .xgrnnum,
-      //                                                     "xnote": rejectNote
+      //                                                         .xtornum,
+      //                                                     "xnote1": rejectNote
       //                                                   }));
       //                                               print(response.statusCode);
       //                                               print(response.body);
