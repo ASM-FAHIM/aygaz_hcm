@@ -216,6 +216,16 @@ class _PO_WO_approval_NotificationListState
                                 ),
                               ),
                               Text(
+                                "PO Value: " +
+                                    "${snapshot.data![index].povalue}" +
+                                    " " +
+                                    "${snapshot.data![index].xcur}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
                                 "Approval Status: " +
                                     "${snapshot.data![index].xstatus}",
                                 style: GoogleFonts.bakbakOne(

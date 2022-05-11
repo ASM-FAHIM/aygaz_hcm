@@ -268,7 +268,7 @@ class _SQC_notificationState extends State<SQC_notification> {
                                                 .data![index].xgrnnum
                                                 .toString(),
                                             "ypd": "0",
-                                            " xstatusdoc": snapshot
+                                            "xstatusdoc": snapshot
                                                 .data![index].xstatusdoc
                                                 .toString(),
                                             "aprcs": "SQC Approval"

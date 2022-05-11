@@ -282,6 +282,7 @@ class _SO_notificationState extends State<SO_notification> {
                                             "xtornum": snapshot
                                                 .data![index].xtornum
                                                 .toString(),
+                                            "ypd": "0",
                                             "aprcs": "SO Approval"
                                           }));
 

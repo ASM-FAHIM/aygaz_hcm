@@ -355,7 +355,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
                                                           "xvoucher": snapshot
                                                               .data![index]
                                                               .xvoucher,
-                                                          "xnote1": rejectNote
+                                                          "xnote": rejectNote
                                                         }));
 
                                                     print(response.statusCode);

@@ -32,7 +32,7 @@ class _BMP_notificationState extends State<BMP_notification> {
 
   Future<List<BmpModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/preProcessBOM.php'),
+        Uri.parse('http://172.20.20.69/aygaz/notifications/preProcessBM.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));

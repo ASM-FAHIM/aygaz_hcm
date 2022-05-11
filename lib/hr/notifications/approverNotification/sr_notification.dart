@@ -32,7 +32,7 @@ class _SR_notificationState extends State<SR_notification> {
     var response = await http.post(
         Uri.parse('http://172.20.20.69/aygaz/notifications/sr.php'),
         body: jsonEncode(<String, String>{
-          "xposition": "2320",
+          "xposition": widget.xposition,
         }));
 
     if (response.statusCode == 200) {

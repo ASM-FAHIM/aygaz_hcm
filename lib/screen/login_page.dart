@@ -172,217 +172,216 @@ class _Login_pageState extends State<Login_page> {
         width: MediaQuery.of(context).size.width,
         child: Scaffold(
           body: Container(
-            child: Center(
-              child: SingleChildScrollView(
-                child: Form(
-                  key: _formkey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 200,
-                        width: 200,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image(
-                            image: AssetImage('images/orange.png'),
-                          ),
+            child: SingleChildScrollView(
+              child: Form(
+                key: _formkey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 5,
+                    ),
+                    Container(
+                      height: 100,
+                      width: 200,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image(
+                          image: AssetImage('images/orange.png'),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Container(
-                          // decoration: BoxDecoration(
-                          //   color: Colors.white,
-                          //   border: Border.all(color: Colors.grey),
-                          // ),
-                          child: TextFormField(
-                            controller: userController,
-                            style: GoogleFonts.bakbakOne(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+                        // decoration: BoxDecoration(
+                        //   color: Colors.white,
+                        //   border: Border.all(color: Colors.grey),
+                        // ),
+                        child: TextFormField(
+                          controller: userController,
+                          style: GoogleFonts.bakbakOne(
+                            //fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                          onChanged: (input) {
+                            zemail = input;
+                          },
+                          validator: (input) {
+                            if (input!.isEmpty) {
+                              return "Empty";
+                            }
+                          },
+                          scrollPadding: EdgeInsets.all(20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(
+                                left: 20), // add padding to adjust text
+                            isDense: false,
+                            hintStyle: GoogleFonts.bakbakOne(
                               //fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Colors.black,
                             ),
-                            onChanged: (input) {
-                              zemail = input;
-                            },
-                            validator: (input) {
-                              if (input!.isEmpty) {
-                                return "Empty";
-                              }
-                            },
-                            scrollPadding: EdgeInsets.all(20),
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(
-                                  left: 20), // add padding to adjust text
-                              isDense: false,
-                              hintStyle: GoogleFonts.bakbakOne(
-                                //fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                              labelText: "User Name",
-                              labelStyle: GoogleFonts.bakbakOne(
-                                //fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                              border: OutlineInputBorder(),
-                              suffixIcon: Padding(
+                            labelText: "User Name",
+                            labelStyle: GoogleFonts.bakbakOne(
+                              //fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                            border: OutlineInputBorder(),
+                            suffixIcon: Padding(
+                              padding: EdgeInsets.only(
+                                  top: 8), // add padding to adjust icon
+                              child: Icon(Icons.person),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+                        // decoration: BoxDecoration(
+                        //   color: Colors.white,
+                        //   border: Border.all(color: Colors.grey),
+                        // ),
+                        child: TextFormField(
+                          controller: passController,
+                          style: GoogleFonts.bakbakOne(
+                            //fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                          obscureText: _obsecureText,
+                          onChanged: (input) {
+                            xpassword = input;
+                          },
+                          scrollPadding: EdgeInsets.all(20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(
+                                left: 20), // add padding to adjust text
+                            isDense: true,
+                            //hintText: "Password",
+                            hintStyle: GoogleFonts.bakbakOne(
+                              //fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                            labelText: "Password",
+                            labelStyle: GoogleFonts.bakbakOne(
+                              //fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                            border: OutlineInputBorder(),
+                            suffixIcon: Padding(
                                 padding: EdgeInsets.only(
                                     top: 8), // add padding to adjust icon
-                                child: Icon(Icons.person),
-                              ),
-                            ),
+                                child: IconButton(
+                                  icon: Icon(
+                                    _obsecureText
+                                        ? FontAwesomeIcons.solidEye
+                                        : FontAwesomeIcons.solidEyeSlash,
+                                  ),
+                                  onPressed: () {
+                                    toggle();
+                                  },
+                                )),
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Container(
-                          // decoration: BoxDecoration(
-                          //   color: Colors.white,
-                          //   border: Border.all(color: Colors.grey),
-                          // ),
-                          child: TextFormField(
-                            controller: passController,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          Checkbox(
+                              value: isChecked,
+                              onChanged: (value) {
+                                setState(() {
+                                  isChecked = value!;
+                                });
+                              }),
+                          Text(
+                            "Remember Me",
+                            textAlign: TextAlign.center,
                             style: GoogleFonts.bakbakOne(
-                              //fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                              fontSize: 20,
                               color: Colors.black,
                             ),
-                            obscureText: _obsecureText,
-                            onChanged: (input) {
-                              xpassword = input;
-                            },
-                            scrollPadding: EdgeInsets.all(20),
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(
-                                  left: 20), // add padding to adjust text
-                              isDense: true,
-                              //hintText: "Password",
-                              hintStyle: GoogleFonts.bakbakOne(
-                                //fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                              labelText: "Password",
-                              labelStyle: GoogleFonts.bakbakOne(
-                                //fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                              border: OutlineInputBorder(),
-                              suffixIcon: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 8), // add padding to adjust icon
-                                  child: IconButton(
-                                    icon: Icon(
-                                      _obsecureText
-                                          ? FontAwesomeIcons.solidEye
-                                          : FontAwesomeIcons.solidEyeSlash,
-                                    ),
-                                    onPressed: () {
-                                      toggle();
-                                    },
-                                  )),
-                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width / 1.2,
+                      decoration: BoxDecoration(
+                        color: Color(0xff0C71B2),
+                        //border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                            offset: Offset(0, 3), // changes position of shadow
                           ),
-                        ),
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Row(
-                          children: [
-                            Checkbox(
-                                value: isChecked,
-                                onChanged: (value) {
-                                  setState(() {
-                                    isChecked = value!;
-                                  });
-                                }),
-                            Text(
-                              "Remember Me",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.bakbakOne(
-                                fontSize: 20,
-                                color: Colors.black,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 40,
-                        width: MediaQuery.of(context).size.width / 1.2,
-                        decoration: BoxDecoration(
-                          color: Color(0xff074974),
-                          //border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 1,
-                              blurRadius: 5,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        // child: FlatButton(
-                        //   splashColor: Colors.grey,
-                        //   shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(20.0)),
-                        //   onPressed: () async {
-                        //
-                        //     submitData(
-                        //         userController.text, passController.text);
-                        //     login();
-                        //     debugPrint(userController.text);
-                        //     debugPrint(passController.text);
-                        //
-                        //   },
-                        //   child: Text(
-                        //     "Login",
-                        //     textAlign: TextAlign.center,
-                        //     style: GoogleFonts.bakbakOne(
-                        //       fontSize: 20,
-                        //       color: Colors.white,
-                        //     ),
-                        //   ),
-                        // ),
-                        child: FlatButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0)),
-                          onPressed: () async {
-                            setState(() {
-                              isLoading = true;
-                            });
-                            submitData(
-                                userController.text, passController.text);
-                            login();
-                          },
-                          child: isLoading
-                              ? SizedBox(
-                                  height: 25,
-                                  width: 25,
-                                  child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                  ),
-                                )
-                              : Text(
-                                  "Login",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.bakbakOne(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                  ),
+                      // child: FlatButton(
+                      //   splashColor: Colors.grey,
+                      //   shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(20.0)),
+                      //   onPressed: () async {
+                      //
+                      //     submitData(
+                      //         userController.text, passController.text);
+                      //     login();
+                      //     debugPrint(userController.text);
+                      //     debugPrint(passController.text);
+                      //
+                      //   },
+                      //   child: Text(
+                      //     "Login",
+                      //     textAlign: TextAlign.center,
+                      //     style: GoogleFonts.bakbakOne(
+                      //       fontSize: 20,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      child: FlatButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        onPressed: () async {
+                          setState(() {
+                            isLoading = true;
+                          });
+                          submitData(userController.text, passController.text);
+                          login();
+                        },
+                        child: isLoading
+                            ? SizedBox(
+                                height: 25,
+                                width: 25,
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
                                 ),
-                        ),
+                              )
+                            : Text(
+                                "Login",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

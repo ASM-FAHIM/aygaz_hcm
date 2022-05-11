@@ -226,7 +226,7 @@ class _BATP_notificationState extends State<BATP_notification> {
                               ),
                               Text(
                                 "Production Unit: " +
-                                    "${snapshot.data![index].xunit}",
+                                    "${snapshot.data![index].xunit ?? ""}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -271,7 +271,7 @@ class _BATP_notificationState extends State<BATP_notification> {
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://172.20.20.69/aygaz/notifications/PendingPreProcessBatch.php'),
+                                              'http://172.20.20.69/aygaz/notifications/PendingPreProcessBatchApprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,

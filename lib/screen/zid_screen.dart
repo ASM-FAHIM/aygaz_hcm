@@ -325,6 +325,7 @@ class _Get_zidState extends State<Get_zid> {
                   ),
                   itemCount: snapshot.data!.length,
                   itemBuilder: (_, index) => Container(
+                    color: Color(0xff1db8e2),
                     child: Card(
                       margin: EdgeInsets.all(7),
                       child: FlatButton(

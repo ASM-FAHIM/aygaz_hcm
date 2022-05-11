@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final poModel = poModelFromJson(jsonString);
+
 import 'dart:convert';
 
 List<PoModel> poModelFromJson(String str) =>
@@ -17,6 +21,7 @@ class PoModel {
     required this.xtype,
     required this.xstatuspor,
     required this.xproject,
+    required this.xcur,
     required this.xprojectdesc,
     required this.xporeqnum,
     required this.xstatus,
@@ -46,7 +51,6 @@ class PoModel {
     required this.xshipfrom,
     required this.xshipto,
     required this.xlcstatus,
-    required this.xcur,
     required this.xshipterm,
     required this.xnotify,
     required this.xsup,
@@ -146,6 +150,7 @@ class PoModel {
   dynamic xtype;
   dynamic xstatuspor;
   dynamic xproject;
+  dynamic xcur;
   dynamic xprojectdesc;
   dynamic xporeqnum;
   dynamic xstatus;
@@ -175,7 +180,6 @@ class PoModel {
   dynamic xshipfrom;
   dynamic xshipto;
   dynamic xlcstatus;
-  dynamic xcur;
   dynamic xshipterm;
   dynamic xnotify;
   dynamic xsup;
@@ -275,6 +279,7 @@ class PoModel {
         xtype: json["xtype"],
         xstatuspor: json["xstatuspor"],
         xproject: json["xproject"],
+        xcur: json["xcur"],
         xprojectdesc: json["xprojectdesc"],
         xporeqnum: json["xporeqnum"],
         xstatus: json["xstatus"],
@@ -304,7 +309,6 @@ class PoModel {
         xshipfrom: json["xshipfrom"],
         xshipto: json["xshipto"],
         xlcstatus: json["xlcstatus"],
-        xcur: json["xcur"],
         xshipterm: json["xshipterm"],
         xnotify: json["xnotify"],
         xsup: json["xsup"],
@@ -405,6 +409,7 @@ class PoModel {
         "xtype": xtype,
         "xstatuspor": xstatuspor,
         "xproject": xproject,
+        "xcur": xcur,
         "xprojectdesc": xprojectdesc,
         "xporeqnum": xporeqnum,
         "xstatus": xstatus,
@@ -434,7 +439,6 @@ class PoModel {
         "xshipfrom": xshipfrom,
         "xshipto": xshipto,
         "xlcstatus": xlcstatus,
-        "xcur": xcur,
         "xshipterm": xshipterm,
         "xnotify": xnotify,
         "xsup": xsup,
