@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:aygazhcm/hr/notifications/approverNotification/details/sr_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
+import '../../../data_model/notification_model/admin_approver_model/details/sr_details_model.dart';
 import '../../../data_model/notification_model/admin_approver_model/sr_admin_model.dart';
 
 class SR_notification extends StatefulWidget {
@@ -34,6 +35,22 @@ class _SR_notificationState extends State<SR_notification> {
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
+
+    if (response.statusCode == 200) {
+      final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+
+      return parsed
+          .map<SrNotiModel>((json) => SrNotiModel.fromJson(json))
+          .toList();
+    } else {
+      throw Exception('Failed to load album');
+    }
+  }
+
+  Future<List<SrDetailsModel>> fetchPostdetails() async {
+    var response = await http.post(
+        Uri.parse('http://172.20.20.69/aygaz/notifications/srdetails.php'),
+        body: jsonEncode(<String, String>{"xtornum": "SR--000004"}));
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
@@ -147,7 +164,7 @@ class _SR_notificationState extends State<SR_notification> {
                               ),
                               Text(
                                 "Requisition Date:" +
-                                    " ${snapshot.data![index].xdate}",
+                                    " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -156,7 +173,7 @@ class _SR_notificationState extends State<SR_notification> {
                               ),
                               Text(
                                 "Required By Date:" +
-                                    " ${snapshot.data![index].xdatereq}",
+                                    " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdatereq.date).toString()))}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -174,7 +191,7 @@ class _SR_notificationState extends State<SR_notification> {
 
                               Text(
                                 "Project Name:" +
-                                    "${snapshot.data![index].xproject}",
+                                    "${snapshot.data![index].xproject ?? "  "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -213,156 +230,31 @@ class _SR_notificationState extends State<SR_notification> {
                                   //color: Color(0xff074974),
                                 ),
                               ),
+                              FlatButton(
+                                color: Colors.lightBlueAccent,
+                                onPressed: () async {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              SR_details_notification(
+                                                xtornum: snapshot
+                                                    .data![index].xtornum,
+                                                zid: widget.zid,
+                                                xposition: widget.xposition,
+                                                zemail: widget.zemail,
+                                                xstatustor: snapshot
+                                                    .data![index].xstatustor,
+                                                xstaff: widget.xstaff,
+                                              )));
+                                  setState(() {
+                                    snapshot.data!.removeAt(index);
+                                  });
+                                },
+                                child: Center(child: Text("Details")),
+                              ),
 
-                              // approve and reject
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  FlatButton(
-                                    color: Colors.green,
-                                    onPressed: () async {
-                                      var response = await http.post(
-                                          Uri.parse(
-                                              'http://172.20.20.69/aygaz/notifications/srapprove.php'),
-                                          body: jsonEncode(<String, String>{
-                                            "zid": widget.zid,
-                                            "user": widget.zemail,
-                                            "xposition": widget.xposition,
-                                            "xtornum": snapshot
-                                                .data![index].xtornum
-                                                .toString(),
-                                            "ypd": "0",
-                                            "xstatustor": "Approved"
-                                          }));
-
-                                      Get.snackbar('Message', 'Approved',
-                                          backgroundColor: Color(0XFF8CA6DB),
-                                          colorText: Colors.white,
-                                          snackPosition: SnackPosition.BOTTOM);
-
-                                      setState(() {
-                                        snapshot.data!.removeAt(index);
-                                      });
-
-                                      print(response.statusCode);
-                                      print(response.body);
-                                    },
-                                    child: Text("Approve"),
-                                  ),
-                                  SizedBox(
-                                    width: 50,
-                                  ),
-                                  FlatButton(
-                                    color: Colors.red,
-                                    onPressed: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return AlertDialog(
-                                              title: const Text("Reject Note"),
-                                              content: Column(
-                                                children: [
-                                                  Container(
-                                                    //height: MediaQuery.of(context).size.height/6,
-                                                    child: TextFormField(
-                                                      style:
-                                                          GoogleFonts.bakbakOne(
-                                                        //fontWeight: FontWeight.bold,
-                                                        fontSize: 18,
-                                                        color: Colors.black,
-                                                      ),
-                                                      onChanged: (input) {
-                                                        rejectNote = input;
-                                                      },
-                                                      validator: (input) {
-                                                        if (input!.isEmpty) {
-                                                          return "Please Write Reject Note";
-                                                        }
-                                                      },
-                                                      scrollPadding:
-                                                          EdgeInsets.all(20),
-                                                      decoration:
-                                                          InputDecoration(
-                                                        contentPadding:
-                                                            EdgeInsets.only(
-                                                                left:
-                                                                    20), // add padding to adjust text
-                                                        isDense: false,
-
-                                                        hintStyle: GoogleFonts
-                                                            .bakbakOne(
-                                                          //fontWeight: FontWeight.bold,
-                                                          fontSize: 18,
-                                                          color: Colors.black,
-                                                        ),
-                                                        labelText:
-                                                            "Reject Note",
-                                                        labelStyle: GoogleFonts
-                                                            .bakbakOne(
-                                                          fontSize: 18,
-                                                          color: Colors.black,
-                                                        ),
-                                                        border:
-                                                            OutlineInputBorder(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              actions: [
-                                                FlatButton(
-                                                  color: Color(0xff064A76),
-                                                  onPressed: () async {
-                                                    var response = await http.post(
-                                                        Uri.parse(
-                                                            'http://172.20.20.69/aygaz/notifications/srreject.php'),
-                                                        body: jsonEncode(<
-                                                            String, String>{
-                                                          "zid": widget.zid,
-                                                          "user": widget.zemail,
-                                                          "xposition":
-                                                              widget.xposition,
-                                                          "wh": "0",
-                                                          "xtornum": snapshot
-                                                              .data![index]
-                                                              .xtornum
-                                                              .toString(),
-                                                          "xnote1": rejectNote
-                                                        }));
-                                                    print(response.body);
-
-                                                    Navigator.pop(context);
-                                                    setState(() {
-                                                      snapshot.data!
-                                                          .removeAt(index);
-                                                    });
-
-                                                    Get.snackbar(
-                                                        'Message', 'Rejected',
-                                                        backgroundColor:
-                                                            Color(0XFF8CA6DB),
-                                                        colorText: Colors.white,
-                                                        snackPosition:
-                                                            SnackPosition
-                                                                .BOTTOM);
-                                                  },
-                                                  child: Text(
-                                                    "Reject",
-                                                    style:
-                                                        GoogleFonts.bakbakOne(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                              scrollable: true,
-                                            );
-                                          });
-                                    },
-                                    child: Text("Reject"),
-                                  ),
-                                ],
-                              )
+                              //approve and reject
                             ],
                           ),
                         ),

@@ -3,7 +3,6 @@ import 'dart:io' show Platform, exit;
 
 import 'package:aygazhcm/data_model/loginModel.dart';
 import 'package:aygazhcm/data_model/promotion.dart';
-import 'package:aygazhcm/screen/zid_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +13,7 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import 'data_model/xyearperdate.dart';
+import 'hr/notifications/approverNotification/screen/approver.dart';
 
 class Homepage extends StatefulWidget {
   // const Homepage({Key? key}) : super(key: key);
@@ -437,11 +437,12 @@ class _HomepageState extends State<Homepage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Get_zid(
+                                      builder: (context) => AdminNotification(
                                             xposition:
                                                 widget.loginModel.xposition,
                                             xstaff: widget.loginModel.xstaff,
                                             zemail: widget.loginModel.zemail,
+                                            zid: "200010",
                                             loginModel: widget.loginModel,
                                           )));
 

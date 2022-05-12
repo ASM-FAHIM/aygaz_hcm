@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'package:aygazhcm/hr/viewNotification.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../../data_model/loginModel.dart';
 import '../../../../data_model/notificaiton_count/admin_count.dart';
 import 'approver_notification.dart';
 
@@ -19,11 +20,13 @@ class AdminNotification extends StatefulWidget {
       {required this.xposition,
       required this.xstaff,
       required this.zemail,
-      required this.zid});
+      required this.zid,
+      required this.loginModel});
   String xposition;
   String xstaff;
   String zemail;
   String zid;
+  LoginModel loginModel;
 
   @override
   _AdminNotificationState createState() => _AdminNotificationState();
