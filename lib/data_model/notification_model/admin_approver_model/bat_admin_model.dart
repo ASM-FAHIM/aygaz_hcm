@@ -179,7 +179,7 @@ class BatModel {
   dynamic xstatus;
   dynamic xpreparer;
   dynamic xsignatory1;
-  Xdate xsigndate1;
+  dynamic xsigndate1;
   dynamic xsignatory2;
   dynamic xsigndate2;
   dynamic xsignatory3;
@@ -275,7 +275,7 @@ class BatModel {
         xstatus: json["xstatus"],
         xpreparer: json["xpreparer"],
         xsignatory1: json["xsignatory1"],
-        xsigndate1: Xdate.fromJson(json["xsigndate1"]),
+        xsigndate1: json["xsigndate1"],
         xsignatory2: json["xsignatory2"],
         xsigndate2: json["xsigndate2"],
         xsignatory3: json["xsignatory3"],

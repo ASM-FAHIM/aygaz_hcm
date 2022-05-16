@@ -95,11 +95,11 @@ class BmModel {
   dynamic xlong;
   dynamic xpreparer;
   dynamic xsignatory1;
-  Xdate xsigndate1;
+  dynamic xsigndate1;
   dynamic xsignatory2;
-  Xdate xsigndate2;
+  dynamic xsigndate2;
   dynamic xsignatory3;
-  Xdate xsigndate3;
+  dynamic xsigndate3;
   dynamic xsignatory4;
   dynamic xsigndate4;
   dynamic xsignatory5;
@@ -147,11 +147,11 @@ class BmModel {
         xlong: json["xlong"],
         xpreparer: json["xpreparer"],
         xsignatory1: json["xsignatory1"],
-        xsigndate1: Xdate.fromJson(json["xsigndate1"]),
+        xsigndate1: json["xsigndate1"],
         xsignatory2: json["xsignatory2"],
-        xsigndate2: Xdate.fromJson(json["xsigndate2"]),
+        xsigndate2: json["xsigndate2"],
         xsignatory3: json["xsignatory3"],
-        xsigndate3: Xdate.fromJson(json["xsigndate3"]),
+        xsigndate3: json["xsigndate3"],
         xsignatory4: json["xsignatory4"],
         xsigndate4: json["xsigndate4"],
         xsignatory5: json["xsignatory5"],

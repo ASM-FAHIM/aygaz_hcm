@@ -2,14 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import '../../../data_model/notification_model/admin_approver_model/bm_admin_model.dart';
+import '../../../data_model/notification_model/admin_approver_model/details/bm_details_model.dart';
+import 'details/bm_notification_details.dart';
 
 class BM_Notification extends StatefulWidget {
   BM_Notification(
@@ -41,6 +40,22 @@ class BM_notification extends State<BM_Notification> {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
       return parsed.map<BmModel>((json) => BmModel.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load album');
+    }
+  }
+
+  Future<List<BmDetailsModel>> fetchPostdetails() async {
+    var response = await http.post(
+        Uri.parse('http://172.20.20.69/aygaz/notifications/srdetails.php'),
+        body: jsonEncode(<String, String>{"xbomkey": "BM--000002"}));
+
+    if (response.statusCode == 200) {
+      final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+
+      return parsed
+          .map<BmDetailsModel>((json) => BmDetailsModel.fromJson(json))
+          .toList();
     } else {
       throw Exception('Failed to load album');
     }
@@ -198,158 +213,180 @@ class BM_notification extends State<BM_Notification> {
                                   //color: Color(0xff074974),
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  FlatButton(
-                                    color: Colors.green,
-                                    onPressed: () async {
-                                      var response = await http.post(
-                                          Uri.parse(
-                                              'http://172.20.20.69/aygaz/notifications/pendingBOMApprove.php'),
-                                          body: jsonEncode(<String, String>{
-                                            "zid": widget.zid,
-                                            "user": widget.zemail,
-                                            "xposition": widget.xposition,
-                                            "xbomkey": snapshot
-                                                .data![index].xbomkey
-                                                .toString(),
-                                            "ypd": "0",
-                                            " xstatus": snapshot
-                                                .data![index].xstatus
-                                                .toString(),
-                                            "aprcs": "BM Approval"
-                                          }));
-
-                                      Get.snackbar('Message', 'Approved',
-                                          backgroundColor: Color(0XFF8CA6DB),
-                                          colorText: Colors.white,
-                                          snackPosition: SnackPosition.BOTTOM);
-
-                                      setState(() {
-                                        snapshot.data!.removeAt(index);
-                                      });
-
-                                      print(response.statusCode);
-                                      print(response.body);
-                                    },
-                                    child: Text("Approve"),
-                                  ),
-                                  SizedBox(
-                                    width: 50,
-                                  ),
-                                  FlatButton(
-                                    color: Colors.red,
-                                    onPressed: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return AlertDialog(
-                                              title: const Text("Reject Note"),
-                                              content: Column(
-                                                children: [
-                                                  Container(
-                                                    child: TextFormField(
-                                                      style:
-                                                          GoogleFonts.bakbakOne(
-                                                        //fontWeight: FontWeight.bold,
-                                                        fontSize: 18,
-                                                        color: Colors.black,
-                                                      ),
-                                                      onChanged: (input) {
-                                                        rejectNote = input;
-                                                      },
-                                                      validator: (input) {
-                                                        if (input!.isEmpty) {
-                                                          return "Please Write Reject Note";
-                                                        }
-                                                      },
-                                                      scrollPadding:
-                                                          EdgeInsets.all(20),
-                                                      decoration:
-                                                          InputDecoration(
-                                                        contentPadding:
-                                                            EdgeInsets.only(
-                                                                left:
-                                                                    20), // add padding to adjust text
-                                                        isDense: false,
-
-                                                        hintStyle: GoogleFonts
-                                                            .bakbakOne(
-                                                          //fontWeight: FontWeight.bold,
-                                                          fontSize: 18,
-                                                          color: Colors.black,
-                                                        ),
-                                                        labelText:
-                                                            "Reject Note",
-                                                        labelStyle: GoogleFonts
-                                                            .bakbakOne(
-                                                          fontSize: 18,
-                                                          color: Colors.black,
-                                                        ),
-                                                        border:
-                                                            OutlineInputBorder(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              actions: [
-                                                FlatButton(
-                                                  color: Color(0xff064A76),
-                                                  onPressed: () async {
-                                                    //http://172.20.20.69/api/adminapprove/poreject.php
-
-                                                    var response = await http.post(
-                                                        Uri.parse(
-                                                            'http://172.20.20.69/aygaz/notifications/pendingBOMreject.php'),
-                                                        body: jsonEncode(<
-                                                            String, String>{
-                                                          "zid": widget.zid,
-                                                          "user": widget.zemail,
-                                                          "xposition":
-                                                              widget.xposition,
-                                                          "wh": "0",
-                                                          "xbomkey": snapshot
-                                                              .data![index]
-                                                              .xbomkey,
-                                                          "xnote1": rejectNote
-                                                        }));
-                                                    print(response.statusCode);
-                                                    print(response.body);
-                                                    Navigator.pop(context);
-
-                                                    Get.snackbar(
-                                                        'Message', 'Rejected',
-                                                        backgroundColor:
-                                                            Color(0XFF8CA6DB),
-                                                        colorText: Colors.white,
-                                                        snackPosition:
-                                                            SnackPosition
-                                                                .BOTTOM);
-
-                                                    setState(() {
-                                                      snapshot.data!
-                                                          .removeAt(index);
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    "Reject",
-                                                    style:
-                                                        GoogleFonts.bakbakOne(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                              scrollable: true,
-                                            );
-                                          });
-                                    },
-                                    child: Text("Reject"),
-                                  ),
-                                ],
-                              )
+                              FlatButton(
+                                color: Colors.lightBlueAccent,
+                                onPressed: () async {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => BM_details(
+                                                xbomkey: snapshot
+                                                    .data![index].xbomkey,
+                                                zid: widget.zid,
+                                                xposition: widget.xposition,
+                                                zemail: widget.zemail,
+                                                xstatus: snapshot
+                                                    .data![index].xstatus,
+                                                xstaff: widget.xstaff,
+                                              )));
+                                  // setState(() {
+                                  //   snapshot.data!.removeAt(index);
+                                  // });
+                                },
+                                child: Center(child: Text("Details")),
+                              ),
+                              // Row(
+                              //   mainAxisAlignment: MainAxisAlignment.center,
+                              //   children: [
+                              //     FlatButton(
+                              //       color: Colors.green,
+                              //       onPressed: () async {
+                              //         var response = await http.post(
+                              //             Uri.parse(
+                              //                 'http://172.20.20.69/aygaz/notifications/pendingBOMApprove.php'),
+                              //             body: jsonEncode(<String, String>{
+                              //               "zid": widget.zid,
+                              //               "user": widget.zemail,
+                              //               "xposition": widget.xposition,
+                              //               "xbomkey": snapshot
+                              //                   .data![index].xbomkey
+                              //                   .toString(),
+                              //               "ypd": "0",
+                              //               " xstatus": snapshot
+                              //                   .data![index].xstatus
+                              //                   .toString(),
+                              //               "aprcs": "BM Approval"
+                              //             }));
+                              //
+                              //         Get.snackbar('Message', 'Approved',
+                              //             backgroundColor: Color(0XFF8CA6DB),
+                              //             colorText: Colors.white,
+                              //             snackPosition: SnackPosition.BOTTOM);
+                              //
+                              //         setState(() {
+                              //           snapshot.data!.removeAt(index);
+                              //         });
+                              //
+                              //         print(response.statusCode);
+                              //         print(response.body);
+                              //       },
+                              //       child: Text("Approve"),
+                              //     ),
+                              //     SizedBox(
+                              //       width: 50,
+                              //     ),
+                              //     FlatButton(
+                              //       color: Colors.red,
+                              //       onPressed: () {
+                              //         showDialog(
+                              //             context: context,
+                              //             builder: (BuildContext context) {
+                              //               return AlertDialog(
+                              //                 title: const Text("Reject Note"),
+                              //                 content: Column(
+                              //                   children: [
+                              //                     Container(
+                              //                       child: TextFormField(
+                              //                         style:
+                              //                             GoogleFonts.bakbakOne(
+                              //                           //fontWeight: FontWeight.bold,
+                              //                           fontSize: 18,
+                              //                           color: Colors.black,
+                              //                         ),
+                              //                         onChanged: (input) {
+                              //                           rejectNote = input;
+                              //                         },
+                              //                         validator: (input) {
+                              //                           if (input!.isEmpty) {
+                              //                             return "Please Write Reject Note";
+                              //                           }
+                              //                         },
+                              //                         scrollPadding:
+                              //                             EdgeInsets.all(20),
+                              //                         decoration:
+                              //                             InputDecoration(
+                              //                           contentPadding:
+                              //                               EdgeInsets.only(
+                              //                                   left:
+                              //                                       20), // add padding to adjust text
+                              //                           isDense: false,
+                              //
+                              //                           hintStyle: GoogleFonts
+                              //                               .bakbakOne(
+                              //                             //fontWeight: FontWeight.bold,
+                              //                             fontSize: 18,
+                              //                             color: Colors.black,
+                              //                           ),
+                              //                           labelText:
+                              //                               "Reject Note",
+                              //                           labelStyle: GoogleFonts
+                              //                               .bakbakOne(
+                              //                             fontSize: 18,
+                              //                             color: Colors.black,
+                              //                           ),
+                              //                           border:
+                              //                               OutlineInputBorder(),
+                              //                         ),
+                              //                       ),
+                              //                     ),
+                              //                   ],
+                              //                 ),
+                              //                 actions: [
+                              //                   FlatButton(
+                              //                     color: Color(0xff064A76),
+                              //                     onPressed: () async {
+                              //                       //http://172.20.20.69/api/adminapprove/poreject.php
+                              //
+                              //                       var response = await http.post(
+                              //                           Uri.parse(
+                              //                               'http://172.20.20.69/aygaz/notifications/pendingBOMreject.php'),
+                              //                           body: jsonEncode(<
+                              //                               String, String>{
+                              //                             "zid": widget.zid,
+                              //                             "user": widget.zemail,
+                              //                             "xposition":
+                              //                                 widget.xposition,
+                              //                             "wh": "0",
+                              //                             "xbomkey": snapshot
+                              //                                 .data![index]
+                              //                                 .xbomkey,
+                              //                             "xnote1": rejectNote
+                              //                           }));
+                              //                       print(response.statusCode);
+                              //                       print(response.body);
+                              //                       Navigator.pop(context);
+                              //
+                              //                       Get.snackbar(
+                              //                           'Message', 'Rejected',
+                              //                           backgroundColor:
+                              //                               Color(0XFF8CA6DB),
+                              //                           colorText: Colors.white,
+                              //                           snackPosition:
+                              //                               SnackPosition
+                              //                                   .BOTTOM);
+                              //
+                              //                       setState(() {
+                              //                         snapshot.data!
+                              //                             .removeAt(index);
+                              //                       });
+                              //                     },
+                              //                     child: Text(
+                              //                       "Reject",
+                              //                       style:
+                              //                           GoogleFonts.bakbakOne(
+                              //                         color: Colors.white,
+                              //                       ),
+                              //                     ),
+                              //                   ),
+                              //                 ],
+                              //                 scrollable: true,
+                              //               );
+                              //             });
+                              //       },
+                              //       child: Text("Reject"),
+                              //     ),
+                              //   ],
+                              // )
                             ],
                           ),
                         ),
