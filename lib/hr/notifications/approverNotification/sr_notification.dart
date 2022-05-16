@@ -233,7 +233,7 @@ class _SR_notificationState extends State<SR_notification> {
                               FlatButton(
                                 color: Colors.lightBlueAccent,
                                 onPressed: () async {
-                                  Navigator.push(
+                                  final result = await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
@@ -247,9 +247,12 @@ class _SR_notificationState extends State<SR_notification> {
                                                     .data![index].xstatustor,
                                                 xstaff: widget.xstaff,
                                               )));
-                                  setState(() {
-                                    snapshot.data!.removeAt(index);
-                                  });
+                                  if (result.toString() == "approval") {
+                                    debugPrint("pressed");
+                                    setState(() {
+                                      snapshot.data!.removeAt(index);
+                                    });
+                                  }
                                 },
                                 child: Center(child: Text("Details")),
                               ),

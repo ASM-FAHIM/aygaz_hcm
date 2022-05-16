@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:aygazhcm/hr/notifications/approverNotification/sr_notification.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -231,8 +230,7 @@ class _SR_details_notificationState extends State<SR_details_notification> {
                                 "xposition": widget.xposition,
                                 "xtornum": widget.xtornum,
                                 "ypd": "0",
-                                " xstatustor": widget.xstatustor,
-                                "aprcs": "DO Approval"
+                                " xstatustor": widget.xstatustor
                               }));
 
                           Get.snackbar('Message', 'Approved',
@@ -240,21 +238,14 @@ class _SR_details_notificationState extends State<SR_details_notification> {
                               colorText: Colors.white,
                               snackPosition: SnackPosition.BOTTOM);
 
+                          Navigator.pop(context, "approval");
+
                           // setState(() {
                           //   snapshot.data!.removeAt(index);
                           // });
 
                           print(response.statusCode);
                           print(response.body);
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => SR_notification(
-                          //             xposition: widget.xposition,
-                          //             xstaff: widget.xstaff,
-                          //             zemail: widget.zemail,
-                          //             zid: widget.zid)));
-                          Navigator.pop(context);
                         },
                         child: Text("Approve"),
                       ),
@@ -338,16 +329,8 @@ class _SR_details_notificationState extends State<SR_details_notification> {
                                                 SnackPosition.BOTTOM);
 
                                         //ager page a back korbo
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    SR_notification(
-                                                        xposition:
-                                                            widget.xposition,
-                                                        xstaff: widget.xstaff,
-                                                        zemail: widget.zemail,
-                                                        zid: widget.zid)));
+                                        Navigator.pop(context);
+                                        Navigator.pop(context, "approval");
 
                                         //   setState(() {
                                         //     snapshot.data!.removeAt(index);
