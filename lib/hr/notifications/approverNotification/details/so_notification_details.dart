@@ -69,7 +69,7 @@ class _SO_details_notificationState extends State<SO_details_notification> {
         ),
         title: Center(
           child: Text(
-            "BAT Details",
+            "SO Details",
             style: GoogleFonts.bakbakOne(
               fontSize: 20,
               color: Color(0xff074974),

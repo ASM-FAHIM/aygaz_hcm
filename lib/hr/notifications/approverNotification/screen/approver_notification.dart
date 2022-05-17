@@ -2509,6 +2509,9 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
               ]
             ],
           ),

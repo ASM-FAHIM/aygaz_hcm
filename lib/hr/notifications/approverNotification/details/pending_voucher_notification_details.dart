@@ -71,7 +71,7 @@ class _Pending_Voucher_details_notificationState
         ),
         title: Center(
           child: Text(
-            "BAT Details",
+            "Pending Voucher Details",
             style: GoogleFonts.bakbakOne(
               fontSize: 20,
               color: Color(0xff074974),

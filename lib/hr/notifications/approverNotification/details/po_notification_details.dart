@@ -68,7 +68,7 @@ class _PO_details_notificationState extends State<PO_details_notification> {
         ),
         title: Center(
           child: Text(
-            "BAT Details",
+            "PO Details",
             style: GoogleFonts.bakbakOne(
               fontSize: 20,
               color: Color(0xff074974),
@@ -155,7 +155,7 @@ class _PO_details_notificationState extends State<PO_details_notification> {
                                     ),
                                     Text(
                                       "Issue Unit: " +
-                                          snapshot.data![index].unitiss,
+                                          "${snapshot.data![index].unitiss}",
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
