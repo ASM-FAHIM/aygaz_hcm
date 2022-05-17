@@ -8,8 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../data_model/notification_model/admin_approver_model/details/do_details_model.dart';
-import '../../../../data_model/notification_model/admin_approver_model/details/sr_details_model.dart';
-import '../do_notification.dart';
 
 class DO_details_notification extends StatefulWidget {
   DO_details_notification(
@@ -45,7 +43,7 @@ class _DO_details_notificationState extends State<DO_details_notification> {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
       return parsed
-          .map<DoDetailsModel>((json) => SrDetailsModel.fromJson(json))
+          .map<DoDetailsModel>((json) => DoDetailsModel.fromJson(json))
           .toList();
     } else {
       throw Exception('Failed to load album');
@@ -71,7 +69,7 @@ class _DO_details_notificationState extends State<DO_details_notification> {
         ),
         title: Center(
           child: Text(
-            "Pending SR Details",
+            "DO Details",
             style: GoogleFonts.bakbakOne(
               fontSize: 20,
               color: Color(0xff074974),
@@ -239,7 +237,7 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                               colorText: Colors.white,
                               snackPosition: SnackPosition.BOTTOM);
 
-                          Navigator.pop(context);
+                          Navigator.pop(context, "approval");
 
                           // setState(() {
                           //   snapshot.data!.removeAt(index);
@@ -315,13 +313,11 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                               "zid": widget.zid,
                                               "user": widget.zemail,
                                               "xposition": widget.xposition,
-                                              "wh": "0",
                                               "xdornum": widget.xdornum,
+                                              "wh": "0",
                                               "xnote1": rejectNote
                                             }));
-                                        print(response.statusCode);
-                                        print(response.body);
-                                        Navigator.pop(context);
+
                                         debugPrint(rejectNote.toString());
                                         Get.snackbar('Message', 'Rejected',
                                             backgroundColor: Color(0XFF8CA6DB),
@@ -329,17 +325,8 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                             snackPosition:
                                                 SnackPosition.BOTTOM);
 
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DO_notification(
-                                                      xposition:
-                                                          widget.xposition,
-                                                      xstaff: widget.xstaff,
-                                                      zemail: widget.zemail,
-                                                      zid: widget.zid,
-                                                    )));
+                                        Navigator.pop(context);
+                                        Navigator.pop(context, "approval");
 
                                         // setState(() {
                                         //   snapshot.data!.removeAt(index);

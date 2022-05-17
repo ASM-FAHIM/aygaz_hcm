@@ -7,6 +7,7 @@ import 'package:aygazhcm/hr/notifications/approverNotification/grn_notification.
 import 'package:aygazhcm/hr/notifications/approverNotification/pending_sales_return_approval_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/po_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/prn_notofication.dart';
+import 'package:aygazhcm/hr/notifications/approverNotification/so_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/special/other_advance_money_requi_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/spot_purchase_advance_notification.dart';
 import 'package:aygazhcm/hr/notifications/approverNotification/sqc_notification.dart';
@@ -2020,7 +2021,7 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PSRA_notification(
+                                builder: (context) => SO_notification(
                                       xposition: widget.xposition,
                                       xstaff: widget.xstaff,
                                       zemail: widget.zemail,

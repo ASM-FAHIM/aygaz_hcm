@@ -132,14 +132,14 @@ class _DO_notificationState extends State<DO_notification> {
                                             ),
                                           ),
                                           Text(
-                                            "${snapshot.data![index].preparer}",
+                                            "${snapshot.data![index].preparer ?? ""}",
                                             style: GoogleFonts.bakbakOne(
                                               fontSize: 18,
                                               //color: Color(0xff074974),
                                             ),
                                           ),
                                           Text(
-                                            "${snapshot.data![index].deptname}",
+                                            "${snapshot.data![index].deptname ?? ""}",
                                             style: GoogleFonts.bakbakOne(
                                               fontSize: 18,
                                               //color: Color(0xff074974),
@@ -214,7 +214,7 @@ class _DO_notificationState extends State<DO_notification> {
                               ),
                               Text(
                                 "Plant/Project Name: " +
-                                    "${snapshot.data![index].xwhdesc ?? " "}",
+                                    "${snapshot.data![index].xwhdesc ?? ""}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -343,7 +343,7 @@ class _DO_notificationState extends State<DO_notification> {
                               FlatButton(
                                 color: Colors.lightBlueAccent,
                                 onPressed: () async {
-                                  Navigator.push(
+                                  final result = await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
@@ -357,9 +357,12 @@ class _DO_notificationState extends State<DO_notification> {
                                                     .data![index].xstatus,
                                                 xstaff: widget.xstaff,
                                               )));
-                                  // setState(() {
-                                  //   snapshot.data!.removeAt(index);
-                                  // });
+                                  if (result.toString() == "approval") {
+                                    debugPrint("pressed");
+                                    setState(() {
+                                      snapshot.data!.removeAt(index);
+                                    });
+                                  }
                                 },
                                 child: Center(child: Text("Details")),
                               ),

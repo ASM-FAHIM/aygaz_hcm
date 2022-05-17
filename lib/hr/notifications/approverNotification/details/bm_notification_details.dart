@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../data_model/notification_model/admin_approver_model/details/bm_details_model.dart';
-import '../bm_notification.dart';
 
 class BM_details extends StatefulWidget {
   BM_details(
@@ -224,7 +223,8 @@ class _BM_detailsState extends State<BM_details> {
                               backgroundColor: Color(0XFF8CA6DB),
                               colorText: Colors.white,
                               snackPosition: SnackPosition.BOTTOM);
-                          Navigator.pop(context);
+
+                          Navigator.pop(context, "approval");
 
                           // setState(() {
                           //   snapshot.data!.removeAt(index);
@@ -312,17 +312,8 @@ class _BM_detailsState extends State<BM_details> {
                                             colorText: Colors.white,
                                             snackPosition:
                                                 SnackPosition.BOTTOM);
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BM_Notification(
-                                                      xposition:
-                                                          widget.xposition,
-                                                      xstaff: widget.xstaff,
-                                                      zemail: widget.zemail,
-                                                      zid: widget.zid,
-                                                    )));
+                                        Navigator.pop(context);
+                                        Navigator.pop(context, "approval");
 
                                         // setState(() {
                                         //   snapshot.data!.removeAt(index);

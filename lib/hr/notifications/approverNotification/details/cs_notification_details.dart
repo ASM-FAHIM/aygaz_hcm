@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:aygazhcm/hr/notifications/approverNotification/cs_notification.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -241,7 +240,8 @@ class _CS_details_notificationState extends State<CS_details_notification> {
                               backgroundColor: Color(0XFF8CA6DB),
                               colorText: Colors.white,
                               snackPosition: SnackPosition.BOTTOM);
-                          Navigator.pop(context);
+
+                          Navigator.pop(context, "approval");
 
                           // setState(() {
                           //   snapshot.data!.removeAt(index);
@@ -329,16 +329,8 @@ class _CS_details_notificationState extends State<CS_details_notification> {
                                             snackPosition:
                                                 SnackPosition.BOTTOM);
 
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    CS_notification(
-                                                        xposition:
-                                                            widget.xposition,
-                                                        xstaff: widget.xstaff,
-                                                        zemail: widget.zemail,
-                                                        zid: widget.zid)));
+                                        Navigator.pop(context);
+                                        Navigator.pop(context, "approval");
 
                                         // setState(() {
                                         //   snapshot.data!.removeAt(index);

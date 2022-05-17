@@ -268,7 +268,7 @@ class _BAT_notificationState extends State<BAT_notification> {
                               FlatButton(
                                 color: Colors.lightBlueAccent,
                                 onPressed: () async {
-                                  Navigator.push(
+                                  final result = await  Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
@@ -282,9 +282,12 @@ class _BAT_notificationState extends State<BAT_notification> {
                                                     .data![index].xstatus,
                                                 xstaff: widget.xstaff,
                                               )));
-                                  // setState(() {
-                                  //   snapshot.data!.removeAt(index);
-                                  // });
+                                  if (result.toString() == "approval") {
+                                    debugPrint("pressed");
+                                    setState(() {
+                                      snapshot.data!.removeAt(index);
+                                    });
+                                  }
                                 },
                                 child: Center(child: Text("Details")),
                               ),

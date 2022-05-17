@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../data_model/notification_model/admin_approver_model/details/bat_details_model.dart';
-import '../bat_notification.dart';
 
 class BAT_details_notification extends StatefulWidget {
   BAT_details_notification(
@@ -249,15 +248,8 @@ class _BAT_details_notificationState extends State<BAT_details_notification> {
                               backgroundColor: Color(0XFF8CA6DB),
                               colorText: Colors.white,
                               snackPosition: SnackPosition.BOTTOM);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BAT_notification(
-                                        xposition: widget.xposition,
-                                        xstaff: widget.xstaff,
-                                        zemail: widget.zemail,
-                                        zid: widget.zid,
-                                      )));
+
+                          Navigator.pop(context, "approval");
 
                           // setState(() {
                           //   snapshot.data!.removeAt(index);
@@ -339,14 +331,15 @@ class _BAT_details_notificationState extends State<BAT_details_notification> {
                                             }));
                                         print(response.statusCode);
                                         print(response.body);
-                                        Navigator.pop(context);
 
                                         Get.snackbar('Message', 'Rejected',
                                             backgroundColor: Color(0XFF8CA6DB),
                                             colorText: Colors.white,
                                             snackPosition:
                                                 SnackPosition.BOTTOM);
+
                                         Navigator.pop(context);
+                                        Navigator.pop(context, "approval");
 
                                         // setState(() {
                                         //   snapshot.data!

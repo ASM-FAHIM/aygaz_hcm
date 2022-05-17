@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../data_model/notification_model/admin_approver_model/details/spr_details_model.dart';
-import '../spr_notification.dart';
 
 class SPR_details_notification extends StatefulWidget {
   SPR_details_notification(
@@ -234,15 +233,7 @@ class _SPR_details_notificationState extends State<SPR_details_notification> {
                               colorText: Colors.white,
                               snackPosition: SnackPosition.BOTTOM);
 
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SPR_notification(
-                                        xposition: widget.xposition,
-                                        xstaff: widget.xstaff,
-                                        zemail: widget.zemail,
-                                        zid: widget.zid,
-                                      )));
+                          Navigator.pop(context, "approval");
 
                           // setState(() {
                           //   snapshot.data!.removeAt(index);
@@ -324,7 +315,6 @@ class _SPR_details_notificationState extends State<SPR_details_notification> {
                                             }));
                                         print(response.statusCode);
                                         print(response.body);
-                                        Navigator.pop(context);
 
                                         Get.snackbar('Message', 'Rejected',
                                             backgroundColor: Color(0XFF8CA6DB),
@@ -333,6 +323,7 @@ class _SPR_details_notificationState extends State<SPR_details_notification> {
                                                 SnackPosition.BOTTOM);
 
                                         Navigator.pop(context);
+                                        Navigator.pop(context, "approval");
                                       },
                                       child: Text(
                                         "Reject",
