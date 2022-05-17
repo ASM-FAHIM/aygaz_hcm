@@ -23,7 +23,7 @@ class _PRN_notificationState extends State<PRN_notification> {
   //
   // Future<List<GrnModel>> fetchPost() async {
   //   var response = await http.post(
-  //       Uri.parse('http://172.20.20.69/aygaz/notifications/grn.php'),
+  //       Uri.parse('http://172.20.20.69/aygaz/notifications/pendingPurchaseReturn.php'),
   //       body: jsonEncode(<String, String>{
   //         "xposition": widget.xposition,
   //       }));

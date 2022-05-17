@@ -235,13 +235,13 @@ class PoModel {
   dynamic xexchbuyer;
   dynamic xpreparer;
   dynamic xsignatory1;
-  Xdate xsigndate1;
+  dynamic xsigndate1;
   dynamic xsignatory2;
-  Xdate xsigndate2;
+  dynamic xsigndate2;
   dynamic xsignatory3;
-  Xdate xsigndate3;
+  dynamic xsigndate3;
   dynamic xsignatory4;
-  Xdate xsigndate4;
+  dynamic xsigndate4;
   dynamic xsignatory5;
   dynamic xsigndate5;
   dynamic xsignatory6;
@@ -370,7 +370,7 @@ class PoModel {
         xsignatory3: json["xsignatory3"],
         xsigndate3: Xdate.fromJson(json["xsigndate3"]),
         xsignatory4: json["xsignatory4"],
-        xsigndate4: Xdate.fromJson(json["xsigndate4"]),
+        xsigndate4: json["xsigndate4"],
         xsignatory5: json["xsignatory5"],
         xsigndate5: json["xsigndate5"],
         xsignatory6: json["xsignatory6"],

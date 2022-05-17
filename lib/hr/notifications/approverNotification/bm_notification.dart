@@ -216,7 +216,7 @@ class BM_notification extends State<BM_Notification> {
                               FlatButton(
                                 color: Colors.lightBlueAccent,
                                 onPressed: () async {
-                                  Navigator.push(
+                                  final result = await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => BM_details(
@@ -229,9 +229,12 @@ class BM_notification extends State<BM_Notification> {
                                                     .data![index].xstatus,
                                                 xstaff: widget.xstaff,
                                               )));
-                                  // setState(() {
-                                  //   snapshot.data!.removeAt(index);
-                                  // });
+                                  if (result.toString() == "approval") {
+                                    debugPrint("pressed");
+                                    setState(() {
+                                      snapshot.data!.removeAt(index);
+                                    });
+                                  }
                                 },
                                 child: Center(child: Text("Details")),
                               ),
