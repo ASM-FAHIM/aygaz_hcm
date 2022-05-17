@@ -1,33 +1,20 @@
 // To parse this JSON data, do
 //
-//     final poModel = poModelFromJson(jsonString);
+//     final poAdminModel = poAdminModelFromJson(jsonString);
 
 import 'dart:convert';
 
-List<PoModel> poModelFromJson(String str) =>
-    List<PoModel>.from(json.decode(str).map((x) => PoModel.fromJson(x)));
+List<PoAdminModel> poAdminModelFromJson(String str) => List<PoAdminModel>.from(
+    json.decode(str).map((x) => PoAdminModel.fromJson(x)));
 
-String poModelToJson(List<PoModel> data) =>
+String poAdminModelToJson(List<PoAdminModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class PoModel {
-  PoModel({
-    required this.pornum,
-    required this.xdate,
+class PoAdminModel {
+  PoAdminModel({
     required this.cusdesc,
-    required this.povalue,
-    required this.xcus,
     required this.org,
-    required this.xtype,
-    required this.xstatuspor,
-    required this.xproject,
-    required this.xcur,
     required this.xprojectdesc,
-    required this.xporeqnum,
-    required this.xstatus,
-    required this.xrem,
-    required this.xtypeobj,
-    required this.xnote1,
     required this.preparer,
     required this.designation,
     required this.deptname,
@@ -51,6 +38,7 @@ class PoModel {
     required this.xshipfrom,
     required this.xshipto,
     required this.xlcstatus,
+    required this.xcur,
     required this.xshipterm,
     required this.xnotify,
     required this.xsup,
@@ -60,8 +48,12 @@ class PoModel {
     required this.xbasetotamt,
     required this.xpaymentterm,
     required this.xlccharges,
+    required this.xrem,
     required this.xexch,
+    required this.xtype,
     required this.xcomm,
+    required this.xporeqnum,
+    required this.xstatuspor,
     required this.xcommodity,
     required this.xportship,
     required this.xvessel,
@@ -72,8 +64,10 @@ class PoModel {
     required this.xpiref,
     required this.xorigin,
     required this.xinvnum,
+    required this.xdate,
     required this.xpsicode,
     required this.xpsirfi,
+    required this.xtypeobj,
     required this.xyear,
     required this.xper,
     required this.xstatusjv,
@@ -96,7 +90,9 @@ class PoModel {
     required this.xregi,
     required this.xstaff,
     required this.xordernum,
+    required this.xcus,
     required this.xcpo,
+    required this.xstatus,
     required this.xtwh,
     required this.xtransport,
     required this.xdatecpo,
@@ -124,10 +120,12 @@ class PoModel {
     required this.xsuperior3,
     required this.xsignreject,
     required this.xdatereject,
+    required this.xnote1,
     required this.xbasetransport,
     required this.xstatuspaf,
     required this.xdeliloc,
     required this.xrptcount,
+    required this.xproject,
     required this.xporef,
     required this.xemname,
     required this.xcontactphn,
@@ -141,22 +139,9 @@ class PoModel {
     required this.xnote3,
   });
 
-  dynamic pornum;
-  Xdate xdate;
   dynamic cusdesc;
-  dynamic povalue;
-  dynamic xcus;
   dynamic org;
-  dynamic xtype;
-  dynamic xstatuspor;
-  dynamic xproject;
-  dynamic xcur;
   dynamic xprojectdesc;
-  dynamic xporeqnum;
-  dynamic xstatus;
-  dynamic xrem;
-  dynamic xtypeobj;
-  dynamic xnote1;
   dynamic preparer;
   dynamic designation;
   dynamic deptname;
@@ -180,6 +165,7 @@ class PoModel {
   dynamic xshipfrom;
   dynamic xshipto;
   dynamic xlcstatus;
+  dynamic xcur;
   dynamic xshipterm;
   dynamic xnotify;
   dynamic xsup;
@@ -189,8 +175,12 @@ class PoModel {
   dynamic xbasetotamt;
   dynamic xpaymentterm;
   dynamic xlccharges;
+  dynamic xrem;
   dynamic xexch;
+  dynamic xtype;
   dynamic xcomm;
+  dynamic xporeqnum;
+  dynamic xstatuspor;
   dynamic xcommodity;
   dynamic xportship;
   dynamic xvessel;
@@ -201,8 +191,10 @@ class PoModel {
   dynamic xpiref;
   dynamic xorigin;
   dynamic xinvnum;
+  Xdate xdate;
   dynamic xpsicode;
   dynamic xpsirfi;
+  dynamic xtypeobj;
   int xyear;
   int xper;
   dynamic xstatusjv;
@@ -225,7 +217,9 @@ class PoModel {
   dynamic xregi;
   dynamic xstaff;
   dynamic xordernum;
+  dynamic xcus;
   dynamic xcpo;
+  dynamic xstatus;
   dynamic xtwh;
   dynamic xtransport;
   dynamic xdatecpo;
@@ -252,11 +246,13 @@ class PoModel {
   dynamic xsuperior2;
   dynamic xsuperior3;
   dynamic xsignreject;
-  dynamic xdatereject;
+  Xdate xdatereject;
+  dynamic xnote1;
   dynamic xbasetransport;
   dynamic xstatuspaf;
   dynamic xdeliloc;
   dynamic xrptcount;
+  dynamic xproject;
   dynamic xporef;
   dynamic xemname;
   dynamic xcontactphn;
@@ -269,23 +265,10 @@ class PoModel {
   dynamic xnote2;
   dynamic xnote3;
 
-  factory PoModel.fromJson(Map<String, dynamic> json) => PoModel(
-        pornum: json["pornum"],
-        xdate: Xdate.fromJson(json["xdate"]),
+  factory PoAdminModel.fromJson(Map<String, dynamic> json) => PoAdminModel(
         cusdesc: json["cusdesc"],
-        povalue: json["povalue"],
-        xcus: json["xcus"],
         org: json["org"],
-        xtype: json["xtype"],
-        xstatuspor: json["xstatuspor"],
-        xproject: json["xproject"],
-        xcur: json["xcur"],
         xprojectdesc: json["xprojectdesc"],
-        xporeqnum: json["xporeqnum"],
-        xstatus: json["xstatus"],
-        xrem: json["xrem"],
-        xtypeobj: json["xtypeobj"],
-        xnote1: json["xnote1"],
         preparer: json["preparer"],
         designation: json["designation"],
         deptname: json["deptname"],
@@ -309,6 +292,7 @@ class PoModel {
         xshipfrom: json["xshipfrom"],
         xshipto: json["xshipto"],
         xlcstatus: json["xlcstatus"],
+        xcur: json["xcur"],
         xshipterm: json["xshipterm"],
         xnotify: json["xnotify"],
         xsup: json["xsup"],
@@ -318,8 +302,12 @@ class PoModel {
         xbasetotamt: json["xbasetotamt"],
         xpaymentterm: json["xpaymentterm"],
         xlccharges: json["xlccharges"],
+        xrem: json["xrem"],
         xexch: json["xexch"],
+        xtype: json["xtype"],
         xcomm: json["xcomm"],
+        xporeqnum: json["xporeqnum"],
+        xstatuspor: json["xstatuspor"],
         xcommodity: json["xcommodity"],
         xportship: json["xportship"],
         xvessel: json["xvessel"],
@@ -330,8 +318,10 @@ class PoModel {
         xpiref: json["xpiref"],
         xorigin: json["xorigin"],
         xinvnum: json["xinvnum"],
+        xdate: Xdate.fromJson(json["xdate"]),
         xpsicode: json["xpsicode"],
         xpsirfi: json["xpsirfi"],
+        xtypeobj: json["xtypeobj"],
         xyear: json["xyear"],
         xper: json["xper"],
         xstatusjv: json["xstatusjv"],
@@ -354,7 +344,9 @@ class PoModel {
         xregi: json["xregi"],
         xstaff: json["xstaff"],
         xordernum: json["xordernum"],
+        xcus: json["xcus"],
         xcpo: json["xcpo"],
+        xstatus: json["xstatus"],
         xtwh: json["xtwh"],
         xtransport: json["xtransport"],
         xdatecpo: json["xdatecpo"],
@@ -364,11 +356,11 @@ class PoModel {
         xexchbuyer: json["xexchbuyer"],
         xpreparer: json["xpreparer"],
         xsignatory1: json["xsignatory1"],
-        xsigndate1: Xdate.fromJson(json["xsigndate1"]),
+        xsigndate1: json["xsigndate1"],
         xsignatory2: json["xsignatory2"],
-        xsigndate2: Xdate.fromJson(json["xsigndate2"]),
+        xsigndate2: json["xsigndate2"],
         xsignatory3: json["xsignatory3"],
-        xsigndate3: Xdate.fromJson(json["xsigndate3"]),
+        xsigndate3: json["xsigndate3"],
         xsignatory4: json["xsignatory4"],
         xsigndate4: json["xsigndate4"],
         xsignatory5: json["xsignatory5"],
@@ -381,11 +373,13 @@ class PoModel {
         xsuperior2: json["xsuperior2"],
         xsuperior3: json["xsuperior3"],
         xsignreject: json["xsignreject"],
-        xdatereject: json["xdatereject"],
+        xdatereject: Xdate.fromJson(json["xdatereject"]),
+        xnote1: json["xnote1"],
         xbasetransport: json["xbasetransport"],
         xstatuspaf: json["xstatuspaf"],
         xdeliloc: json["xdeliloc"],
         xrptcount: json["xrptcount"],
+        xproject: json["xproject"],
         xporef: json["xporef"],
         xemname: json["xemname"],
         xcontactphn: json["xcontactphn"],
@@ -400,22 +394,9 @@ class PoModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "pornum": pornum,
-        "xdate": xdate.toJson(),
         "cusdesc": cusdesc,
-        "povalue": povalue,
-        "xcus": xcus,
         "org": org,
-        "xtype": xtype,
-        "xstatuspor": xstatuspor,
-        "xproject": xproject,
-        "xcur": xcur,
         "xprojectdesc": xprojectdesc,
-        "xporeqnum": xporeqnum,
-        "xstatus": xstatus,
-        "xrem": xrem,
-        "xtypeobj": xtypeobj,
-        "xnote1": xnote1,
         "preparer": preparer,
         "designation": designation,
         "deptname": deptname,
@@ -439,6 +420,7 @@ class PoModel {
         "xshipfrom": xshipfrom,
         "xshipto": xshipto,
         "xlcstatus": xlcstatus,
+        "xcur": xcur,
         "xshipterm": xshipterm,
         "xnotify": xnotify,
         "xsup": xsup,
@@ -448,8 +430,12 @@ class PoModel {
         "xbasetotamt": xbasetotamt,
         "xpaymentterm": xpaymentterm,
         "xlccharges": xlccharges,
+        "xrem": xrem,
         "xexch": xexch,
+        "xtype": xtype,
         "xcomm": xcomm,
+        "xporeqnum": xporeqnum,
+        "xstatuspor": xstatuspor,
         "xcommodity": xcommodity,
         "xportship": xportship,
         "xvessel": xvessel,
@@ -460,8 +446,10 @@ class PoModel {
         "xpiref": xpiref,
         "xorigin": xorigin,
         "xinvnum": xinvnum,
+        "xdate": xdate.toJson(),
         "xpsicode": xpsicode,
         "xpsirfi": xpsirfi,
+        "xtypeobj": xtypeobj,
         "xyear": xyear,
         "xper": xper,
         "xstatusjv": xstatusjv,
@@ -484,7 +472,9 @@ class PoModel {
         "xregi": xregi,
         "xstaff": xstaff,
         "xordernum": xordernum,
+        "xcus": xcus,
         "xcpo": xcpo,
+        "xstatus": xstatus,
         "xtwh": xtwh,
         "xtransport": xtransport,
         "xdatecpo": xdatecpo,
@@ -494,13 +484,13 @@ class PoModel {
         "xexchbuyer": xexchbuyer,
         "xpreparer": xpreparer,
         "xsignatory1": xsignatory1,
-        "xsigndate1": xsigndate1.toJson(),
+        "xsigndate1": xsigndate1,
         "xsignatory2": xsignatory2,
-        "xsigndate2": xsigndate2.toJson(),
+        "xsigndate2": xsigndate2,
         "xsignatory3": xsignatory3,
-        "xsigndate3": xsigndate3.toJson(),
+        "xsigndate3": xsigndate3,
         "xsignatory4": xsignatory4,
-        "xsigndate4": xsigndate4.toJson(),
+        "xsigndate4": xsigndate4,
         "xsignatory5": xsignatory5,
         "xsigndate5": xsigndate5,
         "xsignatory6": xsignatory6,
@@ -511,11 +501,13 @@ class PoModel {
         "xsuperior2": xsuperior2,
         "xsuperior3": xsuperior3,
         "xsignreject": xsignreject,
-        "xdatereject": xdatereject,
+        "xdatereject": xdatereject.toJson(),
+        "xnote1": xnote1,
         "xbasetransport": xbasetransport,
         "xstatuspaf": xstatuspaf,
         "xdeliloc": xdeliloc,
         "xrptcount": xrptcount,
+        "xproject": xproject,
         "xporef": xporef,
         "xemname": xemname,
         "xcontactphn": xcontactphn,

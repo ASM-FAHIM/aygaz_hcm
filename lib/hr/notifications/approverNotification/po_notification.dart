@@ -31,13 +31,13 @@ class PO_WO_approval_NotificationList extends StatefulWidget {
 class _PO_WO_approval_NotificationListState
     extends State<PO_WO_approval_NotificationList> {
   @override
-  Future<List<PoModel>>? futurePost;
+  Future<List<PoAdminModel>>? futurePost;
 
   String rejectNote = " ";
 
-  Future<List<PoModel>> fetchPost() async {
+  Future<List<PoAdminModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/po.php'),
+        Uri.parse('http://172.20.20.69/aygaz/notifications/povalue.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -47,7 +47,9 @@ class _PO_WO_approval_NotificationListState
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<PoModel>((json) => PoModel.fromJson(json)).toList();
+      return parsed
+          .map<PoAdminModel>((json) => PoAdminModel.fromJson(json))
+          .toList();
     } else {
       throw Exception('Failed to load album');
     }
@@ -105,7 +107,7 @@ class _PO_WO_approval_NotificationListState
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: FutureBuilder<List<PoModel>>(
+        child: FutureBuilder<List<PoAdminModel>>(
           future: futurePost,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -232,16 +234,16 @@ class _PO_WO_approval_NotificationListState
                                   //color: Color(0xff074974),
                                 ),
                               ),
-                              Text(
-                                "PO Value: " +
-                                    "${snapshot.data![index].povalue}" +
-                                    " " +
-                                    "${snapshot.data![index].xcur}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
+                              // Text(
+                              //   "PO Value: " +
+                              //       "${snapshot.data![index].povalue}" +
+                              //       " " +
+                              //       "${snapshot.data![index].xcur}",
+                              //   style: GoogleFonts.bakbakOne(
+                              //     fontSize: 18,
+                              //     //color: Color(0xff074974),
+                              //   ),
+                              // ),
                               Text(
                                 "Approval Status: " +
                                     "${snapshot.data![index].xstatus}",
