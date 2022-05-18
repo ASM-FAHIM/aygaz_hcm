@@ -137,24 +137,6 @@ class _GRN_details_notificationState extends State<GRN_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    // Text(
-                                    //   "Item:" +
-                                    //       " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
-                                    //   textAlign: TextAlign.center,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
-                                    // Text(
-                                    //   "Required By Date:" +
-                                    //       " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdatereq.date).toString()))}",
-                                    //   textAlign: TextAlign.center,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
                                     Text(
                                       "Item: " + snapshot.data![index].xitem,
                                       style: GoogleFonts.bakbakOne(
@@ -171,15 +153,6 @@ class _GRN_details_notificationState extends State<GRN_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    Text(
-                                      "Part No: " +
-                                          "${snapshot.data![index].partno}",
-                                      style: GoogleFonts.bakbakOne(
-                                        fontSize: 18,
-                                        //color: Color(0xff074974),
-                                      ),
-                                    ),
-                                    //
                                     Text(
                                       "Requirement Qty: " +
                                           "${snapshot.data![index].xqtygrn}",
@@ -207,20 +180,12 @@ class _GRN_details_notificationState extends State<GRN_details_notification> {
                                       ),
                                     ),
                                     Text(
-                                      "Unit: " + snapshot.data![index].xqtyrec,
+                                      "Unit: " + snapshot.data![index].xunitpur,
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
-                                    // Text(
-                                    //   "Justification:" + snapshot.data![index].xlong,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                               ),

@@ -108,40 +108,32 @@ class _CS_details_notificationState extends State<CS_details_notification> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "${snapshot.data![index].xporeqnum}",
-                                      style: GoogleFonts.bakbakOne(
-                                        fontSize: 18,
-                                        //color: Color(0xff074974),
-                                      ),
-                                    ),
-
-                                    Text(
-                                      "Line No: " +
-                                          "${snapshot.data![index].xrow}",
+                                      "Quotation: " +
+                                          "${snapshot.data![index].xqotnum ?? ""}",
                                       textAlign: TextAlign.center,
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    // Text(
-                                    //   "Item:" +
-                                    //       " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
-                                    //   textAlign: TextAlign.center,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
-                                    // Text(
-                                    //   "Required By Date:" +
-                                    //       " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdatereq.date).toString()))}",
-                                    //   textAlign: TextAlign.center,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
+                                    Text(
+                                      "Specification: " +
+                                          "${snapshot.data![index].xspec}",
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.bakbakOne(
+                                        fontSize: 18,
+                                        //color: Color(0xff074974),
+                                      ),
+                                    ),
+                                    Text(
+                                      "Qty Req: " +
+                                          "${snapshot.data![index].xqtyreq}"
+                                              " ${snapshot.data![index].xunitpur}",
+                                      style: GoogleFonts.bakbakOne(
+                                        fontSize: 18,
+                                        //color: Color(0xff074974),
+                                      ),
+                                    ),
                                     Text(
                                       "Item: " + snapshot.data![index].xitem,
                                       style: GoogleFonts.bakbakOne(
@@ -149,66 +141,29 @@ class _CS_details_notificationState extends State<CS_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
                                     Text(
-                                      "Description: " +
-                                          "${snapshot.data![index].xdesc ?? "  "}",
+                                      "Item Name: " +
+                                          "${snapshot.data![index].xdesc1}",
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
                                     Text(
-                                      "Unit: " +
-                                          "${snapshot.data![index].xunitpur}",
+                                      "Rate: " + snapshot.data![index].xrate,
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
                                     Text(
-                                      "Qty Req: " +
-                                          snapshot.data![index].xqtyapv1,
+                                      "Line Amount: " +
+                                          snapshot.data![index].xlineamt,
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
-                                    // Text(
-                                    //   "Available Qty: " +
-                                    //       snapshot.data![index].xqtypor,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
-                                    // Text(
-                                    //   "Available Qty: " +
-                                    //       snapshot.data![index].xqtyord1,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
-                                    // Text(
-                                    //   "Available Qty: " +
-                                    //       snapshot.data![index].xunitpur,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
-                                    //
-                                    // Text(
-                                    //   "Justification:" + snapshot.data![index].xlong,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                               ),

@@ -148,7 +148,7 @@ class _CS_notificationState extends State<CS_notification> {
                             ),
                             children: <Widget>[
                               Text(
-                                "Requisition Number:" +
+                                "Requisition Number: " +
                                     "${snapshot.data![index].xporeqnum}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -156,7 +156,7 @@ class _CS_notificationState extends State<CS_notification> {
                                 ),
                               ),
                               Text(
-                                "Date : " +
+                                "Date: " +
                                     "${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -164,7 +164,7 @@ class _CS_notificationState extends State<CS_notification> {
                                 ),
                               ),
                               Text(
-                                "Request Status : " +
+                                "Request Status: " +
                                     "${snapshot.data![index].xstatusreq}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
