@@ -170,6 +170,32 @@ class _PO_WO_approval_NotificationListState
                                 ),
                               ),
                               Text(
+                                "PO Value: " +
+                                    " ${snapshot.data![index].xtotamt}"
+                                        " ${snapshot.data![index].xcur}",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "VAT Amount: " +
+                                    "${snapshot.data![index].xvatamt}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
+                                "VAT Rate: " +
+                                    "${snapshot.data![index].xvatrate}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+                              Text(
                                 "Purchase Date: " +
                                     "${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
                                 textAlign: TextAlign.center,
@@ -213,14 +239,6 @@ class _PO_WO_approval_NotificationListState
                               Text(
                                 "Project:" +
                                     "${snapshot.data![index].xproject}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Project Name: " +
-                                    "${snapshot.data![index].xprojectdesc ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
