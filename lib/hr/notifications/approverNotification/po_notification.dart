@@ -213,7 +213,7 @@ class _PO_WO_approval_NotificationListState
                                 ),
                               ),
                               Text(
-                                "Supplier Name:" +
+                                "Supplier Name: " +
                                     "${snapshot.data![index].org}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -231,14 +231,6 @@ class _PO_WO_approval_NotificationListState
                               Text(
                                 "PO Status: " +
                                     "${snapshot.data![index].xstatuspor}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Project:" +
-                                    "${snapshot.data![index].xproject}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),

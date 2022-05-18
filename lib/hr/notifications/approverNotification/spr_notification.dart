@@ -184,7 +184,7 @@ class _SPR_notificationState extends State<SPR_notification> {
                                 ),
                               ),
                               Text(
-                                "From Store Name:" +
+                                "From Store Name: " +
                                     "${snapshot.data![index].xfbrname ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -199,7 +199,7 @@ class _SPR_notificationState extends State<SPR_notification> {
                                 ),
                               ),
                               Text(
-                                "Department Name:" +
+                                "Department Name: " +
                                     "${snapshot.data![index].xregi}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -215,7 +215,7 @@ class _SPR_notificationState extends State<SPR_notification> {
                                 ),
                               ),
                               Text(
-                                "Justification:" +
+                                "Justification: " +
                                     "${snapshot.data![index].xlong}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
