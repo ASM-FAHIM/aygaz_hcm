@@ -104,7 +104,6 @@ class _PO_details_notificationState extends State<PO_details_notification> {
                               Container(
                                 width: MediaQuery.of(context).size.width,
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -114,14 +113,14 @@ class _PO_details_notificationState extends State<PO_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    Text(
-                                      "Row: " + "${snapshot.data![index].xrow}",
-                                      textAlign: TextAlign.center,
-                                      style: GoogleFonts.bakbakOne(
-                                        fontSize: 18,
-                                        //color: Color(0xff074974),
-                                      ),
-                                    ),
+                                    // Text(
+                                    //   "Row: " + "${snapshot.data![index].xrow}",
+                                    //   textAlign: TextAlign.center,
+                                    //   style: GoogleFonts.bakbakOne(
+                                    //     fontSize: 18,
+                                    //     //color: Color(0xff074974),
+                                    //   ),
+                                    // ),
                                     Text(
                                       "Item: " +
                                           "${snapshot.data![index].xitem}",
@@ -202,14 +201,6 @@ class _PO_details_notificationState extends State<PO_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
-                                    // Text(
-                                    //   "Justification:" + snapshot.data![index].xlong,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                               ),

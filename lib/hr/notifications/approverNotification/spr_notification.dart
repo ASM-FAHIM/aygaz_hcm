@@ -104,7 +104,7 @@ class _SPR_notificationState extends State<SPR_notification> {
                     children: [
                       Card(
                         child: Padding(
-                          padding: EdgeInsets.only(left: 5, bottom: 10.0),
+                          padding: EdgeInsets.only(left: 15, bottom: 6.0),
                           child: ExpansionTile(
                             expandedCrossAxisAlignment:
                                 CrossAxisAlignment.start,
@@ -207,24 +207,8 @@ class _SPR_notificationState extends State<SPR_notification> {
                                 ),
                               ),
                               Text(
-                                "Unit: " +
-                                    "${snapshot.data![index].xempunit ?? " "}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
                                 "Justification: " +
                                     "${snapshot.data![index].xlong}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "SR Status:" +
-                                    "${snapshot.data![index].xstatustor}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -249,14 +233,6 @@ class _SPR_notificationState extends State<SPR_notification> {
                               Text(
                                 "Requisition Type: " +
                                     "${snapshot.data![index].xtypeobj}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Shift Name: " +
-                                    "${snapshot.data![index].xshift}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),

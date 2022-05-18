@@ -116,7 +116,8 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                       ),
                                     ),
                                     Text(
-                                      "Row No:" "${snapshot.data![index].xrow}",
+                                      "Row No: "
+                                      "${snapshot.data![index].xrow}",
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
@@ -130,7 +131,6 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-
                                     Text(
                                       "Description: " +
                                           "${snapshot.data![index].descr ?? "  "}",
@@ -139,24 +139,6 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    // Text(
-                                    //   "Item:" +
-                                    //       " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))}",
-                                    //   textAlign: TextAlign.center,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
-                                    // Text(
-                                    //   "Required By Date:" +
-                                    //       " ${DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdatereq.date).toString()))}",
-                                    //   textAlign: TextAlign.center,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
                                     Text(
                                       "Qty: " + snapshot.data![index].xqtyord,
                                       style: GoogleFonts.bakbakOne(
@@ -164,16 +146,6 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
-                                    Text(
-                                      "Part No: " +
-                                          "${snapshot.data![index].xqty ?? ""}",
-                                      style: GoogleFonts.bakbakOne(
-                                        fontSize: 18,
-                                        //color: Color(0xff074974),
-                                      ),
-                                    ),
-                                    //
                                     Text(
                                       "Unit: " + snapshot.data![index].xunit,
                                       style: GoogleFonts.bakbakOne(
@@ -181,7 +153,6 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
                                     Text(
                                       "Rate: " + snapshot.data![index].xrate,
                                       style: GoogleFonts.bakbakOne(
@@ -197,14 +168,6 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    //
-                                    // Text(
-                                    //   "Justification:" + snapshot.data![index].xlong,
-                                    //   style: GoogleFonts.bakbakOne(
-                                    //     fontSize: 18,
-                                    //     //color: Color(0xff074974),
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                               ),

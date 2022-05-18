@@ -164,7 +164,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
                               ),
                               Text(
                                 "Reference : " +
-                                    "${snapshot.data![index].xref}",
+                                    "${snapshot.data![index].xref ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
@@ -178,29 +178,15 @@ class _Pending_voucherState extends State<Pending_voucher> {
                                 ),
                               ),
                               Text(
-                                "Project : " + "${snapshot.data![index].xwh}",
+                                "Cheque Number: " +
+                                    "${snapshot.data![index].xchequeno ?? ""}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Project Name : ${snapshot.data![index].xwhdec ?? " "}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Cheque Number:" +
-                                    "${snapshot.data![index].xchequeno}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Date:" +
+                                "Date: " +
                                     "${snapshot.data![index].xdatechq ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -208,7 +194,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
                                 ),
                               ),
                               Text(
-                                "Bank:" +
+                                "Bank: " +
                                     "${snapshot.data![index].xbank ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -223,21 +209,31 @@ class _Pending_voucherState extends State<Pending_voucher> {
                                 ),
                               ),
                               Text(
-                                "Year:" + "${snapshot.data![index].xyear}",
+                                "Period: " + "${snapshot.data![index].xper}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Period:" + "${snapshot.data![index].xper}",
+                                "Account Division: " +
+                                    "${snapshot.data![index].xwhdec ?? ""}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               Text(
-                                "Status:" +
+                                "Account year: " +
+                                    "${snapshot.data![index].xyear}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
+                              ),
+
+                              Text(
+                                "Status: " +
                                     "${snapshot.data![index].xstatusjv}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -245,7 +241,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
                                 ),
                               ),
                               Text(
-                                "Approval Status:" +
+                                "Approval Status: " +
                                     "${snapshot.data![index].xstatus}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -253,7 +249,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
                                 ),
                               ),
                               Text(
-                                "Long Description:" +
+                                "Long Description: " +
                                     "${snapshot.data![index].xlong}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,

@@ -160,7 +160,7 @@ class _Pending_Voucher_details_notificationState
                                     ),
                                     Text(
                                       "Cost Center: " +
-                                          "${snapshot.data![index].costcenter}",
+                                          "${snapshot.data![index].costcenter ?? ""}",
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
@@ -168,7 +168,7 @@ class _Pending_Voucher_details_notificationState
                                     ),
                                     Text(
                                       "Business Center: " +
-                                          "${snapshot.data![index].businesscenter}",
+                                          "${snapshot.data![index].businesscenter ?? ""}",
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),

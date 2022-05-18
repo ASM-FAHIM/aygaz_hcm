@@ -181,7 +181,7 @@ class _DO_notificationState extends State<DO_notification> {
                                 ),
                               ),
                               Text(
-                                "Customer ID:" +
+                                "Customer ID: " +
                                     "${snapshot.data![index].xcus}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -213,15 +213,7 @@ class _DO_notificationState extends State<DO_notification> {
                                 ),
                               ),
                               Text(
-                                "Plant/Project Name: " +
-                                    "${snapshot.data![index].xwhdesc ?? ""}",
-                                style: GoogleFonts.bakbakOne(
-                                  fontSize: 18,
-                                  //color: Color(0xff074974),
-                                ),
-                              ),
-                              Text(
-                                "Sub Category:" +
+                                "Sub Category: " +
                                     "${snapshot.data![index].xsubcat}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
@@ -246,7 +238,7 @@ class _DO_notificationState extends State<DO_notification> {
                                 ),
                               ),
                               Text(
-                                "Thana:" + "${snapshot.data![index].xthanaop}",
+                                "Thana: " + "${snapshot.data![index].xthanaop}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
