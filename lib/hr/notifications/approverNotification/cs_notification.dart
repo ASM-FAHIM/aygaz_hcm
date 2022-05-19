@@ -219,7 +219,7 @@ class _CS_notificationState extends State<CS_notification> {
                                     });
                                   }
                                 },
-                                child: Center(child: Text("Details")),
+                                child: const Center(child: Text("Details")),
                               ),
                               // Row(
                               //   mainAxisAlignment: MainAxisAlignment.center,
@@ -383,7 +383,7 @@ class _CS_notificationState extends State<CS_notification> {
                 ),
               );
             } else {
-              return Center(
+              return const Center(
                 child: Image(image: AssetImage("images/loading.gif")),
               );
             }
