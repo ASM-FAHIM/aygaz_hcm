@@ -57,136 +57,243 @@ class _AdminNotificationState extends State<AdminNotification> {
   //   }
   // }
 
-  String earlyCount = "0";
-  late AdminEarlyCount earlyCount1;
+  String po_Count = "0";
+  late PoModel po_Count1;
 
-  String lateCount = "0";
-  late AdminLateCount lateCount1;
+  String cs_Count = "0";
+  late CsModel cs_Count1;
 
-  String leaveCount = "0";
-  late AdminleaveCount leaveCount1;
+  String sr_Count = "0";
+  late SrModel sr_Count1;
 
-  String absentCount = "0";
-  late AdminAbsentCount absentCount1;
+  String pendingVoucher_Count = "0";
+  late PendingVoucherModel pendingVoucher_Count1;
 
-  String POCount = "0";
-  late AdminPoCount POCount1;
+  String spr_Count = "0";
+  late SprModel spr_Count1;
 
-  String SRCount = "0";
-  late AdminSrCount SRCount1;
+  String spa_Count = "0";
+  late SpaModel spa_Count1;
 
-  String CSCount = "0";
-  late AdminCsCount CSCount1;
+  String grn_Count = "0";
+  late GrnModel grn_Count1;
 
-  String LACount = "0";
-  late AdminLaCount LACount1;
+  String sqc_Count = "0";
+  late SqcModel sqc_Count1;
 
-  String LFACount = "0";
-  late AdminLfaCount LFACount1;
+  String prn_Count = "0";
+  late PrnModel prn_Count1;
+
+  String so_Count = "0";
+  late SoModel so_Count1;
+
+  String do_Count = "0";
+  late DoModel do_Count1;
+
+  String salesReturn_Count = "0";
+  late SalesReturnModel salesReturn_Count1;
+
+  String bm_Count = "0";
+  late BomModel bm_Count1;
+
+  String bmp_Count = "0";
+  late BmpModel bmp_Count1;
+
+  String batp_Count = "0";
+  late BatpModel batp_Count1;
+
+  String bat_Count = "0";
+  late BatModel bat_Count1;
 
   bool isLoading = false;
 
   Future<String> getAdminNotificaitonCount() async {
-    http.Response responseearly = await http.post(
-        Uri.parse('http://172.20.20.69/api/smallapi/admin/totalearly.php'),
+    http.Response responseCS = await http.post(
+        Uri.parse('http://172.20.20.69/aygaz/notifications/cs_count.php'),
         body: jsonEncode(<String, String>{"xposition": widget.xposition}));
 
     http: //172.20.20.69/api/smallapi/admin/totalpo.php
 
-    earlyCount1 = adminEarlyCountFromJson(responseearly.body);
-    earlyCount = earlyCount1.total.toString();
+    cs_Count1 = csModelFromJson(responseCS.body);
+    cs_Count = cs_Count1.total.toString();
 
-    print("Admin Early" + responseearly.body);
+    print("Admin Early" + responseCS.body);
 
-    http.Response responselate = await http.post(
-        Uri.parse('http://172.20.20.69/api/smallapi/admin/totallate.php'),
-        body: jsonEncode(<String, String>{"xposition": widget.xposition}));
+    http.Response responseGRN = await http.post(
+        Uri.parse('http://172.20.20.69/aygaz/notifications/grn_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
 
-    lateCount1 = adminLateCountFromJson(responselate.body);
-    lateCount = lateCount1.total.toString();
+    grn_Count1 = grnModelFromJson(responseGRN.body);
+    grn_Count = grn_Count1.total.toString();
 
-    print("Admin late" + responselate.body);
+    print("Admin late" + responseGRN.body);
 
-    http.Response responseleave = await http.post(
+    http.Response responseBM = await http.post(
         Uri.parse(
-            'http://172.20.20.69/api/smallapi/admin/totalleaveandtour.php'),
-        body: jsonEncode(<String, String>{"xposition": widget.xposition}));
+            'http://172.20.20.69/aygaz/notifications/pendingBOM_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
 
-    leaveCount1 = adminleaveCountFromJson(responseleave.body);
-    leaveCount = leaveCount1.total.toString();
+    bm_Count1 = bomModelFromJson(responseBM.body);
+    bm_Count = bm_Count1.total.toString();
 
-    print("Admin Leave" + responseleave.body);
+    print("Admin Leave" + responseBM.body);
 
-    http.Response responseabsent = await http.post(
-        Uri.parse('http://172.20.20.69/api/smallapi/admin/totalabsent.php'),
-        body: jsonEncode(<String, String>{"xposition": widget.xposition}));
+    http.Response responseaBAT = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/pendingBatch_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
 
-    absentCount1 = adminAbsentCountFromJson(responseabsent.body);
-    absentCount = absentCount1.total.toString();
+    bat_Count1 = batModelFromJson(responseaBAT.body);
+    bat_Count = bat_Count1.total.toString();
 
-    print("Admin Absent" + responseabsent.body);
+    print("Admin Absent" + responseaBAT.body);
+
+    http.Response responseDO = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/pendingInvoice_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    do_Count1 = doModelFromJson(responseDO.body);
+    do_Count = do_Count1.total.toString();
+
+    print("Admin PO" + responseDO.body);
+
+    http.Response responsePRN = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/pendingPurchaseReturn_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    prn_Count1 = prnModelFromJson(responsePRN.body);
+    prn_Count = prn_Count1.total.toString();
+
+    print("Admin SR" + responsePRN.body);
+
+    http.Response responseBATP = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/PendingPreProcessBatch_Count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    batp_Count1 = batpModelFromJson(responseBATP.body);
+    batp_Count = batp_Count1.total.toString();
+
+    print("Admin CS" + responseBATP.body);
+
+    http.Response responseSO = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/PendingSalesOrder_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    so_Count1 = soModelFromJson(responseSO.body);
+    so_Count = so_Count1.total.toString();
+
+    print("Admin LA" + responseSO.body);
+
+    http.Response responseSalesReturn = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/PendingSalesReturn_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    salesReturn_Count1 = salesReturnModelFromJson(responseSalesReturn.body);
+    salesReturn_Count = salesReturn_Count1.total.toString();
+
+    print("Admin LFA" + responseSalesReturn.body);
+
+    http.Response responsePendingVoucher = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/pendingVoucher_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    pendingVoucher_Count1 =
+        pendingVoucherModelFromJson(responsePendingVoucher.body);
+    pendingVoucher_Count = pendingVoucher_Count1.total.toString();
+
+    print("Admin LFA" + responsePendingVoucher.body);
 
     http.Response responsePO = await http.post(
-        Uri.parse('http://172.20.20.69/api/smallapi/admin/totalpo.php'),
+        Uri.parse('http://172.20.20.69/aygaz/notifications/povalue_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
-          "zid": widget.zid
         }));
 
-    POCount1 = adminPoCountFromJson(responsePO.body);
-    POCount = POCount1.total.toString();
+    po_Count1 = poModelFromJson(responsePO.body);
+    po_Count = po_Count1.total.toString();
 
-    print("Admin PO" + responsePO.body);
+    print("Admin LFA" + responsePO.body);
+
+    http.Response responseBMP = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/preProcessBOM_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    bmp_Count1 = bmpModelFromJson(responseBMP.body);
+    bmp_Count = bmp_Count1.total.toString();
+
+    print("Admin LFA" + responseBMP.body);
+
+    http.Response responseSPA = await http.post(
+        Uri.parse(
+            'http://172.20.20.69/aygaz/notifications/spotpurchaseadvance_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    spa_Count1 = spaModelFromJson(responseSPA.body);
+    spa_Count = spa_Count1.total.toString();
+
+    print("Admin LFA" + responseSPA.body);
+
+    http.Response responseSPR = await http.post(
+        Uri.parse('http://172.20.20.69/aygaz/notifications/spr_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    spr_Count1 = sprModelFromJson(responseSPR.body);
+    spr_Count = spr_Count1.total.toString();
+
+    print("Admin LFA" + responseSPR.body);
+
+    http.Response responseSQC = await http.post(
+        Uri.parse('http://172.20.20.69/aygaz/notifications/sqclist_count.php'),
+        body: jsonEncode(<String, String>{
+          "xposition": widget.xposition,
+        }));
+
+    sqc_Count1 = sqcModelFromJson(responseSQC.body);
+    sqc_Count = sqc_Count1.total.toString();
+
+    print("Admin LFA" + responseSQC.body);
 
     http.Response responseSR = await http.post(
-        Uri.parse('http://172.20.20.69/api/smallapi/admin/totalsr.php'),
+        Uri.parse('http://172.20.20.69/aygaz/notifications/sr_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
-          "zid": widget.zid
         }));
 
-    SRCount1 = adminSrCountFromJson(responseSR.body);
-    SRCount = SRCount1.total.toString();
+    sr_Count1 = srModelFromJson(responseSR.body);
+    sr_Count = sr_Count1.total.toString();
 
-    print("Admin SR" + responseSR.body);
-
-    http.Response responseCS = await http.post(
-        Uri.parse('http://172.20.20.69/api/smallapi/admin/totalcs.php'),
-        body: jsonEncode(<String, String>{
-          "xposition": widget.xposition,
-          "zid": widget.zid
-        }));
-
-    CSCount1 = adminCsCountFromJson(responseCS.body);
-    CSCount = CSCount1.total.toString();
-
-    print("Admin CS" + responseCS.body);
-
-    http.Response responseLA = await http.post(
-        Uri.parse(
-            'http://172.20.20.69/api/smallapi/admin/count_legalactive.php'),
-        body: jsonEncode(<String, String>{
-          "xposition": widget.xposition,
-          "zid": widget.zid
-        }));
-
-    LACount1 = adminLaCountFromJson(responseLA.body);
-    LACount = LACount1.total.toString();
-
-    print("Admin LA" + responseLA.body);
-
-    http.Response responseLFA = await http.post(
-        Uri.parse(
-            'http://172.20.20.69/api/smallapi/admin/count_legaladjust.php'),
-        body: jsonEncode(<String, String>{
-          "xposition": widget.xposition,
-          "zid": widget.zid
-        }));
-
-    LFACount1 = adminLfaCountFromJson(responseLFA.body);
-    LFACount = LFACount1.total.toString();
-
-    print("Admin LFA" + responseLFA.body);
+    print("Admin LFA" + responseSR.body);
 
     return '';
   }
@@ -272,15 +379,31 @@ class _AdminNotificationState extends State<AdminNotification> {
                                         xstaff: widget.xstaff,
                                         zemail: widget.zemail,
                                         zid: widget.zid,
-                                        adminabsent: absentCount,
-                                        adminearly: earlyCount,
-                                        adminlate: lateCount,
-                                        adminPO: POCount,
-                                        adminSR: SRCount,
-                                        adminCS: CSCount,
-                                        adminLeave: leaveCount,
-                                        adminLA: LACount,
-                                        adminLFA: LFACount,
+                                        po: po_Count,
+                                        cs: cs_Count,
+                                        sr: sr_Count,
+                                        pendingVoucher: pendingVoucher_Count,
+                                        spr: spr_Count,
+                                        spa: spa_Count,
+                                        grn: grn_Count,
+                                        sqc: sqc_Count,
+                                        prn: prn_Count,
+                                        so: so_Count,
+                                        dO: do_Count,
+                                        psra: salesReturn_Count,
+                                        bm: bmp_Count,
+                                        bmp: bmp_Count,
+                                        batp: batp_Count,
+                                        bat: batp_Count,
+                                        // adminabsent: absentCount,
+                                        // adminearly: earlyCount,
+                                        // adminlate: lateCount,
+                                        // adminPO: POCount,
+                                        // adminSR: SRCount,
+                                        // adminCS: CSCount,
+                                        // adminLeave: leaveCount,
+                                        // adminLA: LACount,
+                                        // adminLFA: LFACount,
                                       )));
                         });
 
@@ -552,19 +675,35 @@ class _AdminNotificationState extends State<AdminNotification> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => AdminNotificationList(
-                                        xposition: widget.xposition,
-                                        xstaff: widget.xstaff,
-                                        zemail: widget.zemail,
-                                        zid: widget.zid,
-                                        adminabsent: absentCount,
-                                        adminearly: earlyCount,
-                                        adminlate: lateCount,
-                                        adminPO: POCount,
-                                        adminSR: SRCount,
-                                        adminCS: CSCount,
-                                        adminLeave: leaveCount,
-                                        adminLA: LACount,
-                                        adminLFA: LFACount,
+                                    xposition: widget.xposition,
+                                    xstaff: widget.xstaff,
+                                    zemail: widget.zemail,
+                                    zid: widget.zid,
+                                    po: po_Count,
+                                    cs: cs_Count,
+                                    sr: sr_Count,
+                                    pendingVoucher: pendingVoucher_Count,
+                                    spr: spr_Count,
+                                    spa: spa_Count,
+                                    grn: grn_Count,
+                                    sqc: sqc_Count,
+                                    prn: prn_Count,
+                                    so: so_Count,
+                                    dO: do_Count,
+                                    psra: salesReturn_Count,
+                                    bm: bmp_Count,
+                                    bmp: bmp_Count,
+                                    batp: batp_Count,
+                                    bat: batp_Count,
+                                    // adminabsent: absentCount,
+                                    // adminearly: earlyCount,
+                                    // adminlate: lateCount,
+                                    // adminPO: POCount,
+                                    // adminSR: SRCount,
+                                    // adminCS: CSCount,
+                                    // adminLeave: leaveCount,
+                                    // adminLA: LACount,
+                                    // adminLFA: LFACount,
                                       )));
                         });
 
