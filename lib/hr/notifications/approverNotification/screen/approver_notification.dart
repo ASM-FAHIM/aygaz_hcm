@@ -65,7 +65,7 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
   // fetchnotification _noteList = fetchnotification();
   //fetchnotification _noteList = fetchnotification();
 
-  @override
+  // @override
   // Future<List<NotificationModel>>? futurePost;
   //
   // Future<List<NotificationModel>> fetchPost() async {
@@ -2290,7 +2290,7 @@ class _AdminNotificationListState extends State<AdminNotificationList> {
                         padding: EdgeInsets.only(
                             left: 5, top: 5, bottom: 5, right: 5),
                         badgeContent: Text(
-                          //widget.adminCS,
+                          // widget.adminCS,
                           "*",
                           style: GoogleFonts.bakbakOne(
                             fontSize: 15,
