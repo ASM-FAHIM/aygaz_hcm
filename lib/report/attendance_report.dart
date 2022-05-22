@@ -2,15 +2,19 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
 
 import 'model/attendence_report_model.dart';
-import 'package:http/http.dart' as http;
 
 class Attendance_report extends StatefulWidget {
   //const Attendance_report({Key? key}) : super(key: key);
 
-  Attendance_report({required this.fromDate, required this.toDate, required this.xstaff, required this.xposition, required this.xsid});
+  Attendance_report(
+      {required this.fromDate,
+      required this.toDate,
+      required this.xstaff,
+      required this.xposition,
+      required this.xsid});
 
   String fromDate;
   String toDate;
@@ -18,19 +22,15 @@ class Attendance_report extends StatefulWidget {
   String xposition;
   String xsid;
 
-
   @override
   _Attendance_reportState createState() => _Attendance_reportState();
 }
 
 class _Attendance_reportState extends State<Attendance_report> {
-
   Future<List<AttendenceReportModel>>? futurePost;
 
-
-  changeColor(String statusdemo){
-
-    switch(statusdemo){
+  changeColor(String statusdemo) {
+    switch (statusdemo) {
       case "Late":
         return Colors.blue;
 
@@ -48,47 +48,43 @@ class _Attendance_reportState extends State<Attendance_report> {
 
       default:
         return Colors.black;
-
     }
   }
-
 
   Future<List<AttendenceReportModel>> fetchPost() async {
     print("execute");
 
-    var response= await http.post(Uri.parse('http://172.20.20.69/api/attreport.php'),body:
-    jsonEncode(<String, String>{
+    var response =
+        await http.post(Uri.parse('http://10.1.2.7/api/attreport.php'),
+            body: jsonEncode(<String, String>{
+              "zid": "100060",
+              "user": "",
+              "fdate": widget.fromDate,
+              "tdate": widget.toDate,
+              "empcat": "",
+              "xstaff": widget.xstaff,
+              //"staff":"EID-01885",
+              "adminid": "",
+              // "adminid":"1881"
 
-      "zid":"100060",
-      "user":"",
-      "fdate": widget.fromDate,
-      "tdate":widget.toDate,
-      "empcat":"",
-      "xstaff": widget.xstaff,
-      //"staff":"EID-01885",
-      "adminid": "",
-      // "adminid":"1881"
-
-        // "zid":"100060",
-        // "fdate":"2021-01-01",
-        // "tdate":"2021-01-02",
-        // "staff":"EID-01885",
-        // "user":"System.osl",
-        // "empcat":"",
-        // "adminid":"1881"
-
-
-    })
-    );
+              // "zid":"100060",
+              // "fdate":"2021-01-01",
+              // "tdate":"2021-01-02",
+              // "staff":"EID-01885",
+              // "user":"System.osl",
+              // "empcat":"",
+              // "adminid":"1881"
+            }));
     print(response.statusCode);
     print(response.body);
-
-
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<AttendenceReportModel>((json) => AttendenceReportModel.fromJson(json)).toList();
+      return parsed
+          .map<AttendenceReportModel>(
+              (json) => AttendenceReportModel.fromJson(json))
+          .toList();
     } else {
       throw Exception('Failed to load album');
     }
@@ -110,10 +106,10 @@ class _Attendance_reportState extends State<Attendance_report> {
       width: MediaQuery.of(context).size.width,
       child: Scaffold(
         appBar: AppBar(
-          leading:  IconButton(
+          leading: IconButton(
             icon: Icon(Icons.arrow_back),
             color: Color(0xff064A76),
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
             },
           ),
@@ -413,7 +409,7 @@ class _Attendance_reportState extends State<Attendance_report> {
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                       children: [
                                         Expanded(
                                           child: Text(
@@ -468,7 +464,7 @@ class _Attendance_reportState extends State<Attendance_report> {
                                             style: GoogleFonts.bakbakOne(
                                               fontSize: 14,
                                               color: changeColor((snapshot
-                                                  .data![index].xstatus)
+                                                      .data![index].xstatus)
                                                   .toString()),
                                             ),
                                           ),
@@ -486,7 +482,7 @@ class _Attendance_reportState extends State<Attendance_report> {
                         } else {
                           return Center(
                             child:
-                            Image(image: AssetImage("images/loading.gif")),
+                                Image(image: AssetImage("images/loading.gif")),
                           );
                         }
                       },
@@ -497,10 +493,7 @@ class _Attendance_reportState extends State<Attendance_report> {
             ),
           ),
         ),
-
       ),
     );
   }
 }
-
-

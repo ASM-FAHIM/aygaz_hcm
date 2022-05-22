@@ -28,7 +28,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -51,7 +51,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -180,7 +180,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -203,7 +203,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -304,16 +304,10 @@
 
 import 'dart:convert';
 
+import 'package:aygazhcm/data_model/notification_model/absent_notificaiton_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:aygazhcm/data_model/notification_model.dart';
-import 'package:aygazhcm/data_model/notification_model/absent_notificaiton_model.dart';
-import 'package:aygazhcm/data_model/notification_model/leave&tour_notification_model.dart';
-import 'package:aygazhcm/home_page.dart';
-import 'package:aygazhcm/hr/viewNotification.dart';
-import 'package:aygazhcm/screen/notification_api.dart';
 //import 'package:aygazhcm/hr/viewNotification.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -325,7 +319,8 @@ class Absent_NotificationList extends StatefulWidget {
   String xposition;
 
   @override
-  _Absent_NotificationListState createState() => _Absent_NotificationListState();
+  _Absent_NotificationListState createState() =>
+      _Absent_NotificationListState();
 }
 
 class _Absent_NotificationListState extends State<Absent_NotificationList> {
@@ -337,7 +332,7 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
   // Future<List<NotificationModel>>? futurePost;
   //
   // Future<List<NotificationModel>> fetchNotification() async {
-  //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
   //   jsonEncode(<String, String>{
   //     "xposition": widget.xposition,
   //   })
@@ -354,29 +349,26 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
   //   }
   // }
 
-
   Future<List<AbsentNotificationModel>>? futurePost;
 
-
-
   Future<List<AbsentNotificationModel>> fetchPost() async {
-    var response= await http.post(Uri.parse('http://172.20.20.69/api/absentnotification.php'),body:
-    jsonEncode(<String, String>{
-      "xposition": widget.xposition,
-    })
-    );
-
-
+    var response =
+        await http.post(Uri.parse('http://10.1.2.7/api/absentnotification.php'),
+            body: jsonEncode(<String, String>{
+              "xposition": widget.xposition,
+            }));
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<AbsentNotificationModel>((json) => AbsentNotificationModel.fromJson(json)).toList();
+      return parsed
+          .map<AbsentNotificationModel>(
+              (json) => AbsentNotificationModel.fromJson(json))
+          .toList();
     } else {
       throw Exception('Failed to load album');
     }
   }
-
 
   @override
   void initState() {
@@ -388,15 +380,13 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
     fetchPost().whenComplete(() => futurePost);
   }
 
-
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-        leading:  IconButton(
+        leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Color(0xff064A76),
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
         ),
@@ -410,14 +400,14 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
           ),
         ),
         actions: [
-          SizedBox(width: 20,)
+          SizedBox(
+            width: 20,
+          )
         ],
         backgroundColor: Colors.white,
       ),
-
       body: Container(
         padding: EdgeInsets.all(20),
-
         child: FutureBuilder<List<AbsentNotificationModel>>(
           future: futurePost,
           builder: (context, snapshot) {
@@ -443,13 +433,19 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
                                 Column(
                                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Text((DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].xdate.date).toString()))).toString(),
+                                    Text(
+                                      (DateFormat("dd-MM-yyyy").format(
+                                              DateTime.parse((snapshot
+                                                      .data![index].xdate.date)
+                                                  .toString())))
+                                          .toString(),
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    Text(" ${snapshot.data![index].xdayname}",
+                                    Text(
+                                      " ${snapshot.data![index].xdayname}",
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
@@ -474,27 +470,29 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
                               //       fontWeight: FontWeight.bold
                               //   ),
                               // ),
-                              Text("Shift: "+"${snapshot.data![index].xshift.toString()}",
+                              Text(
+                                "Shift: " +
+                                    "${snapshot.data![index].xshift.toString()}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
-                              Text("Status : "+"${snapshot.data![index].xstatus.toString()}",
+                              Text(
+                                "Status : " +
+                                    "${snapshot.data![index].xstatus.toString()}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
                               //
-
                             ],
                           ),
                         ),
                       ),
                     ],
                   ),
-
                 ),
               );
             } else {

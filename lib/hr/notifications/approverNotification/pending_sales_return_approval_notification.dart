@@ -28,8 +28,7 @@ class _PSRA_notificationState extends State<PSRA_notification> {
 
   Future<List<SoModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/PendingSalesReturn.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/PendingSalesReturn.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -270,7 +269,7 @@ class _PSRA_notificationState extends State<PSRA_notification> {
           //                             onPressed: () async {
           //                               var response = await http.post(
           //                                   Uri.parse(
-          //                                       'http://172.20.20.69/aygaz/notifications/PendingSalesReturnApprove.php'),
+          //                                       'http://10.1.2.7/aygaz/notifications/PendingSalesReturnApprove.php'),
           //                                   body: jsonEncode(<String, String>{
           //                                     "zid": widget.zid,
           //                                     "user": widget.zemail,
@@ -360,11 +359,11 @@ class _PSRA_notificationState extends State<PSRA_notification> {
           //                                         FlatButton(
           //                                           color: Color(0xff064A76),
           //                                           onPressed: () async {
-          //                                             //http://172.20.20.69/api/adminapprove/poreject.php
+          //                                             //http://10.1.2.7/api/adminapprove/poreject.php
           //
           //                                             var response = await http.post(
           //                                                 Uri.parse(
-          //                                                     'http://172.20.20.69/aygaz/notifications/PendingSalesReturnReject.php'),
+          //                                                     'http://10.1.2.7/aygaz/notifications/PendingSalesReturnReject.php'),
           //                                                 body: jsonEncode(<
           //                                                     String, String>{
           //                                                   "zid": widget.zid,

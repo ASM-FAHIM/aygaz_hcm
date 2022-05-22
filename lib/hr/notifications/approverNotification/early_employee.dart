@@ -29,8 +29,7 @@ class _Admin_Early_Leave_NotificationListState
   String rejectNote = " ";
   Future<List<AdminearlyNotiModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse(
-            'http://172.20.20.69/api/adminnotification/earlyemployee.php'),
+        Uri.parse('http://10.1.2.7/api/adminnotification/earlyemployee.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -219,10 +218,10 @@ class _Admin_Early_Leave_NotificationListState
                                   FlatButton(
                                     color: Colors.green,
                                     onPressed: () async {
-                                      //http://172.20.20.69/api/adminapprove/earlyapprove.php
+                                      //http://10.1.2.7/api/adminapprove/earlyapprove.php
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://172.20.20.69/api/adminapprove/earlyapprove.php'),
+                                              'http://10.1.2.7/api/adminapprove/earlyapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": "100060",
                                             "user": widget.zemail,
@@ -316,11 +315,11 @@ class _Admin_Early_Leave_NotificationListState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://172.20.20.69/api/adminapprove/poreject.php
+                                                    //http://10.1.2.7/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://172.20.20.69/api/adminapprove/earlyreject.php'),
+                                                            'http://10.1.2.7/api/adminapprove/earlyreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": "100060",

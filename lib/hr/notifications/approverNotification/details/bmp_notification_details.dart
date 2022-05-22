@@ -36,7 +36,7 @@ class _BMP_details_notificationState extends State<BMP_details_notification> {
   Future<List<BmpDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/preProcessBOMdetails.php'),
+            'http://10.1.2.7/aygaz/notifications/preProcessBOMdetails.php'),
         body: jsonEncode(<String, String>{"xbomkey": widget.xbomkey}));
 
     if (response.statusCode == 200) {
@@ -188,7 +188,7 @@ class _BMP_details_notificationState extends State<BMP_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://172.20.20.69/aygaz/notifications/preProcessBOMapprove.php'),
+                                  'http://10.1.2.7/aygaz/notifications/preProcessBOMapprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -266,11 +266,11 @@ class _BMP_details_notificationState extends State<BMP_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://172.20.20.69/api/adminapprove/poreject.php
+                                        //http://10.1.2.7/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://172.20.20.69/aygaz/notifications/preProcessBOMreject.php'),
+                                                'http://10.1.2.7/aygaz/notifications/preProcessBOMreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

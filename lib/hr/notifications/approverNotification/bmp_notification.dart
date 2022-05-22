@@ -31,7 +31,7 @@ class _BMP_notificationState extends State<BMP_notification> {
 
   Future<List<BmpModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/preProcessBOM.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/preProcessBOM.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -48,7 +48,7 @@ class _BMP_notificationState extends State<BMP_notification> {
   Future<List<BmpDetailsModel>> fetchDetailsPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/preProcessBOMdetails.php'),
+            'http://10.1.2.7/aygaz/notifications/preProcessBOMdetails.php'),
         body: jsonEncode(<String, String>{"xbomkey": "BMP-000001"}));
 
     if (response.statusCode == 200) {
@@ -248,7 +248,7 @@ class _BMP_notificationState extends State<BMP_notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://172.20.20.69/aygaz/notifications/preProcessBOMapprove.php'),
+                              //                 'http://10.1.2.7/aygaz/notifications/preProcessBOMapprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -341,11 +341,11 @@ class _BMP_notificationState extends State<BMP_notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://172.20.20.69/api/adminapprove/poreject.php
+                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://172.20.20.69/aygaz/notifications/preProcessBOMreject.php'),
+                              //                               'http://10.1.2.7/aygaz/notifications/preProcessBOMreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

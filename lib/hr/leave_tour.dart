@@ -299,7 +299,7 @@ import 'package:google_fonts/google_fonts.dart';
 //   //
 //   // Future<String>  getAPIDATA() async {
 //   //
-//   //   http.Response response = await http.post(Uri.parse('http://172.20.20.69/api/leaveandtour.php'),
+//   //   http.Response response = await http.post(Uri.parse('http://10.1.2.7/api/leaveandtour.php'),
 //   //       body:jsonEncode(<String, String>{
 //   //         "xstaff": widget.xstaff,
 //   //         "xtypeleave": "Annual Leave"
@@ -323,7 +323,7 @@ import 'package:google_fonts/google_fonts.dart';
 //
 //   Future<String>  getappleavedata() async {
 //
-//     http.Response response = await http.post(Uri.parse('http://172.20.20.69/api/smallAPI/appliedleave.php'),
+//     http.Response response = await http.post(Uri.parse('http://10.1.2.7/api/smallAPI/appliedleave.php'),
 //         body:jsonEncode(<String, String>{
 //           "xstaff": widget.xstaff,
 //         })
@@ -353,7 +353,7 @@ import 'package:google_fonts/google_fonts.dart';
 //
 //
 //   Future<List<LeaveandTourModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/leaveandtour.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/leaveandtour.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -370,7 +370,7 @@ import 'package:google_fonts/google_fonts.dart';
 //
 //   Future<List<AvailebleLeaveModel>>? availableleave;
 //   Future<List<AvailebleLeaveModel>> fetchavailableleave() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/availableleave.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/availableleave.php'),body:
 //     jsonEncode(<String, String>{
 //       "xstaff":widget.xstaff
 //     })

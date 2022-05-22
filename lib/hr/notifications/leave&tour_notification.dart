@@ -28,7 +28,7 @@
 // //   // Future<List<NotificationModel>>? futurePost;
 // //   //
 // //   // Future<List<NotificationModel>> fetchNotification() async {
-// //   //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+// //   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 // //   //   jsonEncode(<String, String>{
 // //   //     "xposition": widget.xposition,
 // //   //   })
@@ -51,7 +51,7 @@
 // //
 // //
 // //   Future<List<NotificationModel>> fetchPost() async {
-// //     var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+// //     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 // //     jsonEncode(<String, String>{
 // //       "xposition": widget.xposition,
 // //     })
@@ -181,7 +181,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -204,7 +204,7 @@
 //
 //
 //   Future<List<LeaveTourNotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/leavenotification.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/leavenotification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -303,8 +303,6 @@
 //   }
 // }
 
-
-
 // import 'dart:convert';
 //
 // import 'package:flutter/material.dart';
@@ -335,7 +333,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -358,7 +356,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -459,15 +457,10 @@
 
 import 'dart:convert';
 
+import 'package:aygazhcm/data_model/notification_model/leave&tour_notification_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:aygazhcm/data_model/notification_model.dart';
-import 'package:aygazhcm/data_model/notification_model/leave&tour_notification_model.dart';
-import 'package:aygazhcm/home_page.dart';
-import 'package:aygazhcm/hr/viewNotification.dart';
-import 'package:aygazhcm/screen/notification_api.dart';
 //import 'package:aygazhcm/hr/viewNotification.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -479,10 +472,12 @@ class LeaveTour_NotificationList extends StatefulWidget {
   String xposition;
 
   @override
-  _LeaveTour_NotificationListState createState() => _LeaveTour_NotificationListState();
+  _LeaveTour_NotificationListState createState() =>
+      _LeaveTour_NotificationListState();
 }
 
-class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList> {
+class _LeaveTour_NotificationListState
+    extends State<LeaveTour_NotificationList> {
   // fetchnotification _noteList = fetchnotification();
   //fetchnotification _noteList = fetchnotification();
 
@@ -491,7 +486,7 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
   // Future<List<NotificationModel>>? futurePost;
   //
   // Future<List<NotificationModel>> fetchNotification() async {
-  //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
   //   jsonEncode(<String, String>{
   //     "xposition": widget.xposition,
   //   })
@@ -508,29 +503,28 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
   //   }
   // }
 
-
   Future<List<LeaveTourNotificationModel>>? futurePost;
 
-
-
   Future<List<LeaveTourNotificationModel>> fetchPost() async {
-    var response= await http.post(Uri.parse('http://172.20.20.69/api/leavenotification.php'),body:
-    jsonEncode(<String, String>{
-      "xposition": widget.xposition,
-    })
-    );
+    var response =
+        await http.post(Uri.parse('http://10.1.2.7/api/leavenotification.php'),
+            body: jsonEncode(<String, String>{
+              "xposition": widget.xposition,
+            }));
 
     print(response.body);
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<LeaveTourNotificationModel>((json) => LeaveTourNotificationModel.fromJson(json)).toList();
+      return parsed
+          .map<LeaveTourNotificationModel>(
+              (json) => LeaveTourNotificationModel.fromJson(json))
+          .toList();
     } else {
       throw Exception('Failed to load album');
     }
   }
-
 
   @override
   void initState() {
@@ -542,15 +536,13 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
     fetchPost().whenComplete(() => futurePost);
   }
 
-
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-        leading:  IconButton(
+        leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Color(0xff064A76),
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
         ),
@@ -564,15 +556,14 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
           ),
         ),
         actions: [
-          SizedBox(width: 20,)
+          SizedBox(
+            width: 20,
+          )
         ],
         backgroundColor: Colors.white,
       ),
-
-
       body: Container(
         padding: EdgeInsets.all(20),
-
         child: FutureBuilder<List<LeaveTourNotificationModel>>(
           future: futurePost,
           builder: (context, snapshot) {
@@ -598,13 +589,21 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
                                 Column(
                                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Text((DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].applyDate.date).toString()))).toString(),
+                                    Text(
+                                      (DateFormat("dd-MM-yyyy").format(
+                                              DateTime.parse((snapshot
+                                                      .data![index]
+                                                      .applyDate
+                                                      .date)
+                                                  .toString())))
+                                          .toString(),
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
                                       ),
                                     ),
-                                    Text(" ${snapshot.data![index].typeOfApplication}",
+                                    Text(
+                                      " ${snapshot.data![index].typeOfApplication}",
                                       style: GoogleFonts.bakbakOne(
                                         fontSize: 18,
                                         //color: Color(0xff074974),
@@ -613,49 +612,64 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
                                     //Text(" ${snapshot.data![index].status}")
                                   ],
                                 ),
-                                Text(" ${snapshot.data![index].status}",
+                                Text(
+                                  " ${snapshot.data![index].status}",
                                   style: GoogleFonts.bakbakOne(
                                     fontSize: 18,
                                     //color: Color(0xff074974),
                                   ),
-
                                 )
                               ],
                             ),
                             children: <Widget>[
-                              Text("From Date : "+(DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].fromDate.date).toString()))).toString(),
+                              Text(
+                                "From Date : " +
+                                    (DateFormat("dd-MM-yyyy").format(
+                                            DateTime.parse((snapshot
+                                                    .data![index].fromDate.date)
+                                                .toString())))
+                                        .toString(),
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
-                              Text("To Date : "+(DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].toDate.date).toString()))).toString(),
+                              Text(
+                                "To Date : " +
+                                    (DateFormat("dd-MM-yyyy").format(
+                                            DateTime.parse((snapshot
+                                                    .data![index].toDate.date)
+                                                .toString())))
+                                        .toString(),
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974),
-                                  ),
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
                               ),
-                              Text("Applied Days : "+"${snapshot.data![index].appliedDayS.toString()}",
+                              Text(
+                                "Applied Days : " +
+                                    "${snapshot.data![index].appliedDayS.toString()}",
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974),
-                                  ),
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
                               ),
-                              Text("Approved Days : "+"${snapshot.data![index].approvedDayS.toString()}",
-
+                              Text(
+                                "Approved Days : " +
+                                    "${snapshot.data![index].approvedDayS.toString()}",
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974),
-                                  ),
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
                               ),
-                              Text("Status : "+"${snapshot.data![index].status.toString()}",
+                              Text(
+                                "Status : " +
+                                    "${snapshot.data![index].status.toString()}",
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974),
-                                  ),
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
                               ),
-
-
 
                               // if({snapshot.data![index].approver} != null)...[
                               //
@@ -669,20 +683,23 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
                               //   Text(" "),
                               // ],
 
-                              Text("Approver : "+"${snapshot.data![index].approver ?? " "}",
+                              Text(
+                                "Approver : " +
+                                    "${snapshot.data![index].approver ?? " "}",
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974),
                                 ),
                               ),
 
-
-                              Text("Approved/Recommended by : "+"${snapshot.data![index].approvedRecommendedBy ?? " "}",
+                              Text(
+                                "Approved/Recommended by : " +
+                                    "${snapshot.data![index].approvedRecommendedBy ?? " "}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974),
-                                  ),
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
                               ),
                               // Text("Approved/Recommended Date : "+"${snapshot.data![index].approvedRecommendedDate}",
                               //   style: TextStyle(
@@ -690,12 +707,14 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
                               //       fontWeight: FontWeight.bold
                               //   ),
                               // ),
-                              Text("Approved By : "+"${snapshot.data![index].approvedBy ?? " "}",
+                              Text(
+                                "Approved By : " +
+                                    "${snapshot.data![index].approvedBy ?? " "}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974),
-                                  ),
+                                  fontSize: 18,
+                                  //color: Color(0xff074974),
+                                ),
                               ),
                               // Text("Approved Date : "+"${snapshot.data![index].approvedDate}",
                               //   style: TextStyle(
@@ -703,14 +722,12 @@ class _LeaveTour_NotificationListState extends State<LeaveTour_NotificationList>
                               //       fontWeight: FontWeight.bold
                               //   ),
                               // ),
-
                             ],
                           ),
                         ),
                       ),
                     ],
                   ),
-
                 ),
               );
             } else {

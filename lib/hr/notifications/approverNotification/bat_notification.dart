@@ -31,7 +31,7 @@ class _BAT_notificationState extends State<BAT_notification> {
 
   Future<List<BatModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/pendingBatch.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/pendingBatch.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -48,7 +48,7 @@ class _BAT_notificationState extends State<BAT_notification> {
   Future<List<BatDetailsModel>> fetchDetailsPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/pendingBatchdetails.php'),
+            'http://10.1.2.7/aygaz/notifications/pendingBatchdetails.php'),
         body: jsonEncode(<String, String>{"xbatch": "BAT-000027"}));
 
     if (response.statusCode == 200) {
@@ -268,7 +268,7 @@ class _BAT_notificationState extends State<BAT_notification> {
                               FlatButton(
                                 color: Colors.lightBlueAccent,
                                 onPressed: () async {
-                                  final result = await  Navigator.push(
+                                  final result = await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
@@ -299,7 +299,7 @@ class _BAT_notificationState extends State<BAT_notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://172.20.20.69/aygaz/notifications/pendingBatchApprove.php'),
+                              //                 'http://10.1.2.7/aygaz/notifications/pendingBatchApprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -392,11 +392,11 @@ class _BAT_notificationState extends State<BAT_notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://172.20.20.69/api/adminapprove/poreject.php
+                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://172.20.20.69/aygaz/notifications/pendingBatchReject.php'),
+                              //                               'http://10.1.2.7/aygaz/notifications/pendingBatchReject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

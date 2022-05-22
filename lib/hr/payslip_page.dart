@@ -423,7 +423,7 @@
 //
 //   Future<List<PaymentApiModel>> fetchPost() async {
 //     print("called");
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/payslip/payment.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/payslip/payment.php'),body:
 //     jsonEncode(<String, String>{
 //       "xstaff":widget.xstaff,
 //       "xyear": dropdownvalue2,
@@ -447,7 +447,7 @@
 //
 //   Future<List<DeductApiModel>> fetchPostdeduct() async {
 //     print("called");
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/payslip/deduct.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/payslip/deduct.php'),body:
 //     jsonEncode(<String, String>{
 //       "xstaff":widget.xstaff,
 //       "xyear": dropdownvalue2,
@@ -474,7 +474,7 @@
 //
 //   // Future<String>  gettotal() async {
 //   //
-//   //   http.Response response = await http.post(Uri.parse('http://172.20.20.69/api/payslip/totalpay.php'),
+//   //   http.Response response = await http.post(Uri.parse('http://10.1.2.7/api/payslip/totalpay.php'),
 //   //       body:jsonEncode(<String, String>{
 //   //         "xstaff":widget.xstaff,
 //   //         "xyear": dropdownvalue2,
@@ -497,7 +497,7 @@
 //
 //   Future<List<TotalApiModel>> fetchPosttotal() async {
 //     print("called");
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/payslip/totalpay.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/payslip/totalpay.php'),body:
 //     jsonEncode(<String, String>{
 //       "xstaff":widget.xstaff,
 //       "xyear": dropdownvalue2,
@@ -1303,7 +1303,7 @@ class _Payslip_pageState extends State<Payslip_page> {
   // Future<List<PaymentApiModel>> fetchPost() async {
   //   print("called");
   //   var response = await http.post(
-  //       Uri.parse('http://172.20.20.69/api/payslip/payment.php'),
+  //       Uri.parse('http://10.1.2.7/api/payslip/payment.php'),
   //       body: jsonEncode(<String, String>{
   //         "xstaff": widget.xstaff,
   //         "xyear": dropdownvalue2,
@@ -1326,7 +1326,7 @@ class _Payslip_pageState extends State<Payslip_page> {
   // Future<List<DeductApiModel>> fetchPostdeduct() async {
   //   print("called");
   //   var response = await http.post(
-  //       Uri.parse('http://172.20.20.69/api/payslip/deduct.php'),
+  //       Uri.parse('http://10.1.2.7/api/payslip/deduct.php'),
   //       body: jsonEncode(<String, String>{
   //         "xstaff": widget.xstaff,
   //         "xyear": dropdownvalue2,
@@ -1352,7 +1352,7 @@ class _Payslip_pageState extends State<Payslip_page> {
   //
   // // Future<String>  gettotal() async {
   // //
-  // //   http.Response response = await http.post(Uri.parse('http://172.20.20.69/api/payslip/totalpay.php'),
+  // //   http.Response response = await http.post(Uri.parse('http://10.1.2.7/api/payslip/totalpay.php'),
   // //       body:jsonEncode(<String, String>{
   // //         "xstaff":widget.xstaff,
   // //         "xyear": dropdownvalue2,
@@ -1375,7 +1375,7 @@ class _Payslip_pageState extends State<Payslip_page> {
   // Future<List<TotalApiModel>> fetchPosttotal() async {
   //   print("called");
   //   var response = await http.post(
-  //       Uri.parse('http://172.20.20.69/api/payslip/totalpay.php'),
+  //       Uri.parse('http://10.1.2.7/api/payslip/totalpay.php'),
   //       body: jsonEncode(<String, String>{
   //         "xstaff": widget.xstaff,
   //         "xyear": dropdownvalue2,

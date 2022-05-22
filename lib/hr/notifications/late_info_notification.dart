@@ -28,7 +28,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -51,7 +51,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -180,7 +180,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -203,7 +203,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -302,19 +302,11 @@
 //   }
 // }
 
-
-
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:aygazhcm/data_model/notification_model.dart';
-import 'package:aygazhcm/data_model/notification_model/leave&tour_notification_model.dart';
-import 'package:aygazhcm/home_page.dart';
-import 'package:aygazhcm/hr/viewNotification.dart';
-import 'package:aygazhcm/screen/notification_api.dart';
 //import 'package:aygazhcm/hr/viewNotification.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -341,7 +333,7 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
   // Future<List<NotificationModel>>? futurePost;
   //
   // Future<List<NotificationModel>> fetchNotification() async {
-  //   var response= await http.post(Uri.parse('http://172.20.20.69/api/notification.php'),body:
+  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
   //   jsonEncode(<String, String>{
   //     "xposition": widget.xposition,
   //   })
@@ -358,13 +350,12 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
   //   }
   // }
 
-
   // Future<List<LateNotificaitonApiModel>>? futurePost;
   //
   //
   //
   // Future<List<LateNotificaitonApiModel>> fetchPost() async {
-  //   var response= await http.post(Uri.parse('http://172.20.20.69/api/adminnotification/lateemployee.php'),body:
+  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/adminnotification/lateemployee.php'),body:
   //   jsonEncode(<String, String>{
   //     "xstaff": widget.xstaff
   //   })
@@ -381,31 +372,30 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
   //   }
   // }
 
-
   Future<List<LateNotificaitonApiModel>>? futurePost;
 
   String justificationnote = " ";
 
-
   Future<List<LateNotificaitonApiModel>> fetchPost() async {
-    var response= await http.post(Uri.parse('http://172.20.20.69/api/employeenotification/late.php'),body:
-    jsonEncode(<String, String>{
-      "xstaff": widget.xstaff,
-    })
-    );
-
+    var response = await http.post(
+        Uri.parse('http://10.1.2.7/api/employeenotification/late.php'),
+        body: jsonEncode(<String, String>{
+          "xstaff": widget.xstaff,
+        }));
 
     print(response.body);
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
 
-      return parsed.map<LateNotificaitonApiModel>((json) => LateNotificaitonApiModel.fromJson(json)).toList();
+      return parsed
+          .map<LateNotificaitonApiModel>(
+              (json) => LateNotificaitonApiModel.fromJson(json))
+          .toList();
     } else {
       throw Exception('Failed to load album');
     }
   }
-
 
   @override
   void initState() {
@@ -417,7 +407,6 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
     fetchPost().whenComplete(() => futurePost);
   }
 
-
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(
@@ -426,10 +415,10 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
       // ),
 
       appBar: AppBar(
-        leading:  IconButton(
+        leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Color(0xff064A76),
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
         ),
@@ -443,14 +432,15 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
           ),
         ),
         actions: [
-          SizedBox(width: 20,)
+          SizedBox(
+            width: 20,
+          )
         ],
         backgroundColor: Colors.white,
       ),
 
       body: Container(
         padding: EdgeInsets.all(20),
-
         child: FutureBuilder<List<LateNotificaitonApiModel>>(
           future: futurePost,
           builder: (context, snapshot) {
@@ -476,18 +466,24 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
                                 Column(
                                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Text((DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].intime.date).toString()))).toString(),
+                                    Text(
+                                      (DateFormat("dd-MM-yyyy").format(
+                                              DateTime.parse((snapshot
+                                                      .data![index].intime.date)
+                                                  .toString())))
+                                          .toString(),
                                       style: GoogleFonts.bakbakOne(
-                                          fontSize: 18,
-                                          //color: Color(0xff074974)
-                                          //color: Color(0xff074974)
+                                        fontSize: 18,
+                                        //color: Color(0xff074974)
+                                        //color: Color(0xff074974)
                                       ),
                                     ),
                                     //Text(" ${snapshot.data![index].typeOfApplication}"),
                                     //Text(" ${snapshot.data![index].status}")
                                   ],
                                 ),
-                                Text(" Late",
+                                Text(
+                                  " Late",
                                   style: GoogleFonts.bakbakOne(
                                     fontSize: 18,
                                     //color: Color(0xff074974)
@@ -496,10 +492,16 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
                               ],
                             ),
                             children: <Widget>[
-                              Text("Date : "+(DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].intime.date).toString()))).toString(),
+                              Text(
+                                "Date : " +
+                                    (DateFormat("dd-MM-yyyy").format(
+                                            DateTime.parse((snapshot
+                                                    .data![index].intime.date)
+                                                .toString())))
+                                        .toString(),
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974)
+                                  fontSize: 18,
+                                  //color: Color(0xff074974)
                                 ),
                               ),
                               // Text("Day : "+(DateFormat("dd-MM-yyyy").format(DateTime.parse((snapshot.data![index].toDate.date).toString()))).toString(),
@@ -508,10 +510,16 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
                               //       fontWeight: FontWeight.bold
                               //   ),
                               // ),
-                              Text("IN Time : "+(DateFormat("hh:mm:ss").format(DateTime.parse((snapshot.data![index].intime.date).toString()))).toString(),
+                              Text(
+                                "IN Time : " +
+                                    (DateFormat("hh:mm:ss").format(
+                                            DateTime.parse((snapshot
+                                                    .data![index].intime.date)
+                                                .toString())))
+                                        .toString(),
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974)
+                                  fontSize: 18,
+                                  //color: Color(0xff074974)
                                 ),
                               ),
                               // Text("OUT Time : "+"${snapshot.data![index].approvedDayS.toString()}",
@@ -520,126 +528,148 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
                               //       fontWeight: FontWeight.bold
                               //   ),
                               // ),
-                              Text("Working Hour : "+(DateFormat("hh:mm:ss").format(DateTime.parse((snapshot.data![index].xworktime.date).toString()))).toString(),
-                                style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974)
-                                ),
-                              ),
-                              Text("Status : "+"${snapshot.data![index].xstatuslate.toString()}",
+                              Text(
+                                "Working Hour : " +
+                                    (DateFormat("hh:mm:ss").format(
+                                            DateTime.parse((snapshot
+                                                    .data![index]
+                                                    .xworktime
+                                                    .date)
+                                                .toString())))
+                                        .toString(),
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
                                   //color: Color(0xff074974)
                                 ),
                               ),
-                              Text("Note : "+"${snapshot.data![index].xnote ?? " "}",
+                              Text(
+                                "Status : " +
+                                    "${snapshot.data![index].xstatuslate.toString()}",
+                                style: GoogleFonts.bakbakOne(
+                                  fontSize: 18,
+                                  //color: Color(0xff074974)
+                                ),
+                              ),
+                              Text(
+                                "Note : " +
+                                    "${snapshot.data![index].xnote ?? " "}",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
-                                    fontSize: 18,
-                                    //color: Color(0xff074974)
+                                  fontSize: 18,
+                                  //color: Color(0xff074974)
                                 ),
                               ),
 
                               FlatButton(
                                 color: Color(0xff064A76),
-                                onPressed: (){
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: const Text("Justification"),
+                                          content: Column(
+                                            children: [
+                                              Container(
+                                                //height: MediaQuery.of(context).size.height/6,
+                                                child: TextFormField(
+                                                  style: GoogleFonts.bakbakOne(
+                                                    //fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                    color: Colors.black,
+                                                  ),
+                                                  onChanged: (input) {
+                                                    justificationnote = input;
+                                                  },
+                                                  scrollPadding:
+                                                      EdgeInsets.all(20),
+                                                  decoration: InputDecoration(
+                                                    contentPadding: EdgeInsets.only(
+                                                        left:
+                                                            20), // add padding to adjust text
+                                                    isDense: false,
 
-                                  showDialog(context: context, builder: (BuildContext context) {
-                                    return  AlertDialog(
-                                      title: const Text("Justification"),
-                                      content:  Column(
-                                        children: [
-                                          Container(
-                                            //height: MediaQuery.of(context).size.height/6,
-                                            child: TextFormField(
-                                              style: GoogleFonts.bakbakOne(
-                                                //fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                                color: Colors.black,
+                                                    hintStyle:
+                                                        GoogleFonts.bakbakOne(
+                                                      //fontWeight: FontWeight.bold,
+                                                      fontSize: 18,
+                                                      color: Colors.black,
+                                                    ),
+                                                    labelText:
+                                                        "Justification Note",
+                                                    labelStyle:
+                                                        GoogleFonts.bakbakOne(
+                                                      fontSize: 18,
+                                                      color: Colors.black,
+                                                    ),
+                                                    border:
+                                                        OutlineInputBorder(),
+                                                  ),
+                                                ),
                                               ),
-                                              onChanged: (input){
-                                                justificationnote = input;
+                                            ],
+                                          ),
+                                          actions: [
+                                            FlatButton(
+                                              color: Color(0xff064A76),
+                                              onPressed: () async {
+                                                //http://10.1.2.7/api/adminapprove/poreject.php
+
+                                                var response = await http.post(
+                                                    Uri.parse(
+                                                        'http://10.1.2.7/api/lateandearlyapply.php'),
+                                                    body: jsonEncode(<String,
+                                                        String>{
+                                                      "xstaff": widget.xstaff,
+                                                      "xnote":
+                                                          justificationnote,
+                                                      "xyearperdate": snapshot
+                                                          .data![index]
+                                                          .xyearperdate
+                                                          .toString(),
+                                                      "zid": "100060"
+                                                    }));
+                                                print(response.body);
+
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(SnackBar(
+                                                  content: Text(
+                                                    "Justification Updated",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontSize: 20,
+                                                    ),
+                                                  ),
+                                                ));
+
+                                                Navigator.pop(context);
+                                                Navigator.pop(context);
                                               },
-
-
-                                              scrollPadding: EdgeInsets.all(20),
-                                              decoration:  InputDecoration(
-                                                contentPadding: EdgeInsets.only(left: 20), // add padding to adjust text
-                                                isDense: false,
-
-                                                hintStyle: GoogleFonts.bakbakOne(
-                                                  //fontWeight: FontWeight.bold,
-                                                  fontSize: 18,
-                                                  color: Colors.black,
-                                                ),
-                                                labelText: "Justification Note",
-                                                labelStyle:  GoogleFonts.bakbakOne(
-                                                  fontSize: 18,
-                                                  color: Colors.black,
-                                                ),
-                                                border: OutlineInputBorder(),
-
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      actions: [
-                                        FlatButton(
-                                          color: Color(0xff064A76),
-                                          onPressed: ()async{
-                                            //http://172.20.20.69/api/adminapprove/poreject.php
-
-                                            var response= await http.post(Uri.parse('http://172.20.20.69/api/lateandearlyapply.php'),body:
-                                            jsonEncode(<String, String>{
-                                              "xstaff": widget.xstaff,
-                                              "xnote": justificationnote,
-                                              "xyearperdate":snapshot.data![index].xyearperdate.toString(),
-                                              "zid":"100060"
-                                            })
-                                            );
-                                            print(response.body);
-
-                                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                              content: Text("Justification Updated",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontSize: 20,
+                                              child: Text(
+                                                "Update Justification",
+                                                style: GoogleFonts.bakbakOne(
+                                                  color: Colors.white,
                                                 ),
                                               ),
-                                            ));
-
-                                            Navigator.pop(context);
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text("Update Justification",
-                                            style: GoogleFonts.bakbakOne(
-                                              color: Colors.white,
                                             ),
-                                          ),
-                                        ),
-                                      ],
-                                      scrollable: true,
-                                    );
-                                  });
-
-
+                                          ],
+                                          scrollable: true,
+                                        );
+                                      });
                                 },
-                                child: Text("Justification",
+                                child: Text(
+                                  "Justification",
                                   style: GoogleFonts.bakbakOne(
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
-
-
                             ],
                           ),
                         ),
                       ),
                     ],
                   ),
-
                 ),
               );
             } else {
@@ -653,4 +683,3 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
     );
   }
 }
-

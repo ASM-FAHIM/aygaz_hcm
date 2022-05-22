@@ -31,8 +31,7 @@ class _SO_notificationState extends State<SO_notification> {
 
   Future<List<SoModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/PendingSalesOrder.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/PendingSalesOrder.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -49,7 +48,7 @@ class _SO_notificationState extends State<SO_notification> {
   Future<List<SoDetailsModel>> fetchDetailsPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/PendingSalesOrderdetails.php'),
+            'http://10.1.2.7/aygaz/notifications/PendingSalesOrderdetails.php'),
         body: jsonEncode(<String, String>{"xtornum": "SO22020000001"}));
 
     if (response.statusCode == 200) {
@@ -316,7 +315,7 @@ class _SO_notificationState extends State<SO_notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://172.20.20.69/aygaz/notifications/PendingSalesOrderapprove.php'),
+                              //                 'http://10.1.2.7/aygaz/notifications/PendingSalesOrderapprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -406,11 +405,11 @@ class _SO_notificationState extends State<SO_notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://172.20.20.69/api/adminapprove/poreject.php
+                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://172.20.20.69/aygaz/notifications/PendingSalesOrderreject.php'),
+                              //                               'http://10.1.2.7/aygaz/notifications/PendingSalesOrderreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

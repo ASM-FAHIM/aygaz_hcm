@@ -1,25 +1,22 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:aygazhcm/data_model/notification_model.dart';
-import 'package:aygazhcm/home_page.dart';
 import 'package:aygazhcm/hr/notifications/absent_information.dart';
 import 'package:aygazhcm/hr/notifications/early_leave_information.dart';
 import 'package:aygazhcm/hr/notifications/late_info_notification.dart';
 import 'package:aygazhcm/hr/notifications/leave&tour_notification.dart';
-import 'package:aygazhcm/hr/viewNotification.dart';
-import 'package:aygazhcm/screen/notification_api.dart';
-//import 'package:aygazhcm/hr/viewNotification.dart';
-import 'package:http/http.dart' as http;
 import 'package:badges/badges.dart';
-
-import 'notifications/approverNotification/screen/approver_notification.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NotificationList extends StatefulWidget {
   //const NotificationList({Key? key}) : super(key: key);
 
-  NotificationList({required this.xposition, required this.xstaff, required this.zid, required this.earlyCount, required this.leaveCount, required this.lateCount, required this.absentCount});
+  NotificationList(
+      {required this.xposition,
+      required this.xstaff,
+      required this.zid,
+      required this.earlyCount,
+      required this.leaveCount,
+      required this.lateCount,
+      required this.absentCount});
   String xposition;
   String xstaff;
   String zid;
@@ -41,7 +38,7 @@ class _NotificationListState extends State<NotificationList> {
   //
   // Future<List<NotificationModel>> fetchPost() async {
   //   var response = await http.post(
-  //       Uri.parse('http://172.20.20.69/monyeem/notification.php'),
+  //       Uri.parse('http://10.1.2.7/monyeem/notification.php'),
   //       body: jsonEncode(<String, String>{
   //         "xposition": widget.xposition,
   //       }));
@@ -71,10 +68,10 @@ class _NotificationListState extends State<NotificationList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading:  IconButton(
+          leading: IconButton(
             icon: Icon(Icons.arrow_back),
             color: Color(0xff064A76),
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
             },
           ),
@@ -88,17 +85,19 @@ class _NotificationListState extends State<NotificationList> {
             ),
           ),
           actions: [
-            SizedBox(width: 20,)
+            SizedBox(
+              width: 20,
+            )
           ],
           backgroundColor: Colors.white,
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-
-              if(widget.zid == "100060")...[
+              if (widget.zid == "100060") ...[
                 Padding(
-                  padding: const EdgeInsets.only(top: 20.0, right: 20, left: 20),
+                  padding:
+                      const EdgeInsets.only(top: 20.0, right: 20, left: 20),
                   child: Container(
                     height: MediaQuery.of(context).size.width / 8,
                     width: MediaQuery.of(context).size.width,
@@ -118,12 +117,21 @@ class _NotificationListState extends State<NotificationList> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Late_NotificationList(xposition: widget.xposition,xstaff: widget.xstaff,)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Late_NotificationList(
+                                      xposition: widget.xposition,
+                                      xstaff: widget.xstaff,
+                                    )));
                       },
                       child: Badge(
-                        showBadge: int.parse(widget.lateCount) ==0? false : true,
-                        padding: EdgeInsets.only(left: 5,top: 5,bottom: 5,right: 5),
-                        badgeContent: Text(widget.lateCount,
+                        showBadge:
+                            int.parse(widget.lateCount) == 0 ? false : true,
+                        padding: EdgeInsets.only(
+                            left: 5, top: 5, bottom: 5, right: 5),
+                        badgeContent: Text(
+                          widget.lateCount,
                           style: GoogleFonts.bakbakOne(
                             fontSize: 15,
                             color: Colors.white,
@@ -149,7 +157,8 @@ class _NotificationListState extends State<NotificationList> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20.0, right: 20, left: 20),
+                  padding:
+                      const EdgeInsets.only(top: 20.0, right: 20, left: 20),
                   child: Container(
                     height: MediaQuery.of(context).size.width / 8,
                     width: MediaQuery.of(context).size.width,
@@ -169,12 +178,20 @@ class _NotificationListState extends State<NotificationList> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LeaveTour_NotificationList(xposition: widget.xposition)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    LeaveTour_NotificationList(
+                                        xposition: widget.xposition)));
                       },
                       child: Badge(
-                        showBadge: int.parse(widget.leaveCount) ==0? false : true,
-                        padding: EdgeInsets.only(left: 5,top: 5,bottom: 5,right: 5),
-                        badgeContent: Text(widget.leaveCount,
+                        showBadge:
+                            int.parse(widget.leaveCount) == 0 ? false : true,
+                        padding: EdgeInsets.only(
+                            left: 5, top: 5, bottom: 5, right: 5),
+                        badgeContent: Text(
+                          widget.leaveCount,
                           style: GoogleFonts.bakbakOne(
                             fontSize: 15,
                             color: Colors.white,
@@ -192,7 +209,6 @@ class _NotificationListState extends State<NotificationList> {
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.bakbakOne(
                                   fontSize: 18,
-
                                   color: Color(0xff064A76),
                                 ),
                               ),
@@ -204,7 +220,8 @@ class _NotificationListState extends State<NotificationList> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20.0, right: 20, left: 20),
+                  padding:
+                      const EdgeInsets.only(top: 20.0, right: 20, left: 20),
                   child: Container(
                     height: MediaQuery.of(context).size.width / 8,
                     width: MediaQuery.of(context).size.width,
@@ -232,12 +249,22 @@ class _NotificationListState extends State<NotificationList> {
                         //     ),
                         //   ),
                         // ));
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Early_Leave_NotificationList(xposition: widget.xposition,xstaff: widget.xstaff,)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Early_Leave_NotificationList(
+                                      xposition: widget.xposition,
+                                      xstaff: widget.xstaff,
+                                    )));
                       },
                       child: Badge(
-                        showBadge: int.parse(widget.earlyCount) ==0? false : true,
-                        padding: EdgeInsets.only(left: 5,top: 5,bottom: 5,right: 5),
-                        badgeContent: Text(widget.earlyCount,
+                        showBadge:
+                            int.parse(widget.earlyCount) == 0 ? false : true,
+                        padding: EdgeInsets.only(
+                            left: 5, top: 5, bottom: 5, right: 5),
+                        badgeContent: Text(
+                          widget.earlyCount,
                           style: GoogleFonts.bakbakOne(
                             fontSize: 15,
                             color: Colors.white,
@@ -263,7 +290,8 @@ class _NotificationListState extends State<NotificationList> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20.0, right: 20, left: 20),
+                  padding:
+                      const EdgeInsets.only(top: 20.0, right: 20, left: 20),
                   child: Container(
                     height: MediaQuery.of(context).size.width / 8,
                     width: MediaQuery.of(context).size.width,
@@ -283,12 +311,19 @@ class _NotificationListState extends State<NotificationList> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Absent_NotificationList(xposition: widget.xposition)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Absent_NotificationList(
+                                    xposition: widget.xposition)));
                       },
                       child: Badge(
-                        showBadge: int.parse(widget.absentCount) ==0? false : true,
-                        padding: EdgeInsets.only(left: 5,top: 5,bottom: 5,right: 5),
-                        badgeContent: Text(widget.absentCount,
+                        showBadge:
+                            int.parse(widget.absentCount) == 0 ? false : true,
+                        padding: EdgeInsets.only(
+                            left: 5, top: 5, bottom: 5, right: 5),
+                        badgeContent: Text(
+                          widget.absentCount,
                           style: GoogleFonts.bakbakOne(
                             fontSize: 15,
                             color: Colors.white,
@@ -313,15 +348,8 @@ class _NotificationListState extends State<NotificationList> {
                     ),
                   ),
                 ),
-              ]
-              else...[
-
-              ]
-
-
-
-
-
+              ] else
+                ...[]
             ],
           ),
         ));

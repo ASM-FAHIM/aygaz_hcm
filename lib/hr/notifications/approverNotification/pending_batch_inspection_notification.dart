@@ -34,7 +34,7 @@
 //
 //   Future<List<GrnModel>> fetchPost() async {
 //     var response = await http.post(
-//         Uri.parse('http://172.20.20.69/aygaz/notifications/grn.php'),
+//         Uri.parse('http://10.1.2.7/aygaz/notifications/grn.php'),
 //         body: jsonEncode(<String, String>{
 //           "xposition": widget.xposition,
 //         }));
@@ -235,7 +235,7 @@
 //                                     onPressed: () async {
 //                                       var response = await http.post(
 //                                           Uri.parse(
-//                                               'http://172.20.20.69/aygaz/notifications/grnapprove.php'),
+//                                               'http://10.1.2.7/aygaz/notifications/grnapprove.php'),
 //                                           body: jsonEncode(<String, String>{
 //                                             "zid": widget.zid,
 //                                             "user": widget.zemail,
@@ -328,11 +328,11 @@
 //                                                 FlatButton(
 //                                                   color: Color(0xff064A76),
 //                                                   onPressed: () async {
-//                                                     //http://172.20.20.69/api/adminapprove/poreject.php
+//                                                     //http://10.1.2.7/api/adminapprove/poreject.php
 //
 //                                                     var response = await http.post(
 //                                                         Uri.parse(
-//                                                             'http://172.20.20.69/aygaz/notifications/grnreject.php'),
+//                                                             'http://10.1.2.7/aygaz/notifications/grnreject.php'),
 //                                                         body: jsonEncode(<
 //                                                             String, String>{
 //                                                           "zid": widget.zid,

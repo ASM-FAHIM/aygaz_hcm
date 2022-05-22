@@ -29,11 +29,11 @@ class _CS_notificationState extends State<CS_notification> {
   String rejectNote = " ";
 
   Future<List<CsModel>> fetchPost() async {
-    var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/cs.php'),
-        body: jsonEncode(<String, String>{
-          "xposition": widget.xposition,
-        }));
+    var response =
+        await http.post(Uri.parse('http://10.1.2.7/aygaz/notifications/cs.php'),
+            body: jsonEncode(<String, String>{
+              "xposition": widget.xposition,
+            }));
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
@@ -47,7 +47,7 @@ class _CS_notificationState extends State<CS_notification> {
   //for details
   Future<List<CsDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/srdetails.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/srdetails.php'),
         body: jsonEncode(<String, String>{"xporeqnum": "PR--000002"}));
 
     if (response.statusCode == 200) {
@@ -229,7 +229,7 @@ class _CS_notificationState extends State<CS_notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://172.20.20.69/aygaz/notifications/csapprove.php'),
+                              //                 'http://10.1.2.7/aygaz/notifications/csapprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -321,11 +321,11 @@ class _CS_notificationState extends State<CS_notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://172.20.20.69/api/adminapprove/poreject.php
+                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://172.20.20.69/aygaz/notifications/csreject.php'),
+                              //                               'http://10.1.2.7/aygaz/notifications/csreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

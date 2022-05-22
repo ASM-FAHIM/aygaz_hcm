@@ -37,7 +37,7 @@ class _Pending_Voucher_details_notificationState
   Future<List<PendingVoucherDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/pendingVoucherDetails.php'),
+            'http://10.1.2.7/aygaz/notifications/pendingVoucherDetails.php'),
         body: jsonEncode(<String, String>{"xvoucher": widget.xvoucher}));
 
     if (response.statusCode == 200) {
@@ -207,7 +207,7 @@ class _Pending_Voucher_details_notificationState
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://172.20.20.69/aygaz/notifications/pendingVoucherapproval.php'),
+                                  'http://10.1.2.7/aygaz/notifications/pendingVoucherapproval.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -285,11 +285,11 @@ class _Pending_Voucher_details_notificationState
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://172.20.20.69/api/adminapprove/poreject.php
+                                        //http://10.1.2.7/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://172.20.20.69/aygaz/notifications/pendingVoucherreject.php'),
+                                                'http://10.1.2.7/aygaz/notifications/pendingVoucherreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

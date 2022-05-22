@@ -34,8 +34,7 @@ class _BM_detailsState extends State<BM_details> {
 
   Future<List<BmDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/pendingBOMdetails.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/pendingBOMdetails.php'),
         body: jsonEncode(<String, String>{"xbomkey": widget.xbomkey}));
 
     if (response.statusCode == 200) {
@@ -209,7 +208,7 @@ class _BM_detailsState extends State<BM_details> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://172.20.20.69/aygaz/notifications/pendingBOMApprove.php'),
+                                  'http://10.1.2.7/aygaz/notifications/pendingBOMApprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -290,11 +289,11 @@ class _BM_detailsState extends State<BM_details> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://172.20.20.69/api/adminapprove/poreject.php
+                                        //http://10.1.2.7/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://172.20.20.69/aygaz/notifications/pendingBOMreject.php'),
+                                                'http://10.1.2.7/aygaz/notifications/pendingBOMreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

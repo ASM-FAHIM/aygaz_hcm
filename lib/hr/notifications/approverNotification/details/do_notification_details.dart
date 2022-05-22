@@ -36,7 +36,7 @@ class _DO_details_notificationState extends State<DO_details_notification> {
   Future<List<DoDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/pendingInvoicedetails.php'),
+            'http://10.1.2.7/aygaz/notifications/pendingInvoicedetails.php'),
         body: jsonEncode(<String, String>{"xdornum": widget.xdornum}));
 
     if (response.statusCode == 200) {
@@ -185,7 +185,7 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://172.20.20.69/aygaz/notifications/pendingInvoiceApprove.php'),
+                                  'http://10.1.2.7/aygaz/notifications/pendingInvoiceApprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -267,11 +267,11 @@ class _DO_details_notificationState extends State<DO_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://172.20.20.69/api/adminapprove/poreject.php
+                                        //http://10.1.2.7/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://172.20.20.69/aygaz/notifications/pendingInvoiceReject.php'),
+                                                'http://10.1.2.7/aygaz/notifications/pendingInvoiceReject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

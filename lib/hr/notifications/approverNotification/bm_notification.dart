@@ -31,7 +31,7 @@ class BM_notification extends State<BM_Notification> {
 
   Future<List<BmModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/pendingBOM.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/pendingBOM.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -47,7 +47,7 @@ class BM_notification extends State<BM_Notification> {
 
   Future<List<BmDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/srdetails.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/srdetails.php'),
         body: jsonEncode(<String, String>{"xbomkey": "BM--000002"}));
 
     if (response.statusCode == 200) {
@@ -246,7 +246,7 @@ class BM_notification extends State<BM_Notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://172.20.20.69/aygaz/notifications/pendingBOMApprove.php'),
+                              //                 'http://10.1.2.7/aygaz/notifications/pendingBOMApprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -338,11 +338,11 @@ class BM_notification extends State<BM_Notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://172.20.20.69/api/adminapprove/poreject.php
+                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://172.20.20.69/aygaz/notifications/pendingBOMreject.php'),
+                              //                               'http://10.1.2.7/aygaz/notifications/pendingBOMreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

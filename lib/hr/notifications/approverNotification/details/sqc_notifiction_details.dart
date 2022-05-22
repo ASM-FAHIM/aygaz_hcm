@@ -35,7 +35,7 @@ class _SQC_details_notificationState extends State<SQC_details_notification> {
 
   Future<List<SqcDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/sqcdetails.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/sqcdetails.php'),
         body: jsonEncode(<String, String>{"xgrnnum": widget.xgrnnum}));
 
     if (response.statusCode == 200) {
@@ -173,7 +173,7 @@ class _SQC_details_notificationState extends State<SQC_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://172.20.20.69/aygaz/notifications/sqclistapprove.php'),
+                                  'http://10.1.2.7/aygaz/notifications/sqclistapprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -251,11 +251,11 @@ class _SQC_details_notificationState extends State<SQC_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://172.20.20.69/api/adminapprove/poreject.php
+                                        //http://10.1.2.7/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://172.20.20.69/aygaz/notifications/sqclistreject.php'),
+                                                'http://10.1.2.7/aygaz/notifications/sqclistreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

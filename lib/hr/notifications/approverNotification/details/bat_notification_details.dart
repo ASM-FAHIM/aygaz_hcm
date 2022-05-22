@@ -36,7 +36,7 @@ class _BAT_details_notificationState extends State<BAT_details_notification> {
   Future<List<BatDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/aygaz/notifications/pendingBatchdetails.php'),
+            'http://10.1.2.7/aygaz/notifications/pendingBatchdetails.php'),
         body: jsonEncode(<String, String>{"xbatch": widget.xbatch}));
 
     if (response.statusCode == 200) {
@@ -233,7 +233,7 @@ class _BAT_details_notificationState extends State<BAT_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://172.20.20.69/aygaz/notifications/pendingBatchApprove.php'),
+                                  'http://10.1.2.7/aygaz/notifications/pendingBatchApprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -316,11 +316,11 @@ class _BAT_details_notificationState extends State<BAT_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://172.20.20.69/api/adminapprove/poreject.php
+                                        //http://10.1.2.7/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://172.20.20.69/aygaz/notifications/pendingBatchReject.php'),
+                                                'http://10.1.2.7/aygaz/notifications/pendingBatchReject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

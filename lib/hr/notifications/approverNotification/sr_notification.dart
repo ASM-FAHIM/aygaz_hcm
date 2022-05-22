@@ -30,11 +30,11 @@ class _SR_notificationState extends State<SR_notification> {
   String rejectNote = " ";
 
   Future<List<SrNotiModel>> fetchPost() async {
-    var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/sr.php'),
-        body: jsonEncode(<String, String>{
-          "xposition": widget.xposition,
-        }));
+    var response =
+        await http.post(Uri.parse('http://10.1.2.7/aygaz/notifications/sr.php'),
+            body: jsonEncode(<String, String>{
+              "xposition": widget.xposition,
+            }));
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
@@ -49,7 +49,7 @@ class _SR_notificationState extends State<SR_notification> {
 
   Future<List<SrDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://172.20.20.69/aygaz/notifications/srdetails.php'),
+        Uri.parse('http://10.1.2.7/aygaz/notifications/srdetails.php'),
         body: jsonEncode(<String, String>{"xtornum": "SR--000004"}));
 
     if (response.statusCode == 200) {

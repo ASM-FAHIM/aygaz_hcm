@@ -31,7 +31,7 @@ class _Admin_Leave_Tour_NotificationListState
   Future<List<LeaveandTourempNotiModel>> fetchPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://172.20.20.69/api/adminnotification/leaveandtouradmin.php'),
+            'http://10.1.2.7/api/adminnotification/leaveandtouradmin.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -224,10 +224,10 @@ class _Admin_Leave_Tour_NotificationListState
                                   FlatButton(
                                     color: Colors.green,
                                     onPressed: () async {
-                                      //http://172.20.20.69/api/adminapprove/earlyapprove.php
+                                      //http://10.1.2.7/api/adminapprove/earlyapprove.php
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://172.20.20.69/api/adminapprove/leaveandtourapprove.php'),
+                                              'http://10.1.2.7/api/adminapprove/leaveandtourapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": "100060",
                                             "user": widget.xposition,
@@ -336,11 +336,11 @@ class _Admin_Leave_Tour_NotificationListState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://172.20.20.69/api/adminapprove/poreject.php
+                                                    //http://10.1.2.7/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://172.20.20.69/api/adminapprove/leaveandtourreject.php'),
+                                                            'http://10.1.2.7/api/adminapprove/leaveandtourreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": "100060",
