@@ -34,7 +34,7 @@ class _BM_detailsState extends State<BM_details> {
 
   Future<List<BmDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/pendingBOMdetails.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/pendingBOMdetails.php'),
         body: jsonEncode(<String, String>{"xbomkey": widget.xbomkey}));
 
     if (response.statusCode == 200) {
@@ -208,7 +208,7 @@ class _BM_detailsState extends State<BM_details> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://10.1.2.7/aygaz/notifications/pendingBOMApprove.php'),
+                                  'http://a.b.c.d/aygaz/notifications/pendingBOMApprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -289,11 +289,11 @@ class _BM_detailsState extends State<BM_details> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://10.1.2.7/api/adminapprove/poreject.php
+                                        //http://a.b.c.d/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://10.1.2.7/aygaz/notifications/pendingBOMreject.php'),
+                                                'http://a.b.c.d/aygaz/notifications/pendingBOMreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

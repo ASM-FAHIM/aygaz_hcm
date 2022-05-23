@@ -1,20 +1,15 @@
-
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:aygazhcm/packages/testmodelapi.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:aygazhcm/data_model/leave_tour_model.dart';
-import 'package:aygazhcm/packages/testmodelapi.dart';
 import 'package:http/http.dart' as http;
 
 // sql@s3rv3r
 
-
-
 Future<List<ApiSql>> fetchPost() async {
-  final response =
-  await http.get(Uri.parse('http://10.1.2.7/api/api.php'));
+  final response = await http.get(Uri.parse('http://a.b.c.d/api/api.php'));
 
   if (response.statusCode == 200) {
     final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
@@ -25,15 +20,12 @@ Future<List<ApiSql>> fetchPost() async {
   }
 }
 
-
 class testpage extends StatefulWidget {
   @override
   _testpageState createState() => _testpageState();
 }
 
 class _testpageState extends State<testpage> {
-
-
   Future<List<ApiSql>>? futurePost;
 
   //String statusdemo = "";
@@ -65,9 +57,7 @@ class _testpageState extends State<testpage> {
     //   print(statusdemo);
     //   return Colors.red;
     // }
-
   }
-
 
   @override
   void initState() {
@@ -85,14 +75,13 @@ class _testpageState extends State<testpage> {
         backgroundColor: Color(0xFF8CA6DB),
         automaticallyImplyLeading: true,
         title: Center(
-            child: Text("Leave and Tour",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.openSans(
-                fontSize: 20,
-              ),
-            )
-        ),
-
+            child: Text(
+          "Leave and Tour",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.openSans(
+            fontSize: 20,
+          ),
+        )),
         actions: [
           Padding(
             padding: const EdgeInsets.only(
@@ -107,15 +96,11 @@ class _testpageState extends State<testpage> {
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                   ),
-                  child: Icon(Icons.add)
-              ),
+                  child: Icon(Icons.add)),
             ),
           ),
         ],
-
       ),
-
-
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -123,14 +108,8 @@ class _testpageState extends State<testpage> {
               padding: const EdgeInsets.only(
                   top: 20.0, right: 20, left: 20, bottom: 20),
               child: Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .width / 5,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
+                height: MediaQuery.of(context).size.width / 5,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   // color: ispressed ? Colors.white : Colors.grey,
@@ -149,10 +128,10 @@ class _testpageState extends State<testpage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-
                     //SizedBox(height: 20,),
 
-                    Text("21", //Number of leave
+                    Text(
+                      "21", //Number of leave
                       textAlign: TextAlign.center,
                       style: GoogleFonts.openSans(
                         fontSize: 25,
@@ -161,7 +140,8 @@ class _testpageState extends State<testpage> {
                       ),
                     ),
 
-                    Text("Leave Remaining",
+                    Text(
+                      "Leave Remaining",
                       textAlign: TextAlign.center,
                       style: GoogleFonts.openSans(
                         fontSize: 15,
@@ -169,22 +149,13 @@ class _testpageState extends State<testpage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
-
                   ],
                 ),
               ),
             ),
-
             Container(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
               child: FutureBuilder<List<ApiSql>>(
                 future: futurePost,
                 builder: (context, snapshot) {
@@ -193,102 +164,90 @@ class _testpageState extends State<testpage> {
                       onRefresh: _handleRefresh,
                       child: ListView.builder(
                         itemCount: snapshot.data!.length,
-                        itemBuilder: (_, index) =>
-                            Container(
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 20.0, right: 20, left: 20),
-                                    child: Container(
-                                      height: MediaQuery
-                                          .of(context)
-                                          .size
-                                          .width / 2.5,
-                                      width: MediaQuery
-                                          .of(context)
-                                          .size
-                                          .width,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        //border: Border.all(color: Colors.grey),
-                                        borderRadius: BorderRadius.circular(20),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.5),
-                                            spreadRadius: 1,
-                                            blurRadius: 5,
-                                            offset: Offset(0,
-                                                3), // changes position of shadow
-                                          ),
-                                        ],
+                        itemBuilder: (_, index) => Container(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 20.0, right: 20, left: 20),
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.width / 2.5,
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    //border: Border.all(color: Colors.grey),
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 1,
+                                        blurRadius: 5,
+                                        offset: Offset(
+                                            0, 3), // changes position of shadow
                                       ),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start,
-                                        mainAxisAlignment: MainAxisAlignment
-                                            .start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0, top: 15),
-                                            child: Container(
-                                              padding: const EdgeInsets.all(10),
-                                              decoration: BoxDecoration(
-                                                color: changeColor(
-                                                    (snapshot.data![index]
-                                                        .firstName)
-                                                        .toString()),
-                                                //border: Border.all(color: Colors.grey),
-                                                borderRadius: BorderRadius
-                                                    .circular(10),
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.5),
-                                                    spreadRadius: 1,
-                                                    blurRadius: 5,
-                                                    offset: Offset(0,
-                                                        3), // changes position of shadow
-                                                  ),
-                                                ],
-                                              ),
-
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    "${snapshot.data![index]
-                                                        .firstName}",
-                                                    textAlign: TextAlign.center,
-                                                    style: GoogleFonts.openSans(
-                                                      fontSize: 15,
-                                                      color: Colors.black,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    "${snapshot.data![index]
-                                                        .lastName}",
-                                                    textAlign: TextAlign.center,
-                                                    style: GoogleFonts.openSans(
-                                                      fontSize: 15,
-                                                      color: Colors.black,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-
-                                            ),
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
+                                    ],
                                   ),
-                                  SizedBox(height: 20,)
-                                ],
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 20.0, top: 15),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                            color: changeColor((snapshot
+                                                    .data![index].firstName)
+                                                .toString()),
+                                            //border: Border.all(color: Colors.grey),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.5),
+                                                spreadRadius: 1,
+                                                blurRadius: 5,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                "${snapshot.data![index].firstName}",
+                                                textAlign: TextAlign.center,
+                                                style: GoogleFonts.openSans(
+                                                  fontSize: 15,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                              Text(
+                                                "${snapshot.data![index].lastName}",
+                                                textAlign: TextAlign.center,
+                                                style: GoogleFonts.openSans(
+                                                  fontSize: 15,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-
-                            ),
+                              SizedBox(
+                                height: 20,
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -314,5 +273,4 @@ class _testpageState extends State<testpage> {
 
     return null;
   }
-
 }

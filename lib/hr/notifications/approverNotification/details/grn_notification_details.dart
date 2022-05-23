@@ -35,7 +35,7 @@ class _GRN_details_notificationState extends State<GRN_details_notification> {
 
   Future<List<GrnDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/grndetail.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/grndetail.php'),
         body: jsonEncode(<String, String>{"xgrnnum": widget.xgrnnum}));
 
     if (response.statusCode == 200) {
@@ -203,7 +203,7 @@ class _GRN_details_notificationState extends State<GRN_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://10.1.2.7/aygaz/notifications/grnapprove.php'),
+                                  'http://a.b.c.d/aygaz/notifications/grnapprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -286,11 +286,11 @@ class _GRN_details_notificationState extends State<GRN_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://10.1.2.7/api/adminapprove/poreject.php
+                                        //http://a.b.c.d/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://10.1.2.7/aygaz/notifications/grnreject.php'),
+                                                'http://a.b.c.d/aygaz/notifications/grnreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

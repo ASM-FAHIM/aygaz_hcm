@@ -40,7 +40,7 @@ class _Admin_Absent_NotificationListState
 
   Future<List<AbsentempNotiModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/api/adminnotification/absentemployee.php'),
+        Uri.parse('http://a.b.c.d/api/adminnotification/absentemployee.php'),
         body: jsonEncode(<String, String>{
           //"zid": widget.zid,
           "xposition": widget.xposition,
@@ -228,10 +228,10 @@ class _Admin_Absent_NotificationListState
                                   FlatButton(
                                     color: Colors.green,
                                     onPressed: () async {
-                                      //http://10.1.2.7/api/adminapprove/earlyapprove.php
+                                      //http://a.b.c.d/api/adminapprove/earlyapprove.php
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://10.1.2.7/api/adminapprove/absentapprove.php'),
+                                              'http://a.b.c.d/api/adminapprove/absentapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             //"zid":"100060",
                                             "zid": widget.zid.toString(),
@@ -326,11 +326,11 @@ class _Admin_Absent_NotificationListState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://10.1.2.7/api/adminapprove/poreject.php
+                                                    //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://10.1.2.7/api/adminapprove/absentreject.php'),
+                                                            'http://a.b.c.d/api/adminapprove/absentreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           //"zid": "100060",

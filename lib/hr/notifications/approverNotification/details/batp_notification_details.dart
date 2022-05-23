@@ -36,7 +36,7 @@ class _BATP_details_notificationState extends State<BATP_details_notification> {
   Future<List<BatpDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/PendingPreProcessBatchdetails.php'),
+            'http://a.b.c.d/aygaz/notifications/PendingPreProcessBatchdetails.php'),
         body: jsonEncode(<String, String>{"xbatch": widget.xbatch}));
 
     if (response.statusCode == 200) {
@@ -230,7 +230,7 @@ class _BATP_details_notificationState extends State<BATP_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://10.1.2.7/aygaz/notifications/PendingPreProcessBatchApprove.php'),
+                                  'http://a.b.c.d/aygaz/notifications/PendingPreProcessBatchApprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -308,11 +308,11 @@ class _BATP_details_notificationState extends State<BATP_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://10.1.2.7/api/adminapprove/poreject.php
+                                        //http://a.b.c.d/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://10.1.2.7/aygaz/notifications/PendingPreProcessBatchReject.php'),
+                                                'http://a.b.c.d/aygaz/notifications/PendingPreProcessBatchReject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

@@ -6,7 +6,7 @@
 // class fetchnotification {
 //   var data = [];
 //   List<NotificationModel> results = [];
-//   String urlList = 'https://10.1.2.7/monyeem/notification.php';
+//   String urlList = 'https://a.b.c.d/monyeem/notification.php';
 //
 //   Future<List<NotificationModel>> getnoteList({String? query}) async {
 //     var url = Uri.parse(urlList);

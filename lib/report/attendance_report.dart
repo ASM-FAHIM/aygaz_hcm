@@ -55,7 +55,7 @@ class _Attendance_reportState extends State<Attendance_report> {
     print("execute");
 
     var response =
-        await http.post(Uri.parse('http://10.1.2.7/api/attreport.php'),
+        await http.post(Uri.parse('http://a.b.c.d/api/attreport.php'),
             body: jsonEncode(<String, String>{
               "zid": "100060",
               "user": "",

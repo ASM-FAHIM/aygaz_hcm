@@ -42,7 +42,7 @@ class _Advance_adjust_NotificationState
   Future<List<AdvanceAdjustNotiModel>> fetchPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://10.1.2.7/api/adminnotification/neptune/advanceadj.php'),
+            'http://a.b.c.d/api/adminnotification/neptune/advanceadj.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
           "zid": widget.zid,
@@ -270,7 +270,7 @@ class _Advance_adjust_NotificationState
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://10.1.2.7/api/adminapprove/advanceadjapprove.php'),
+                                              'http://a.b.c.d/api/adminapprove/advanceadjapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
@@ -363,11 +363,11 @@ class _Advance_adjust_NotificationState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://10.1.2.7/api/adminapprove/poreject.php
+                                                    //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://10.1.2.7/api/adminapprove/advanceadjreject.php'),
+                                                            'http://a.b.c.d/api/adminapprove/advanceadjreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,

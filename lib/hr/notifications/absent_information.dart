@@ -28,7 +28,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -51,7 +51,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -180,7 +180,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -203,7 +203,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -332,7 +332,7 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
   // Future<List<NotificationModel>>? futurePost;
   //
   // Future<List<NotificationModel>> fetchNotification() async {
-  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+  //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
   //   jsonEncode(<String, String>{
   //     "xposition": widget.xposition,
   //   })
@@ -353,7 +353,7 @@ class _Absent_NotificationListState extends State<Absent_NotificationList> {
 
   Future<List<AbsentNotificationModel>> fetchPost() async {
     var response =
-        await http.post(Uri.parse('http://10.1.2.7/api/absentnotification.php'),
+        await http.post(Uri.parse('http://a.b.c.d/api/absentnotification.php'),
             body: jsonEncode(<String, String>{
               "xposition": widget.xposition,
             }));

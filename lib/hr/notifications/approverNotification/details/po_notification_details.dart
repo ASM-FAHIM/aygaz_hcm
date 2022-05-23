@@ -35,7 +35,7 @@ class _PO_details_notificationState extends State<PO_details_notification> {
 
   Future<List<PoDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/podetails.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/podetails.php'),
         body: jsonEncode(<String, String>{"xpornum": widget.xpornum}));
 
     if (response.statusCode == 200) {
@@ -218,7 +218,7 @@ class _PO_details_notificationState extends State<PO_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://10.1.2.7/aygaz/notifications/poapprove.php'),
+                                  'http://a.b.c.d/aygaz/notifications/poapprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -296,11 +296,11 @@ class _PO_details_notificationState extends State<PO_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://10.1.2.7/api/adminapprove/poreject.php
+                                        //http://a.b.c.d/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://10.1.2.7/aygaz/notifications/poreject.php'),
+                                                'http://a.b.c.d/aygaz/notifications/poreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

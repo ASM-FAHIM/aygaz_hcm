@@ -42,7 +42,7 @@ class _Advance_request_NOtificationState
   Future<List<LandAdvanceNotiModel>> fetchPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://10.1.2.7/api/adminnotification/neptune/landadvance.php'),
+            'http://a.b.c.d/api/adminnotification/neptune/landadvance.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
           "zid": widget.zid,
@@ -255,7 +255,7 @@ class _Advance_request_NOtificationState
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://10.1.2.7/api/adminapprove/landadvapprove.php'),
+                                              'http://a.b.c.d/api/adminapprove/landadvapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
@@ -348,11 +348,11 @@ class _Advance_request_NOtificationState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://10.1.2.7/api/adminapprove/poreject.php
+                                                    //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://10.1.2.7/api/adminapprove/landadvreject.php'),
+                                                            'http://a.b.c.d/api/adminapprove/landadvreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,

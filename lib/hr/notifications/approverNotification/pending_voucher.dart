@@ -30,7 +30,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
 
   Future<List<PendingvoucherModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/pendingvoucher.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/pendingvoucher.php'),
         body: jsonEncode(<String, String>{
           "zid": widget.zid,
           "xposition": widget.xposition,
@@ -53,7 +53,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
   Future<List<PendingVoucherDetailsModel>> fetchDetailsPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/PendingPreProcessBatchdetails.php'),
+            'http://a.b.c.d/aygaz/notifications/PendingPreProcessBatchdetails.php'),
         body: jsonEncode(<String, String>{"xvoucher": "BP--00000002"}));
 
     if (response.statusCode == 200) {
@@ -290,7 +290,7 @@ class _Pending_voucherState extends State<Pending_voucher> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://10.1.2.7/aygaz/notifications/pendingVoucherapproval.php'),
+                              //                 'http://a.b.c.d/aygaz/notifications/pendingVoucherapproval.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -379,11 +379,11 @@ class _Pending_voucherState extends State<Pending_voucher> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
+                              //                       //http://a.b.c.d/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://10.1.2.7/aygaz/notifications/pendingVoucherreject.php'),
+                              //                               'http://a.b.c.d/aygaz/notifications/pendingVoucherreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

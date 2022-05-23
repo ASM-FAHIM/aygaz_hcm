@@ -28,7 +28,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -51,7 +51,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -180,7 +180,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -203,7 +203,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -333,7 +333,7 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
   // Future<List<NotificationModel>>? futurePost;
   //
   // Future<List<NotificationModel>> fetchNotification() async {
-  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+  //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
   //   jsonEncode(<String, String>{
   //     "xposition": widget.xposition,
   //   })
@@ -355,7 +355,7 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
   //
   //
   // Future<List<LateNotificaitonApiModel>> fetchPost() async {
-  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/adminnotification/lateemployee.php'),body:
+  //   var response= await http.post(Uri.parse('http://a.b.c.d/api/adminnotification/lateemployee.php'),body:
   //   jsonEncode(<String, String>{
   //     "xstaff": widget.xstaff
   //   })
@@ -378,7 +378,7 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
 
   Future<List<LateNotificaitonApiModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/api/employeenotification/late.php'),
+        Uri.parse('http://a.b.c.d/api/employeenotification/late.php'),
         body: jsonEncode(<String, String>{
           "xstaff": widget.xstaff,
         }));
@@ -613,11 +613,11 @@ class _Late_NotificationListState extends State<Late_NotificationList> {
                                             FlatButton(
                                               color: Color(0xff064A76),
                                               onPressed: () async {
-                                                //http://10.1.2.7/api/adminapprove/poreject.php
+                                                //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                 var response = await http.post(
                                                     Uri.parse(
-                                                        'http://10.1.2.7/api/lateandearlyapply.php'),
+                                                        'http://a.b.c.d/api/lateandearlyapply.php'),
                                                     body: jsonEncode(<String,
                                                         String>{
                                                       "xstaff": widget.xstaff,

@@ -35,7 +35,7 @@ class _CS_details_notificationState extends State<CS_details_notification> {
 
   Future<List<CsDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/csdetail.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/csdetail.php'),
         body: jsonEncode(<String, String>{"xporeqnum": widget.xporeqnum}));
 
     if (response.statusCode == 200) {
@@ -181,7 +181,7 @@ class _CS_details_notificationState extends State<CS_details_notification> {
                         onPressed: () async {
                           var response = await http.post(
                               Uri.parse(
-                                  'http://10.1.2.7/aygaz/notifications/csapprove.php'),
+                                  'http://a.b.c.d/aygaz/notifications/csapprove.php'),
                               body: jsonEncode(<String, String>{
                                 "zid": widget.zid,
                                 "user": widget.zemail,
@@ -263,11 +263,11 @@ class _CS_details_notificationState extends State<CS_details_notification> {
                                     FlatButton(
                                       color: Color(0xff064A76),
                                       onPressed: () async {
-                                        //http://10.1.2.7/api/adminapprove/poreject.php
+                                        //http://a.b.c.d/api/adminapprove/poreject.php
 
                                         var response = await http.post(
                                             Uri.parse(
-                                                'http://10.1.2.7/aygaz/notifications/csreject.php'),
+                                                'http://a.b.c.d/aygaz/notifications/csreject.php'),
                                             body: jsonEncode(<String, String>{
                                               "zid": widget.zid,
                                               "user": widget.zemail,

@@ -84,7 +84,7 @@ class _Login_pageState extends State<Login_page> {
     //print(status1);
 
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/loginapi.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/loginapi.php'),
         body: jsonEncode(<String, String>{
           "zemail": zemail,
           "xpassword": xpassword,

@@ -34,7 +34,7 @@
 //
 //   Future<List<ZidModel>> fetchPost() async {
 //     var response = await http.post(
-//         Uri.parse('http://10.1.2.7/aygaz/notifications/zid.php'),
+//         Uri.parse('http://a.b.c.d/aygaz/notifications/zid.php'),
 //         body: jsonEncode(<String, String>{
 //           "zemail": widget.zemail,
 //         }));
@@ -233,7 +233,7 @@
 //
 //   Future<String> getNotificaitonCount() async {
 //     http.Response responseearly = await http.post(
-//         Uri.parse('http://10.1.2.7/api/smallapi/earlycount.php'),
+//         Uri.parse('http://a.b.c.d/api/smallapi/earlycount.php'),
 //         body: jsonEncode(<String, String>{"xstaff": widget.loginModel.xstaff}));
 //
 //     earlyCount1 = userEarlyCountFromJson(responseearly.body);
@@ -242,7 +242,7 @@
 //     print("Early" + responseearly.body);
 //
 //     http.Response responselate = await http.post(
-//         Uri.parse('http://10.1.2.7/api/smallapi/latecount.php'),
+//         Uri.parse('http://a.b.c.d/api/smallapi/latecount.php'),
 //         body: jsonEncode(<String, String>{"xstaff": widget.loginModel.xstaff}));
 //
 //     lateCount1 = userLateCountFromJson(responselate.body);
@@ -251,7 +251,7 @@
 //     print("late" + responselate.body);
 //
 //     http.Response responseleave = await http.post(
-//         Uri.parse('http://10.1.2.7/api/smallapi/leavecount.php'),
+//         Uri.parse('http://a.b.c.d/api/smallapi/leavecount.php'),
 //         body: jsonEncode(
 //             <String, String>{"xposition": widget.loginModel.xposition}));
 //
@@ -261,7 +261,7 @@
 //     print("Leave" + responselate.body);
 //
 //     http.Response responseabsent = await http.post(
-//         Uri.parse('http://10.1.2.7/api/smallapi/absentcount.php'),
+//         Uri.parse('http://a.b.c.d/api/smallapi/absentcount.php'),
 //         body: jsonEncode(<String, String>{
 //           "xposition": widget.loginModel.xposition,
 //           "zid": "100060"

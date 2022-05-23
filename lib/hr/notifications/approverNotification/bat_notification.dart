@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import '../../../data_model/notification_model/admin_approver_model/bat_admin_model.dart';
-import '../../../data_model/notification_model/admin_approver_model/details/bat_details_model.dart';
 
 class BAT_notification extends StatefulWidget {
   BAT_notification(
@@ -45,22 +44,22 @@ class _BAT_notificationState extends State<BAT_notification> {
     }
   }
 
-  Future<List<BatDetailsModel>> fetchDetailsPost() async {
-    var response = await http.post(
-        Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/pendingBatchdetails.php'),
-        body: jsonEncode(<String, String>{"xbatch": "BAT-000027"}));
-
-    if (response.statusCode == 200) {
-      final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
-
-      return parsed
-          .map<BatDetailsModel>((json) => BatDetailsModel.fromJson(json))
-          .toList();
-    } else {
-      throw Exception('Failed to load album');
-    }
-  }
+  // Future<List<BatDetailsModel>> fetchDetailsPost() async {
+  //   var response = await http.post(
+  //       Uri.parse(
+  //           'http://10.1.2.7/aygaz/notifications/pendingBatchdetails.php'),
+  //       body: jsonEncode(<String, String>{"xbatch": "BAT-000027"}));
+  //
+  //   if (response.statusCode == 200) {
+  //     final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+  //
+  //     return parsed
+  //         .map<BatDetailsModel>((json) => BatDetailsModel.fromJson(json))
+  //         .toList();
+  //   } else {
+  //     throw Exception('Failed to load album');
+  //   }
+  // }
 
   @override
   void initState() {

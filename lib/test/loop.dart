@@ -636,7 +636,7 @@ class _LooptryState extends State<Looptry> {
   //   //print(status1);
   //
   //
-  //   var response= await http.post(Uri.parse('http://10.1.2.7/monyeem/loginapi.php'),body:
+  //   var response= await http.post(Uri.parse('http://a.b.c.d/monyeem/loginapi.php'),body:
   //   jsonEncode(<String, String>{
   //     "zid" : "100060",
   //     "zauserid": widget.xstaff,
@@ -1068,7 +1068,7 @@ class _LooptryState extends State<Looptry> {
                           } else {
                             var response = await http.post(
                                 Uri.parse(
-                                    'http://10.1.2.7/monyeem/leaveandtourapply.php'),
+                                    'http://a.b.c.d/monyeem/leaveandtourapply.php'),
                                 body: jsonEncode(<String, String>{
                                   "zid": "100060",
                                   "zauserid": widget.xposition, //position
@@ -1187,7 +1187,7 @@ class _LooptryState extends State<Looptry> {
                                           for (i = 1; i <= difference; i++) {
                                             var response = await http.post(
                                                 Uri.parse(
-                                                    'http://10.1.2.7/monyeem/attandence_report.php'),
+                                                    'http://a.b.c.d/monyeem/attandence_report.php'),
                                                 body:
                                                     jsonEncode(<String, String>{
                                                   "zid": "100060",

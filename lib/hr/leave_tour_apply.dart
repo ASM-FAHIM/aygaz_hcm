@@ -587,7 +587,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
   //
   // fetchPost() async {
   //   final response = await http.get(
-  //       Uri.parse('http://10.1.2.7/API/xyearperdate.php'));
+  //       Uri.parse('http://a.b.c.d/API/xyearperdate.php'));
   //
   //   if (response.statusCode == 201) {
   //     Xyearperdate data = xyearperdateFromJson(response.body);
@@ -605,7 +605,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
 
   Future<String> getAPIDATA() async {
     http.Response response = await http.get(
-      Uri.parse('http://10.1.2.7/api/xyearperdate.php'),
+      Uri.parse('http://a.b.c.d/api/xyearperdate.php'),
     );
 
     xyearperdate1 = xyearperdateFromJson(response.body);
@@ -625,7 +625,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
 
   Future<String> getholidaydata() async {
     http.Response response = await http.post(
-        Uri.parse('http://10.1.2.7/api/smallAPI/holidayCount.php'),
+        Uri.parse('http://a.b.c.d/api/smallAPI/holidayCount.php'),
         body: jsonEncode(<String, String>{
           "xstaff": widget.xstaff,
           "fdate": _value,
@@ -648,7 +648,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
 
   Future<String> getblockdatedata() async {
     http.Response response =
-        await http.post(Uri.parse('http://10.1.2.7/api/smallAPI/dateblock.php'),
+        await http.post(Uri.parse('http://a.b.c.d/api/smallAPI/dateblock.php'),
             body: jsonEncode(<String, String>{
               "xstaff": widget.xstaff,
               "fdate": _value,
@@ -756,7 +756,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
   //   //print(status1);
   //
   //
-  //   var response= await http.post(Uri.parse('http://10.1.2.7/api/loginapi.php'),body:
+  //   var response= await http.post(Uri.parse('http://a.b.c.d/api/loginapi.php'),body:
   //   jsonEncode(<String, String>{
   //     "zid" : "100060",
   //     "zauserid": widget.xstaff,
@@ -1386,7 +1386,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
                             print(xyearperdate2);
                             var response = await http.post(
                                 Uri.parse(
-                                    'http://10.1.2.7/api/leaveandtourapply.php'),
+                                    'http://a.b.c.d/api/leaveandtourapply.php'),
                                 body: jsonEncode(<String, String>{
                                   "zid": "100060",
                                   "zauserid": widget.xposition, //position
@@ -1558,7 +1558,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
 
                                           var response = await http.post(
                                               Uri.parse(
-                                                  'http://10.1.2.7/api/leaveandtourapplyconfirm.php'),
+                                                  'http://a.b.c.d/api/leaveandtourapplyconfirm.php'),
                                               body: jsonEncode(<String, String>{
                                                 //position
 
@@ -1577,7 +1577,7 @@ class _LeaveApply_pageState extends State<LeaveApply_page> {
 
                                           var response1 = await http.post(
                                               Uri.parse(
-                                                  'http://10.1.2.7/api/leaveandtourapplyconfirmfinal.php'),
+                                                  'http://a.b.c.d/api/leaveandtourapplyconfirmfinal.php'),
                                               body: jsonEncode(<String, String>{
                                                 //position
 

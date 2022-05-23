@@ -28,7 +28,7 @@
 // //   // Future<List<NotificationModel>>? futurePost;
 // //   //
 // //   // Future<List<NotificationModel>> fetchNotification() async {
-// //   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// //   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // //   //   jsonEncode(<String, String>{
 // //   //     "xposition": widget.xposition,
 // //   //   })
@@ -51,7 +51,7 @@
 // //
 // //
 // //   Future<List<NotificationModel>> fetchPost() async {
-// //     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// //     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // //     jsonEncode(<String, String>{
 // //       "xposition": widget.xposition,
 // //     })
@@ -181,7 +181,7 @@
 // // //   // Future<List<NotificationModel>>? futurePost;
 // // //   //
 // // //   // Future<List<NotificationModel>> fetchNotification() async {
-// // //   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// // //   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // // //   //   jsonEncode(<String, String>{
 // // //   //     "xposition": widget.xposition,
 // // //   //   })
@@ -204,7 +204,7 @@
 // // //
 // // //
 // // //   Future<List<NotificationModel>> fetchPost() async {
-// // //     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// // //     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // // //     jsonEncode(<String, String>{
 // // //       "xposition": widget.xposition,
 // // //     })
@@ -334,7 +334,7 @@
 // //   // Future<List<NotificationModel>>? futurePost;
 // //   //
 // //   // Future<List<NotificationModel>> fetchNotification() async {
-// //   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// //   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // //   //   jsonEncode(<String, String>{
 // //   //     "xposition": widget.xposition,
 // //   //   })
@@ -357,7 +357,7 @@
 // //
 // //
 // //   Future<List<LeaveTourNotificationModel>> fetchPost() async {
-// //     var response= await http.post(Uri.parse('http://10.1.2.7/api/leavenotification.php'),body:
+// //     var response= await http.post(Uri.parse('http://a.b.c.d/api/leavenotification.php'),body:
 // //     jsonEncode(<String, String>{
 // //       "xposition": widget.xposition,
 // //     })
@@ -488,7 +488,7 @@
 // //   // Future<List<NotificationModel>>? futurePost;
 // //   //
 // //   // Future<List<NotificationModel>> fetchNotification() async {
-// //   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// //   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // //   //   jsonEncode(<String, String>{
 // //   //     "xposition": widget.xposition,
 // //   //   })
@@ -511,7 +511,7 @@
 // //
 // //
 // //   Future<List<NotificationModel>> fetchPost() async {
-// //     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// //     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // //     jsonEncode(<String, String>{
 // //       "xposition": widget.xposition,
 // //     })
@@ -646,7 +646,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -669,7 +669,7 @@
 //
 //
 //   Future<List<EarlyNotificaitonApiModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://10.1.2.7/api/leavenotification.php'),body:
+//     var response= await http.post(Uri.parse('http://a.b.c.d/api/leavenotification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xstaff": widget.xstaff,
 //     })
@@ -838,7 +838,7 @@
 // //   // Future<List<NotificationModel>>? futurePost;
 // //   //
 // //   // Future<List<NotificationModel>> fetchNotification() async {
-// //   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// //   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // //   //   jsonEncode(<String, String>{
 // //   //     "xposition": widget.xposition,
 // //   //   })
@@ -861,7 +861,7 @@
 // //
 // //
 // //   Future<List<NotificationModel>> fetchPost() async {
-// //     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+// //     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 // //     jsonEncode(<String, String>{
 // //       "xposition": widget.xposition,
 // //     })
@@ -990,7 +990,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -1013,7 +1013,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -1142,7 +1142,7 @@
 //   // Future<List<NotificationModel>>? futurePost;
 //   //
 //   // Future<List<NotificationModel>> fetchNotification() async {
-//   //   var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//   //   var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //   //   jsonEncode(<String, String>{
 //   //     "xposition": widget.xposition,
 //   //   })
@@ -1165,7 +1165,7 @@
 //
 //
 //   Future<List<NotificationModel>> fetchPost() async {
-//     var response= await http.post(Uri.parse('http://10.1.2.7/api/notification.php'),body:
+//     var response= await http.post(Uri.parse('http://a.b.c.d/api/notification.php'),body:
 //     jsonEncode(<String, String>{
 //       "xposition": widget.xposition,
 //     })
@@ -1299,7 +1299,7 @@ class _Early_Leave_NotificationListState
 
   Future<List<EarlyNotificaitonApiModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/api/employeenotification/early.php'),
+        Uri.parse('http://a.b.c.d/api/employeenotification/early.php'),
         body: jsonEncode(<String, String>{
           "xstaff": widget.xstaff,
         }));
@@ -1527,11 +1527,11 @@ class _Early_Leave_NotificationListState
                                             FlatButton(
                                               color: Color(0xff064A76),
                                               onPressed: () async {
-                                                //http://10.1.2.7/api/adminapprove/poreject.php
+                                                //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                 var response = await http.post(
                                                     Uri.parse(
-                                                        'http://10.1.2.7/api/lateandearlyapply.php'),
+                                                        'http://a.b.c.d/api/lateandearlyapply.php'),
                                                     body: jsonEncode(<String,
                                                         String>{
                                                       "xstaff": widget.xstaff,

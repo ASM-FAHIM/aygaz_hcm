@@ -38,7 +38,7 @@ class _NotificationListState extends State<NotificationList> {
   //
   // Future<List<NotificationModel>> fetchPost() async {
   //   var response = await http.post(
-  //       Uri.parse('http://10.1.2.7/monyeem/notification.php'),
+  //       Uri.parse('http://a.b.c.d/monyeem/notification.php'),
   //       body: jsonEncode(<String, String>{
   //         "xposition": widget.xposition,
   //       }));

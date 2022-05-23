@@ -31,7 +31,7 @@ class _SR_notificationState extends State<SR_notification> {
 
   Future<List<SrNotiModel>> fetchPost() async {
     var response =
-        await http.post(Uri.parse('http://10.1.2.7/aygaz/notifications/sr.php'),
+        await http.post(Uri.parse('http://a.b.c.d/aygaz/notifications/sr.php'),
             body: jsonEncode(<String, String>{
               "xposition": widget.xposition,
             }));
@@ -49,7 +49,7 @@ class _SR_notificationState extends State<SR_notification> {
 
   Future<List<SrDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/srdetails.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/srdetails.php'),
         body: jsonEncode(<String, String>{"xtornum": "SR--000004"}));
 
     if (response.statusCode == 200) {

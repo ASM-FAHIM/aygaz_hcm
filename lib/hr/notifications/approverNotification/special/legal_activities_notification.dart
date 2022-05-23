@@ -41,7 +41,7 @@ class _Legal_activities_NotificationState
 
   Future<List<LegalActivitiesNotiModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/api/adminnotification/legalactive.php'),
+        Uri.parse('http://a.b.c.d/api/adminnotification/legalactive.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
           "zid": widget.zid,
@@ -259,7 +259,7 @@ class _Legal_activities_NotificationState
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://10.1.2.7/api/adminapprove/legalactivereject.php'),
+                                              'http://a.b.c.d/api/adminapprove/legalactivereject.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
@@ -358,11 +358,11 @@ class _Legal_activities_NotificationState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://10.1.2.7/api/adminapprove/poreject.php
+                                                    //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://10.1.2.7/api/adminapprove/legalactivereject.php'),
+                                                            'http://a.b.c.d/api/adminapprove/legalactivereject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,

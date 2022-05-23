@@ -29,11 +29,11 @@ class _SPR_notificationState extends State<SPR_notification> {
   String rejectNote = " ";
 
   Future<List<SprModel>> fetchPost() async {
-    var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/spr.php'),
-        body: jsonEncode(<String, String>{
-          "xposition": widget.xposition,
-        }));
+    var response =
+        await http.post(Uri.parse('http://a.b.c.d/aygaz/notifications/spr.php'),
+            body: jsonEncode(<String, String>{
+              "xposition": widget.xposition,
+            }));
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
@@ -46,7 +46,7 @@ class _SPR_notificationState extends State<SPR_notification> {
 
   Future<List<SprModel>> fetchDetailsPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/sprdetails.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/sprdetails.php'),
         body: jsonEncode(<String, String>{"xtornum": "SPR-000027"}));
 
     if (response.statusCode == 200) {
@@ -277,7 +277,7 @@ class _SPR_notificationState extends State<SPR_notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://10.1.2.7/aygaz/notifications/sprapprove.php'),
+                              //                 'http://a.b.c.d/aygaz/notifications/sprapprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -370,11 +370,11 @@ class _SPR_notificationState extends State<SPR_notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
+                              //                       //http://a.b.c.d/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://10.1.2.7/aygaz/notifications/sprreject.php'),
+                              //                               'http://a.b.c.d/aygaz/notifications/sprreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

@@ -37,7 +37,7 @@ class _PO_WO_approval_NotificationListState
 
   Future<List<PoAdminModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/povalue.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/povalue.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -58,7 +58,7 @@ class _PO_WO_approval_NotificationListState
   Future<List<PoDetailsModel>> fetchDetailsPost() async {
     var response = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/PendingPreProcessBatchdetails.php'),
+            'http://a.b.c.d/aygaz/notifications/PendingPreProcessBatchdetails.php'),
         body: jsonEncode(<String, String>{"xbatch": "BATP000001"}));
 
     if (response.statusCode == 200) {
@@ -311,7 +311,7 @@ class _PO_WO_approval_NotificationListState
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://10.1.2.7/aygaz/notifications/poapprove.php'),
+                              //                 'http://a.b.c.d/aygaz/notifications/poapprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -401,11 +401,11 @@ class _PO_WO_approval_NotificationListState
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
+                              //                       //http://a.b.c.d/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://10.1.2.7/aygaz/notifications/poreject.php'),
+                              //                               'http://a.b.c.d/aygaz/notifications/poreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

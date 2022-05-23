@@ -246,7 +246,7 @@ class PoAdminModel {
   dynamic xsuperior2;
   dynamic xsuperior3;
   dynamic xsignreject;
-  Xdate xdatereject;
+  dynamic xdatereject;
   dynamic xnote1;
   dynamic xbasetransport;
   dynamic xstatuspaf;
@@ -373,7 +373,7 @@ class PoAdminModel {
         xsuperior2: json["xsuperior2"],
         xsuperior3: json["xsuperior3"],
         xsignreject: json["xsignreject"],
-        xdatereject: Xdate.fromJson(json["xdatereject"]),
+        xdatereject: json["xdatereject"],
         xnote1: json["xnote1"],
         xbasetransport: json["xbasetransport"],
         xstatuspaf: json["xstatuspaf"],

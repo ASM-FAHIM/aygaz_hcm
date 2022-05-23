@@ -31,7 +31,7 @@ class _SQC_notificationState extends State<SQC_notification> {
 
   Future<List<SqcModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/sqclist.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/sqclist.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -48,7 +48,7 @@ class _SQC_notificationState extends State<SQC_notification> {
   //for details
   Future<List<SqcDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/sqcdetails.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/sqcdetails.php'),
         body: jsonEncode(<String, String>{"xgrnnum": "SQC-000001"}));
 
     if (response.statusCode == 200) {
@@ -302,7 +302,7 @@ class _SQC_notificationState extends State<SQC_notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://10.1.2.7/aygaz/notifications/sqclistapprove.php'),
+                              //                 'http://a.b.c.d/aygaz/notifications/sqclistapprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -395,11 +395,11 @@ class _SQC_notificationState extends State<SQC_notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
+                              //                       //http://a.b.c.d/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://10.1.2.7/aygaz/notifications/sqclistreject.php'),
+                              //                               'http://a.b.c.d/aygaz/notifications/sqclistreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

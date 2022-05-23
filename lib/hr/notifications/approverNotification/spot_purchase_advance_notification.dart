@@ -33,8 +33,7 @@ class _SpotPurchaseAdvance_notificationState
 
   Future<List<SpaModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/spotpurchaseadvance.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/spotpurchaseadvance.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -188,7 +187,7 @@ class _SpotPurchaseAdvance_notificationState
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://10.1.2.7/aygaz/notifications/spotpurchaseadvanceapprove.php'),
+                                              'http://a.b.c.d/aygaz/notifications/spotpurchaseadvanceapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
@@ -281,11 +280,11 @@ class _SpotPurchaseAdvance_notificationState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://10.1.2.7/api/adminapprove/poreject.php
+                                                    //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://10.1.2.7/aygaz/notifications/spotpurchaseadvancereject.php'),
+                                                            'http://a.b.c.d/aygaz/notifications/spotpurchaseadvancereject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,

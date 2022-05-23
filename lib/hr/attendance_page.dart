@@ -139,7 +139,7 @@ class _AttendanceFieldState extends State<AttendanceField> {
   //   print(outlocation);
   //
   //   var response = await http.post(
-  //       Uri.parse('http://10.1.2.7/api/attendencetemp.php'),
+  //       Uri.parse('http://a.b.c.d/api/attendencetemp.php'),
   //       body: jsonEncode(<String, String>{
   //         "xposition": "2125",
   //         "xtimein": "2022-03-07 09:01:35.000",
@@ -402,7 +402,7 @@ class _AttendanceFieldState extends State<AttendanceField> {
 //
 //                                     var response = await http.post(
 //                                         Uri.parse(
-//                                             'http://10.1.2.7/api/attendencetemp.php'),
+//                                             'http://a.b.c.d/api/attendencetemp.php'),
 //                                         body: jsonEncode(<String, String>{
 //                                           "xposition": widget.xposition,
 //                                           "xtimein": intime,
@@ -531,7 +531,7 @@ class _AttendanceFieldState extends State<AttendanceField> {
 //
 //                                   var response = await http.post(
 //                                       Uri.parse(
-//                                           'http://10.1.2.7/api/attendencetemp.php'),
+//                                           'http://a.b.c.d/api/attendencetemp.php'),
 //                                       body: jsonEncode(<String, String>{
 //                                         "xposition": widget.xposition,
 //                                         "xtimein": outtime,

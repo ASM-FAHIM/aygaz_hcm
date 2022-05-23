@@ -40,7 +40,7 @@ class _Lfa_Approval_NOtificationState extends State<Lfa_Approval_NOtification> {
 
   Future<List<LfaApprovalNotiModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/api/adminnotification/legaladjust.php'),
+        Uri.parse('http://a.b.c.d/api/adminnotification/legaladjust.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
           "zid": widget.zid,
@@ -325,7 +325,7 @@ class _Lfa_Approval_NOtificationState extends State<Lfa_Approval_NOtification> {
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://10.1.2.7/api/adminapprove/legaladjustapprove.php'),
+                                              'http://a.b.c.d/api/adminapprove/legaladjustapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": widget.zid,
                                             "user": widget.zemail,
@@ -427,11 +427,11 @@ class _Lfa_Approval_NOtificationState extends State<Lfa_Approval_NOtification> {
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://10.1.2.7/api/adminapprove/poreject.php
+                                                    //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://10.1.2.7/api/adminapprove/legaladjustreject.php'),
+                                                            'http://a.b.c.d/api/adminapprove/legaladjustreject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": widget.zid,

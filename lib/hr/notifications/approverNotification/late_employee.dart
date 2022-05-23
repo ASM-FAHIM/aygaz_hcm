@@ -29,7 +29,7 @@ class _Admin_Late_Leave_NotificationListState
   String rejectNote = " ";
   Future<List<LateNotiModel>> fetchPost() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/api/adminnotification/lateemployee.php'),
+        Uri.parse('http://a.b.c.d/api/adminnotification/lateemployee.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -236,7 +236,7 @@ class _Admin_Late_Leave_NotificationListState
                                     onPressed: () async {
                                       var response = await http.post(
                                           Uri.parse(
-                                              'http://10.1.2.7/api/adminapprove/lateapprove.php'),
+                                              'http://a.b.c.d/api/adminapprove/lateapprove.php'),
                                           body: jsonEncode(<String, String>{
                                             "zid": "100060",
                                             "user": widget.zemail,
@@ -329,11 +329,11 @@ class _Admin_Late_Leave_NotificationListState
                                                 FlatButton(
                                                   color: Color(0xff064A76),
                                                   onPressed: () async {
-                                                    //http://10.1.2.7/api/adminapprove/poreject.php
+                                                    //http://a.b.c.d/api/adminapprove/poreject.php
 
                                                     var response = await http.post(
                                                         Uri.parse(
-                                                            'http://10.1.2.7/api/adminapprove/latereject.php'),
+                                                            'http://a.b.c.d/api/adminapprove/latereject.php'),
                                                         body: jsonEncode(<
                                                             String, String>{
                                                           "zid": "100060",

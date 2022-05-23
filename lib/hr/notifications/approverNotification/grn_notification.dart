@@ -30,11 +30,11 @@ class _GRN_notificationState extends State<GRN_notification> {
   String rejectNote = " ";
 
   Future<List<GrnModel>> fetchPost() async {
-    var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/grn.php'),
-        body: jsonEncode(<String, String>{
-          "xposition": widget.xposition,
-        }));
+    var response =
+        await http.post(Uri.parse('http://a.b.c.d/aygaz/notifications/grn.php'),
+            body: jsonEncode(<String, String>{
+              "xposition": widget.xposition,
+            }));
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
@@ -46,7 +46,7 @@ class _GRN_notificationState extends State<GRN_notification> {
 
   Future<List<GrnDetailsModel>> fetchPostdetails() async {
     var response = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/srdetails.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/srdetails.php'),
         body: jsonEncode(<String, String>{"xgrnnum": "GRN-000002"}));
 
     if (response.statusCode == 200) {
@@ -275,7 +275,7 @@ class _GRN_notificationState extends State<GRN_notification> {
                               //       onPressed: () async {
                               //         var response = await http.post(
                               //             Uri.parse(
-                              //                 'http://10.1.2.7/aygaz/notifications/grnapprove.php'),
+                              //                 'http://a.b.c.d/aygaz/notifications/grnapprove.php'),
                               //             body: jsonEncode(<String, String>{
                               //               "zid": widget.zid,
                               //               "user": widget.zemail,
@@ -368,11 +368,11 @@ class _GRN_notificationState extends State<GRN_notification> {
                               //                   FlatButton(
                               //                     color: Color(0xff064A76),
                               //                     onPressed: () async {
-                              //                       //http://10.1.2.7/api/adminapprove/poreject.php
+                              //                       //http://a.b.c.d/api/adminapprove/poreject.php
                               //
                               //                       var response = await http.post(
                               //                           Uri.parse(
-                              //                               'http://10.1.2.7/aygaz/notifications/grnreject.php'),
+                              //                               'http://a.b.c.d/aygaz/notifications/grnreject.php'),
                               //                           body: jsonEncode(<
                               //                               String, String>{
                               //                             "zid": widget.zid,

@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class FetchUserList {
   var data = [];
   List<Userlist> results = [];
-  String urlList = 'http://10.1.2.7/monyeem/searchuserapi.php';
+  String urlList = 'http://a.b.c.d/monyeem/searchuserapi.php';
 
   Future<List<Userlist>> getuserList({String? query}) async {
     var url = Uri.parse(urlList);

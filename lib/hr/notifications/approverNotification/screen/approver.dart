@@ -41,7 +41,7 @@ class _AdminNotificationState extends State<AdminNotification> {
   //
   // Future<List<NotificationModel>> fetchPost() async {
   //   var response = await http.post(
-  //       Uri.parse('http://10.1.2.7/monyeem/notification.php'),
+  //       Uri.parse('http://a.b.c.d/monyeem/notification.php'),
   //       body: jsonEncode(<String, String>{
   //         "xposition": widget.xposition,
   //       }));
@@ -109,10 +109,10 @@ class _AdminNotificationState extends State<AdminNotification> {
 
   Future<String> getAdminNotificaitonCount() async {
     http.Response responseCS = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/cs_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/cs_count.php'),
         body: jsonEncode(<String, String>{"xposition": widget.xposition}));
 
-    http: //10.1.2.7/api/smallapi/admin/totalpo.php
+    http: //a.b.c.d/api/smallapi/admin/totalpo.php
 
     cs_Count1 = csModelFromJson(responseCS.body);
     cs_Count = cs_Count1.total.toString();
@@ -120,7 +120,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin Early" + responseCS.body);
 
     http.Response responseGRN = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/grn_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/grn_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -131,7 +131,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin late" + responseGRN.body);
 
     http.Response responseBM = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/pendingBOM_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/pendingBOM_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -142,7 +142,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin Leave" + responseBM.body);
 
     http.Response responseaBAT = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/pendingBatch_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/pendingBatch_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -154,7 +154,7 @@ class _AdminNotificationState extends State<AdminNotification> {
 
     http.Response responseDO = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/pendingInvoice_count.php'),
+            'http://a.b.c.d/aygaz/notifications/pendingInvoice_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -166,7 +166,7 @@ class _AdminNotificationState extends State<AdminNotification> {
 
     http.Response responsePRN = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/pendingPurchaseReturn_count.php'),
+            'http://a.b.c.d/aygaz/notifications/pendingPurchaseReturn_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -178,7 +178,7 @@ class _AdminNotificationState extends State<AdminNotification> {
 
     http.Response responseBATP = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/PendingPreProcessBatch_Count.php'),
+            'http://a.b.c.d/aygaz/notifications/PendingPreProcessBatch_Count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -190,7 +190,7 @@ class _AdminNotificationState extends State<AdminNotification> {
 
     http.Response responseSO = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/PendingSalesOrder_count.php'),
+            'http://a.b.c.d/aygaz/notifications/PendingSalesOrder_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -202,7 +202,7 @@ class _AdminNotificationState extends State<AdminNotification> {
 
     http.Response responseSalesReturn = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/PendingSalesReturn_count.php'),
+            'http://a.b.c.d/aygaz/notifications/PendingSalesReturn_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -214,7 +214,7 @@ class _AdminNotificationState extends State<AdminNotification> {
 
     http.Response responsePendingVoucher = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/pendingVoucher_count.php'),
+            'http://a.b.c.d/aygaz/notifications/pendingVoucher_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -226,7 +226,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin LFA" + responsePendingVoucher.body);
 
     http.Response responsePO = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/povalue_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/povalue_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -237,8 +237,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin LFA" + responsePO.body);
 
     http.Response responseBMP = await http.post(
-        Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/preProcessBOM_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/preProcessBOM_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -250,7 +249,7 @@ class _AdminNotificationState extends State<AdminNotification> {
 
     http.Response responseSPA = await http.post(
         Uri.parse(
-            'http://10.1.2.7/aygaz/notifications/spotpurchaseadvance_count.php'),
+            'http://a.b.c.d/aygaz/notifications/spotpurchaseadvance_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -261,7 +260,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin LFA" + responseSPA.body);
 
     http.Response responseSPR = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/spr_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/spr_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -272,7 +271,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin LFA" + responseSPR.body);
 
     http.Response responseSQC = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/sqclist_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/sqclist_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));
@@ -283,7 +282,7 @@ class _AdminNotificationState extends State<AdminNotification> {
     print("Admin LFA" + responseSQC.body);
 
     http.Response responseSR = await http.post(
-        Uri.parse('http://10.1.2.7/aygaz/notifications/sr_count.php'),
+        Uri.parse('http://a.b.c.d/aygaz/notifications/sr_count.php'),
         body: jsonEncode(<String, String>{
           "xposition": widget.xposition,
         }));

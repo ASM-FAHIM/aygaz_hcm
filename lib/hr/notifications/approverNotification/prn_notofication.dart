@@ -23,7 +23,7 @@ class _PRN_notificationState extends State<PRN_notification> {
   //
   // Future<List<GrnModel>> fetchPost() async {
   //   var response = await http.post(
-  //       Uri.parse('http://10.1.2.7/aygaz/notifications/pendingPurchaseReturn.php'),
+  //       Uri.parse('http://a.b.c.d/aygaz/notifications/pendingPurchaseReturn.php'),
   //       body: jsonEncode(<String, String>{
   //         "xposition": widget.xposition,
   //       }));
@@ -229,7 +229,7 @@ class _PRN_notificationState extends State<PRN_notification> {
       //                               onPressed: () async {
       //                                 var response = await http.post(
       //                                     Uri.parse(
-      //                                         'http://10.1.2.7/aygaz/notifications/PRNapprove.php'),
+      //                                         'http://a.b.c.d/aygaz/notifications/PRNapprove.php'),
       //                                     body: jsonEncode(<String, String>{
       //                                       "zid": widget.zid,
       //                                       "user": widget.zemail,
@@ -322,11 +322,11 @@ class _PRN_notificationState extends State<PRN_notification> {
       //                                           FlatButton(
       //                                             color: Color(0xff064A76),
       //                                             onPressed: () async {
-      //                                               //http://10.1.2.7/api/adminapprove/poreject.php
+      //                                               //http://a.b.c.d/api/adminapprove/poreject.php
       //
       //                                               var response = await http.post(
       //                                                   Uri.parse(
-      //                                                       'http://10.1.2.7/aygaz/notifications/PRNreject.php),
+      //                                                       'http://a.b.c.d/aygaz/notifications/PRNreject.php),
       //                                                   body: jsonEncode(<
       //                                                       String, String>{
       //                                                     "zid": widget.zid,
